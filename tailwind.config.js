@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  content: ['./src/**/*.{ts,tsx}'],
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -20,6 +20,14 @@ module.exports = {
     },
     extend: {
       colors: {
+        solid: '#5053BC',
+        accent: '#EFEFFA',
+        primary: '#464FA3',
+        secondary: '#C7CAE9',
+        'solid-dark': '#17824E',
+        'accent-dark': '#061F13',
+        'primary-dark': '#28D07E',
+        'secondary-dark': '#092E1C',
         gray: {
           100: '#f7fafc',
           200: '#edf2f7',
@@ -45,5 +53,6 @@ module.exports = {
       },
     },
   },
+  darkMode: 'class',
   plugins: [],
 };

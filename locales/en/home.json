@@ -1,0 +1,25 @@
+{
+  "Header_title": "MY NAME IS IAN",
+  "Header_subtitle": "A FULLSTACK DEVELOPER,\nUI/UX DESIGNER.",
+  "Header_p": "Thanks for visiting.\nI am based in Nairobi, Kenya.\nLets get to know me 🚀🚀💯💯",
+
+  "Platform_title": "Let Me Help You Develop On",
+  "Platform_web": "Web",
+  "Platform_mobile": "Mobile",
+  "Platform_desktop": "Desktop",
+
+  "Service_designer": "UI/UX Designer",
+  "Service_designerDesc": "Try my modern intuitive interfaces that are easy to use scalable and adaptable to a variety of devices and platforms.",
+  "Service_engineer": "Fullstack Engineer",
+  "Service_engineerDesc": "I take pride in writing clean and efficient code that meets the needs of the end-user and also delivers value to the client",
+  "Service_architecture": "Systems Architecture",
+  "Service_architectureDesc": "I take pride in writing clean and efficient code that meets the needs of the end-user and also delivers value to the client",
+
+  "About_number": "00",
+  "About_title": "About Me",
+  "About_content": "Hi, My name is Ian Mugambi. I am currently based in Nairobi, Kenya, and have had the pleasure of working with companies from around the world, including Singapore and Vietnam. I have a passion for coding and problem-solving, and I love exploring new technologies and tools to build and improve amazing products.\n\nMy dev journey started in high school. I participated in the Computer Science category at the Kenya National Science and Engineering Fair. Honestly, this is still among the best experiences of my life. I put a lot of work into my project and ended  up a national finalist. The event served as a profound catalyst  that fundamentally altered the timeline I exist in. It pushed further my passion for software engineering. And to this day! I still write code </br>\n\nOverall, I am a driven and passionate software engineer with experience and a strong desire to create innovative solutions. I am always willing to learn, collaborate, and go the extra mile to ensure that the products I build are of the highest quality. If you are looking for a talented software engineer to join your team, I would be more than happy to discuss how I can help.",
+
+  "Experience_number": "01",
+  "Experience_title": "Work Experience",
+  "Experience_download": "CV Download"
+}
