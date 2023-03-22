@@ -7,6 +7,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { HomeAbout } from '@/modules/home/home_about';
 import { HomeExperience } from '@/modules/home/home_experience';
 import { HomeHeader } from '@/modules/home/home_header';
+import { HomeProjects } from '@/modules/home/home_projects';
 import { HomeServices } from '@/modules/home/home_services';
 
 async function fetchData(locale: string) {
@@ -14,10 +15,12 @@ async function fetchData(locale: string) {
     const { data, error } = await apolloClient.query({
       query: GET_HOMEPAGE_DATA,
       variables: { locale },
+      fetchPolicy: 'no-cache',
     });
     const val = data as IHomepageEntity;
     return { data: val.resume.data, error };
   } catch (error) {
+    console.log(error);
     return { error };
   }
 }
@@ -36,6 +39,7 @@ export default async function HomePage() {
       <HomeServices />
       <HomeAbout />
       <HomeExperience experience={attributes?.workExperience} />
+      <HomeProjects projects={attributes?.projects} />
     </Fragment>
   );
 }

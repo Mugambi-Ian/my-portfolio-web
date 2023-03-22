@@ -21,5 +21,8 @@
 
   "Experience_number": "01",
   "Experience_title": "Work Experience",
-  "Experience_download": "CV Download"
+  "Experience_download": "CV Download",
+
+  "Projects_number": "02",
+  "Projects_title": " Things I’ve Built"
 }

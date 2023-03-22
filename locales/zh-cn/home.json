@@ -1,1 +1,23 @@
-{}
+{
+  "Header_title": "我叫伊恩",
+  "Header_subtitle": "我是肯尼亚内罗毕的一名全栈开发人员和 UI/UX 设计师。",
+  "Header_p": "感谢造访！",
+  "Platform_title": "让我帮助您开发：",
+  "Platform_web": "网络",
+  "Platform_mobile": "移动的",
+  "Platform_desktop": "桌面电脑",
+  "Service_designer": "用户界面/用户体验设计师",
+  "Service_designerDesc": "我创建了易于使用且在不同设备上运行良好的现代、直观的界面。",
+  "Service_engineer": "全栈工程师",
+  "Service_engineerDesc": "我编写干净、高效的代码来满足用户和客户的需求。",
+  "Service_architecture": "系统架构",
+  "Service_architectureDesc": "我设计满足用户和客户需求的软件架构。",
+  "About_number": "00",
+  "About_title": "关于我",
+  "About_content": "嗨，我叫伊恩·穆甘比。\n 我的开发之旅始于高中。 </br>\n 总的来说，我是一名积极进取、充满激情的软件工程师，拥有丰富的经验，并且强烈希望创建创新的解决方案。",
+  "Experience_number": "01",
+  "Experience_title": "工作经验",
+  "Experience_download": "下载我的简历",
+  "Projects_number": "02",
+  "Projects_title": "我建造的东西"
+}

@@ -19,6 +19,10 @@ module.exports = {
       card: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
     },
     extend: {
+      boxShadow: {
+        'dark-ring':
+          '0px 4px 4px 2px rgba(40, 208, 126, 0.05), 0px 4px 3px 1px rgba(3, 52, 28, 0.89), 2px 4px 2px 2px rgba(40, 208, 126, 0.2)',
+      },
       colors: {
         solid: '#5053BC',
         accent: '#EFEFFA',

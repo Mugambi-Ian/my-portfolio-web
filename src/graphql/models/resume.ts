@@ -68,8 +68,22 @@ export interface IAwardsEntity {
 export interface IProjectsEntity {
   id: string;
   title: string;
+  short_description: string;
+  long_description: string;
   project_url: string;
-  description: string;
+  project_cover: {
+    data: {
+      attributes: {
+        url: string;
+      };
+    };
+  };
+  links: {
+    id: string;
+    link: string;
+    type: string;
+    name: string;
+  }[];
 }
 
 export interface IReferencesEntity {

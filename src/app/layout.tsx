@@ -29,15 +29,15 @@ export default function RootLayout({
 const { PROJECT_URI } = process.env;
 export const metadata: Metadata = {
   title: {
-    default: 'Eyecan',
-    template: '%s | Eyecan',
+    default: 'Ian Mugambi',
+    template: '%s | Ian Mugambi',
   },
-  description: 'A Companion For Life',
+  description: 'A Fullstack Developer And UI/UX Designer',
   openGraph: {
-    title: 'Eyecan',
-    description: 'A Companion For Life',
+    title: 'Ian Mugambi',
+    description: 'A Fullstack Developer And UI/UX Designer',
     url: PROJECT_URI,
-    siteName: 'Lee Robinson',
+    siteName: 'Ian Mugambi',
     images: [
       {
         url: `${PROJECT_URI}/og.jpg`,
@@ -45,7 +45,6 @@ export const metadata: Metadata = {
         height: 1080,
       },
     ],
-    locale: 'en-US',
     type: 'website',
   },
   robots: {
@@ -59,7 +58,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Eyecan',
+    title: 'Ian Mugambi',
     card: 'summary_large_image',
   },
   icons: {

@@ -1,15 +1,30 @@
+import clsx from 'clsx';
+
 interface IProps {
   number: string;
   title: string;
+  white?: boolean;
 }
 
-export function HomeTitle({ number, title }: IProps) {
+export function HomeTitle({ number, title, white }: IProps) {
   return (
-    <div className="flex items-center gap-x-6 p-2.5 ">
-      <h1 className="text-xl font-black uppercase tracking-[0.2em] text-primary dark:text-primary-dark">
+    <div className="flex items-center gap-x-6 p-2.5 max-lg:p-1.5 max-md:gap-x-1">
+      <h1
+        className={clsx(
+          'whitespace-nowrap text-xl font-black uppercase tracking-[0.2em] max-md:text-lg max-md:font-bold max-md:tracking-[0.125em]',
+          !white && 'text-primary dark:text-primary-dark ',
+          white && 'text-white'
+        )}
+      >
         {number}. {title}
       </h1>
-      <span className="h-[2px] w-[120px] bg-primary dark:bg-primary-dark" />
+      <span
+        className={clsx(
+          'h-[2px] w-[120px] max-lg:w-24 max-md:hidden',
+          !white && 'bg-primary dark:bg-primary-dark',
+          white && 'bg-white'
+        )}
+      />
     </div>
   );
 }

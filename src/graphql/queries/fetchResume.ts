@@ -2,13 +2,14 @@ import gql from 'graphql-tag';
 
 export const GET_RESUME = gql`
   query getResume($locale: I18NLocaleCode) {
-    resume(locale: $locale) {
+    resume(locale: $locale, publicationState: PREVIEW) {
       data {
         attributes {
           workExperience {
             id
             title
             company
+            description
             start_date
             end_date
             description
@@ -44,8 +45,8 @@ export const GET_RESUME = gql`
           projects {
             id
             title
-            description
             project_url
+            short_description
           }
           awards {
             id

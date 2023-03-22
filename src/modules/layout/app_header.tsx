@@ -29,7 +29,7 @@ function MobileHeader() {
         <ICLogo className="inherit h-9 w-9 fill-white dark:fill-primary-dark" />
       </Link>
       <Link href="/" className="ml-1">
-        <h1 className="mx-4 -mt-1 flex text-xl uppercase tracking-[0.32em] text-white dark:text-primary-dark">
+        <h1 className="mx-2  flex text-sm uppercase tracking-[0.32em] text-white dark:text-primary-dark">
           {t('title')}
         </h1>
       </Link>
@@ -48,7 +48,7 @@ function DesktopHeader() {
     <Fragment>
       <header
         id="desktop-header"
-        className=" max-md:hidde sticky top-0 z-50 mr-[5px] flex w-full max-w-7xl items-center gap-3 self-center bg-[#E1F0FA] px-6 py-7  dark:bg-[#141D0E] max-lg:py-3"
+        className="sticky top-0 z-50 mr-[5px] flex w-full max-w-7xl items-center gap-3 self-center bg-[#E1F0FA] px-6 py-7 dark:bg-[#141D0E]  max-lg:py-3 max-md:hidden"
       >
         <Link href={`/?lang=${lang}`} className="flex items-center gap-3">
           <ICLogo className="inherit h-[60px] w-[60px]  fill-primary dark:fill-primary-dark" />

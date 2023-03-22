@@ -19,7 +19,7 @@ export const ResumeField: FC<IResumeField> = ({
       className="my-4 h-px w-full max-w-7xl self-center bg-gray-300"
       id={title.replace(' ', '_').toLowerCase()}
     />
-    <section className="flex w-full max-w-7xl flex-col gap-y-3 self-center px-2 lg:flex-row lg:gap-x-6 lg:gap-y-0">
+    <section className="flex w-full max-w-7xl flex-col gap-y-3 self-center px-2 dark:text-white lg:flex-row lg:gap-x-6 lg:gap-y-0">
       <div className="flex basis-1/5">
         <img className="h-5 w-5" src={icon} alt={title} />
         <h5 className="ml-4 flex-1  whitespace-nowrap text-sm font-semibold text-gray-600 ">

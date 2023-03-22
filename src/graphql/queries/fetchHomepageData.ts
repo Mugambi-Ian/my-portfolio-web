@@ -1,18 +1,17 @@
 import gql from 'graphql-tag';
 
 export const GET_HOMEPAGE_DATA = gql`
-  query ($locale: I18NLocaleCode) {
-    resume(locale: $locale) {
+  query getHomepageData($locale: I18NLocaleCode) {
+    resume(locale: $locale, publicationState: PREVIEW) {
       data {
         attributes {
           workExperience {
             id
             title
             company
+            description
             start_date
             end_date
-            description
-            location
             roles {
               id
               department
@@ -33,6 +32,25 @@ export const GET_HOMEPAGE_DATA = gql`
                   }
                 }
               }
+            }
+          }
+          projects {
+            id
+            title
+            long_description
+            project_url
+            project_cover {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            links {
+              id
+              link
+              type
+              name
             }
           }
         }

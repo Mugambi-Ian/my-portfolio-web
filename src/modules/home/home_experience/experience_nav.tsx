@@ -13,7 +13,36 @@ interface IHomeExperienceNavProps {
   positions?: { company: string; id: string }[];
 }
 
-function HomeExperienceNav({
+function HomeExperienceNavMobile({
+  positions,
+  setCurrent,
+  current,
+}: IHomeExperienceNavProps) {
+  if (positions === undefined) return <></>;
+
+  return (
+    <div className="mx-2 hidden w-full overflow-x-auto max-md:flex">
+      {positions.map((p, i) => {
+        const active = i === current;
+        return (
+          <button
+            key={p.id}
+            onClick={() => setCurrent(i)}
+            className={clsx(
+              ' whitespace-nowrap px-4 py-3 text-start text-xs uppercase tracking-[0.2em]',
+              !active && 'font-light text-black dark:text-white ',
+              active &&
+                'rounded-md bg-solid  font-bold  text-white  dark:bg-solid-dark'
+            )}
+          >
+            {p.company}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+function HomeExperienceNavDesktop({
   positions,
   setCurrent,
   current,
@@ -22,7 +51,7 @@ function HomeExperienceNav({
   const dividerHeight = (positions.length - 1) * 80 + 60;
 
   return (
-    <div className="flex gap-x-9">
+    <div className="flex basis-3/5 gap-x-9 max-lg:gap-x-4 max-md:hidden ">
       <div
         className="relative flex flex-col"
         style={{ height: `${dividerHeight}px` }}
@@ -40,7 +69,7 @@ function HomeExperienceNav({
           />
         ))}
       </div>
-      <div className="flex w-80 flex-col">
+      <div className="flex w-full max-w-xs flex-col">
         {positions.map((p, i) => {
           const active = i === current;
           return (
@@ -73,8 +102,16 @@ export function HomeExperienceContext({ experience }: IProps) {
   if (experience === undefined) return <></>;
   return (
     <Fragment>
+      <HomeExperienceNavMobile
+        current={current}
+        setCurrent={setCurrent}
+        positions={experience?.map(({ company, id }) => ({
+          company,
+          id,
+        }))}
+      />
       <HomeExperienceContent exp={experience[current]} />
-      <HomeExperienceNav
+      <HomeExperienceNavDesktop
         current={current}
         setCurrent={setCurrent}
         positions={experience?.map(({ company, id }) => ({

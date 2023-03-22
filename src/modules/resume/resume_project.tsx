@@ -24,7 +24,9 @@ function ResumeProject({ e }: IResumeProject) {
           {e.project_url}
         </Link>
       </div>
-      <p className="mt-2 mb-4 text-sm text-gray-700 lg:my-4">{e.description}</p>
+      <p className="mt-2 mb-4 text-sm text-gray-700 lg:my-4">
+        {e.short_description}
+      </p>
     </Fragment>
   );
 }

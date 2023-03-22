@@ -1,1 +1,23 @@
-{}
+{
+  "Header_title": "Jina langu ni Ian",
+  "Header_subtitle": "Mimi ni msanidi programu kamili\n na mbunifu wa UI/UX\n ninayeishi Nairobi, Kenya.",
+  "Header_p": "Asante kwa kutembelea!",
+  "Platform_title": "Acha nikusaidie kukuza kwenye:",
+  "Platform_web": "Mtandao",
+  "Platform_mobile": "Rununu",
+  "Platform_desktop": "Tarakilishi",
+  "Service_designer": "Mbuni wa UI/UX",
+  "Service_designerDesc": "Ninaunda miingiliano ya kisasa, angavu ambayo ni rahisi kutumia na inafanya kazi vizuri kwenye vifaa tofauti.",
+  "Service_engineer": "Mhandisi wa Fullstack",
+  "Service_engineerDesc": "Ninaandika msimbo safi, unaofaa unaokidhi mahitaji ya watumiaji na wateja.",
+  "Service_architecture": "Usanifu wa Mifumo",
+  "Service_architectureDesc": "Ninabuni usanifu wa programu unaokidhi mahitaji ya watumiaji na wateja.",
+  "About_number": "00",
+  "About_title": "Kuhusu mimi",
+  "About_content": "Jambo, jina langu ni Ian Mugambi. ",
+  "Experience_number": "01",
+  "Experience_title": "Uzoefu wa kazi",
+  "Experience_download": "Pakua CV yangu",
+  "Projects_number": "02",
+  "Projects_title": "Mambo Nimejenga"
+}
