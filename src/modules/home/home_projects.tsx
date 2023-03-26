@@ -11,12 +11,13 @@ import { HomeTitle } from './home_title';
 
 function ProjectCard({ p }: { p: IProjectsEntity }) {
   return (
-    <section className="flex flex-col items-center px-6 pt-14 max-sm:mb-8 max-sm:px-3 max-sm:pt-4">
+    <li className="flex flex-col items-center px-6 pt-14 max-sm:mb-8 max-sm:px-3 max-sm:pt-4">
       <span className="flex w-full pb-3">
         <h1 className="flex-1 text-2xl font-black uppercase tracking-[0.25em] text-white max-sm:text-xl">
           {p.title}
         </h1>
         <Link
+          aria-label={p.title}
           href={p.project_url}
           className="flex items-center gap-2 py-1 px-2 font-normal lowercase tracking-[0.1em] text-white"
         >
@@ -33,15 +34,16 @@ function ProjectCard({ p }: { p: IProjectsEntity }) {
             </p>
             {p.links[0] && (
               <div className="mt-8 flex flex-col gap-y-4 max-md:mt-2">
-                <h3 className="w-min bg-[#6D78D7]  py-1 px-6 uppercase tracking-[0.36em] text-white dark:bg-primary-dark max-md:text-sm">
+                <h2 className="w-min bg-[#6D78D7]  py-1 px-6 uppercase tracking-[0.36em] text-white dark:bg-solid-dark max-md:text-sm">
                   Links
-                </h3>
+                </h2>
                 <div className="flex flex-wrap gap-x-4">
                   {p.links.map((l) => (
                     <Link
                       href={l.link}
                       className="flex items-center gap-x-2 py-1 px-2"
                       key={`prlink${l.id}`}
+                      aria-label={l.name}
                     >
                       {l.type === 'figma' && (
                         <ICFigma className="inherit fill-white " />
@@ -74,7 +76,7 @@ function ProjectCard({ p }: { p: IProjectsEntity }) {
           </span>
         </div>
       </div>
-    </section>
+    </li>
   );
 }
 
@@ -93,11 +95,11 @@ export function HomeProjects({ projects }: IProps) {
       }
     >
       <HomeTitle white={true} title={t('title')} number={t('number')} />
-      <li className="flex w-full flex-col">
+      <ul className="flex w-full flex-col">
         {projects?.map((p) => (
           <ProjectCard key={`pr${p.id}`} p={p} />
         ))}
-      </li>
+      </ul>
     </HomeSection>
   );
 }

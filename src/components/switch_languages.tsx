@@ -4,6 +4,7 @@
 
 import clsx from 'clsx';
 import i18n from 'i18n.json';
+import type { FC } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 
 import { useWebQuery } from '@/hooks/useWebQuery';
@@ -15,7 +16,7 @@ interface IProps {
   onSwitch?: () => void;
 }
 
-export default function SwitchLanguage({ id, lang, fixed, onSwitch }: IProps) {
+const SwitchLanguage: FC<IProps> = ({ id, lang, fixed, onSwitch }) => {
   const { queryPage } = useWebQuery();
   const [changeLangaguge, languagePopup] = useState(false);
 
@@ -36,7 +37,7 @@ export default function SwitchLanguage({ id, lang, fixed, onSwitch }: IProps) {
       else header?.classList.remove('blur-on');
     }
   }, [changeLangaguge]);
-  if (!changeLangaguge) return <span/>;
+  if (!changeLangaguge) return <span />;
   return (
     <nav
       className={clsx(
@@ -76,4 +77,5 @@ export default function SwitchLanguage({ id, lang, fixed, onSwitch }: IProps) {
       })}
     </nav>
   );
-}
+};
+export default SwitchLanguage;

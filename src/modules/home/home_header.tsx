@@ -50,7 +50,7 @@ function Platforms() {
   const { t } = usePageTranslation('home', 'Platform');
   return (
     <ul className="flex h-min w-80 flex-col items-center gap-y-3 rounded-lg bg-white/50 pb-4 dark:bg-black/50 max-md:text-sm max-sm:w-full max-sm:bg-accent max-sm:dark:bg-accent-dark">
-      <li className="w-full rounded-t-lg bg-primary p-2.5 text-center text-lg font-medium tracking-[0.02em] text-white dark:bg-primary-dark max-md:text-base">
+      <li className="w-full rounded-t-lg bg-primary p-2.5 text-center text-lg font-medium tracking-[0.02em] text-white dark:bg-solid-dark max-md:text-base">
         {t('title')}
       </li>
       <li className="flex gap-x-2 max-md:mt-2">

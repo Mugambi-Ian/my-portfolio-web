@@ -36,7 +36,8 @@ export function withHtmlProps<T>(
   return <C {...p} />;
 }
 
-export const clientComponent = (path: DynamicOptions | Loader) =>
-  dynamic(path, { ssr: false });
+export function clientComponent<T>(path: DynamicOptions<T> | Loader<T>) {
+  return dynamic(path, { ssr: false });
+}
 
 export type ISVGProps = HtmlHTMLAttributes<HTMLOrSVGElement>;

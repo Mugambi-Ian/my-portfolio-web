@@ -33,11 +33,9 @@ function MobileHeader() {
         id="mobile-header"
         className="sticky hidden w-full items-center border border-primary bg-primary py-3 pl-5 pr-3 dark:border-primary-dark dark:bg-black max-md:flex"
       >
-        <Link href="/" className="flex">
+        <Link href="/" className="flex items-center gap-x-4" aria-label="home">
           <ICLogo className="inherit h-9 w-9 fill-white dark:fill-primary-dark" />
-        </Link>
-        <Link href="/" className="ml-1">
-          <h1 className="mx-2  flex uppercase tracking-[0.32em] text-white dark:text-primary-dark max-[420px]:text-xs ">
+          <h1 className="mx-2 ml-1  flex uppercase tracking-[0.32em] text-white dark:text-primary-dark max-[420px]:text-xs ">
             {t('title')}
           </h1>
         </Link>
@@ -46,6 +44,7 @@ function MobileHeader() {
         <button
           className="ml-2 flex h-12 w-12 items-center justify-center gap-x-2 rounded-lg dark:bg-black"
           id="drawer-btn"
+          aria-label="Open drawer"
         >
           <ICDrawer className="inherit h-6 w-6  fill-white dark:fill-primary-dark" />
         </button>
@@ -64,7 +63,11 @@ function DesktopHeader() {
         className="sticky  top-0 z-50 mr-[5px] flex w-full items-center justify-center bg-[#E1F0FA] dark:bg-[#141D0E] "
       >
         <div className="flex  w-full max-w-7xl items-center gap-3 self-center px-6 py-7 max-lg:py-3 max-md:hidden">
-          <Link href={`/?lang=${lang}`} className="flex items-center gap-3">
+          <Link
+            href={`/?lang=${lang}`}
+            className="flex items-center gap-3"
+            aria-label="home"
+          >
             <ICLogo className="inherit h-[60px] w-[60px]  fill-primary dark:fill-primary-dark" />
             <h1 className="-mt-2 flex text-xl uppercase tracking-[0.32em] text-primary dark:text-primary-dark max-lg:hidden">
               {t('title')}
