@@ -16,9 +16,9 @@ export default function RootLayout({
   const { lang } = usePageTranslation('common', 'Header');
   return (
     <html lang={lang} style={gordita.style} className="dark">
-      <body className="absolute flex h-screen w-screen flex-col antialiased dark:bg-black">
+      <body className="relative flex h-screen w-screen flex-col antialiased dark:bg-black">
         <Header />
-        <main className="flex h-full w-full flex-col overflow-y-auto overflow-x-clip">
+        <main className="relative flex h-full w-full flex-col overflow-y-auto overflow-x-clip">
           {children}
         </main>
       </body>

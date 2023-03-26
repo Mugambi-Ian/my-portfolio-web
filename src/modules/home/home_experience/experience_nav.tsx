@@ -21,7 +21,7 @@ function HomeExperienceNavMobile({
   if (positions === undefined) return <></>;
 
   return (
-    <div className="mx-2 hidden w-full overflow-x-auto max-md:flex">
+    <div className="mx-2 hidden w-full overflow-x-auto py-2 max-md:flex">
       {positions.map((p, i) => {
         const active = i === current;
         return (

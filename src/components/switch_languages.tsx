@@ -8,7 +8,14 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { useWebQuery } from '@/hooks/useWebQuery';
 
-export function SwitchLanguage({ lang }: { lang: string }) {
+interface IProps {
+  id: string;
+  lang: string;
+  fixed: boolean;
+  onSwitch?: () => void;
+}
+
+export default function SwitchLanguage({ id, lang, fixed, onSwitch }: IProps) {
   const { queryPage } = useWebQuery();
   const [changeLangaguge, languagePopup] = useState(false);
 
@@ -18,20 +25,26 @@ export function SwitchLanguage({ lang }: { lang: string }) {
   }, [changeLangaguge]);
 
   useEffect(() => {
-    const btn = document.getElementById('switch-lang');
+    const btn = document.getElementById(id);
     btn!.onclick = openModal;
-    const header = document.getElementById('desktop-header');
-    const main = document.getElementsByTagName('main');
-    if (changeLangaguge) main[0]?.classList.add('blur-on');
-    else main[0]?.classList.remove('blur-on');
-    if (changeLangaguge) header?.classList.add('blur-on');
-    else header?.classList.remove('blur-on');
+    if (fixed) {
+      const header = document.getElementById('desktop-header');
+      const main = document.getElementsByTagName('main');
+      if (changeLangaguge) main[0]?.classList.add('blur-on');
+      else main[0]?.classList.remove('blur-on');
+      if (changeLangaguge) header?.classList.add('blur-on');
+      else header?.classList.remove('blur-on');
+    }
   }, [changeLangaguge]);
-
-  return changeLangaguge ? (
+  if (!changeLangaguge) return <span/>;
+  return (
     <nav
-      className="skip-blur fixed top-[96px] right-6 z-50 flex w-72 flex-col gap-2 rounded-lg bg-white dark:bg-black"
-      id="lang-nav"
+      className={clsx(
+        'skip-blur flex flex-col gap-2 rounded-lg bg-white dark:bg-black',
+        !fixed && 'relative w-full',
+        fixed && 'fixed top-[96px] right-6 z-50 w-72'
+      )}
+      id={id}
     >
       {i18n.locales.map((loc, i) => {
         const language = new Intl.DisplayNames([lang], {
@@ -43,9 +56,9 @@ export function SwitchLanguage({ lang }: { lang: string }) {
             href={`?lang=${loc}`}
             key={loc + i}
             className={clsx(
-              'flex w-full items-center whitespace-nowrap rounded-lg px-4 py-2 text-sm tracking-[0.05em]',
+              'flex w-full items-center whitespace-nowrap rounded-md px-4 py-2 text-sm tracking-[0.05em]',
               current &&
-                'bg-primary  font-medium text-white dark:bg-primary-dark',
+                'bg-accent  font-medium text-primary dark:bg-primary-dark',
               !current &&
                 'font-light first-of-type:mt-2 last-of-type:mb-2 dark:text-white'
             )}
@@ -53,6 +66,7 @@ export function SwitchLanguage({ lang }: { lang: string }) {
               e.preventDefault();
               languagePopup(false);
               queryPage([{ key: 'lang', value: loc }], { refresh: true });
+              if (onSwitch) onSwitch();
             }}
           >
             {language.of(loc)}
@@ -61,7 +75,5 @@ export function SwitchLanguage({ lang }: { lang: string }) {
         );
       })}
     </nav>
-  ) : (
-    <></>
   );
 }

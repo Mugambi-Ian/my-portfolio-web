@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { Switch } from './swtich';
 
-export const SwitchThemeMode = () => {
+export default function SwitchThemeMode() {
   const [loaded, setLoaded] = useState(false);
 
   const load = () => {
@@ -23,5 +23,10 @@ export const SwitchThemeMode = () => {
     load();
   };
 
-  return <Switch onChange={(x) => (x ? toDarkMode() : toLightMode())} />;
-};
+  return (
+    <Switch
+      onChange={(x) => (x ? toDarkMode() : toLightMode())}
+      defaultVal={!document.documentElement.classList.contains('dark')}
+    />
+  );
+}

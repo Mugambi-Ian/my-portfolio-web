@@ -1,8 +1,9 @@
 {
   "locales": ["en", "sw-ke", "zh-cn"],
   "defaultLocale": "en",
+  "loader": true,
   "pages": {
     "*": ["common"],
-    "/": ["home"]
+    "/": ["home", "common"]
   }
 }

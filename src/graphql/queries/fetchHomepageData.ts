@@ -12,6 +12,7 @@ export const GET_HOMEPAGE_DATA = gql`
             description
             start_date
             end_date
+            location
             roles {
               id
               department

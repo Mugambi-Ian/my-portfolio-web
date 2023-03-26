@@ -17,13 +17,13 @@ function HeaderBG() {
         id="home_header"
         alt="background"
         src="/assets/images/home/bg_light.svg"
-        className="absolute flex w-full max-w-7xl object-contain dark:hidden max-md:hidden"
+        className="absolute flex w-screen object-contain dark:hidden max-md:hidden"
       />
       <img
         id="home_header_dark"
         alt="background"
         src="/assets/images/home/bg_dark.svg"
-        className="absolute hidden w-full max-w-7xl object-contain dark:flex max-md:hidden"
+        className="absolute hidden w-screen object-contain dark:flex max-md:hidden"
       />
     </section>
   );
@@ -80,8 +80,7 @@ function Platforms() {
 
 export function HomeHeader() {
   return (
-    <HomeSection id="header" className="">
-      <HeaderBG />
+    <HomeSection id="header" className="" background={<HeaderBG />}>
       <section className="z-10 flex w-full items-center py-10 px-9 max-sm:flex-col max-sm:gap-y-6 max-sm:p-6">
         <HomeTitle />
         <span className="flex-1" />

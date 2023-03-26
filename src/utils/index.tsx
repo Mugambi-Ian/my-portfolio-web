@@ -1,3 +1,5 @@
+import type { DynamicOptions, Loader } from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import type { FunctionComponent, HtmlHTMLAttributes } from 'react';
 
 export const getDuration = (d1: Date | number | string, d2?: Date | string) => {
@@ -33,5 +35,8 @@ export function withHtmlProps<T>(
 ) {
   return <C {...p} />;
 }
+
+export const clientComponent = (path: DynamicOptions | Loader) =>
+  dynamic(path, { ssr: false });
 
 export type ISVGProps = HtmlHTMLAttributes<HTMLOrSVGElement>;
