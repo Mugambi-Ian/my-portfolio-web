@@ -1,6 +1,7 @@
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
 import { getDuration } from '@/utils';
 
+import { ICBriefCase } from '../icons/resume';
 import { ResumeField } from './hoc/hoc_field';
 
 interface IProps {
@@ -18,8 +19,10 @@ export function ResumeYears({ experience }: IProps) {
   );
 
   return (
-    <ResumeField title="Total Experience" icon="/assets/images/briefcase.png">
-      <p className="text-sm text-gray-700">{getDuration(totalExperience)}</p>
+    <ResumeField title="Total Experience" icon={ICBriefCase}>
+      <p className="justify-center text-sm text-gray-700 dark:text-white">
+        {getDuration(totalExperience)}
+      </p>
     </ResumeField>
   );
 }

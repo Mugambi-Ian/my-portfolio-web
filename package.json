@@ -23,17 +23,21 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.7",
+    "bufferutil": "^4.0.7",
     "clsx": "^1.2.1",
+    "encoding": "^0.1.13",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
-    "next": "^13.2.1",
+    "next": "^13.2.4",
     "next-seo": "^5.15.0",
     "next-sitemap": "^3.1.45",
     "next-translate": "^2.0.3",
+    "puppeteer": "^19.8.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-switch": "^7.0.0",
-    "sharp": "^0.32.0"
+    "sharp": "^0.32.0",
+    "utf-8-validate": "^5.0.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",

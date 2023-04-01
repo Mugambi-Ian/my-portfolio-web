@@ -52,6 +52,7 @@ export const GET_RESUME = gql`
             id
             title
             award
+            description
             date
           }
         }

@@ -13,7 +13,7 @@ interface IProps {
 }
 
 export function HomeExperience({ experience }: IProps) {
-  const { t } = usePageTranslation('home', 'Experience');
+  const { t, lang } = usePageTranslation('home', 'Experience');
   return (
     <HomeSection
       id="exp"
@@ -26,7 +26,7 @@ export function HomeExperience({ experience }: IProps) {
         <HomeTitle title={t('title')} number={t('number')} />
         <span className="flex-1 max-md:hidden" />
         <Link
-          href={'/resume/download'}
+          href={`/resume/download?lang=${lang}`}
           className="flex gap-x-3 whitespace-nowrap  font-medium uppercase tracking-[0.1em] text-primary dark:text-primary-dark max-lg:gap-x-1 max-md:gap-x-2 max-md:self-end max-md:text-sm max-md:font-normal"
         >
           {t('download')}

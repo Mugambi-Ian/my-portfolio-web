@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Fragment } from 'react';
 
 import type { IProjectsEntity } from '@/graphql/models/resume';
 
+import { ICRocket } from '../icons/resume';
 import { ResumeField } from './hoc/hoc_field';
 
 interface IResumeProject {
@@ -10,24 +10,21 @@ interface IResumeProject {
 }
 function ResumeProject({ e }: IResumeProject) {
   return (
-    <Fragment>
-      <div className="flex w-full lg:mb-1 lg:leading-7">
-        <h6 className="text-lg font-semibold text-gray-700 lg:leading-5">
-          {e.title}
-        </h6>
-      </div>
-      <div className="flex w-full lg:leading-4">
-        <Link
-          href={e.project_url}
-          className="text-sm font-normal text-gray-500 lg:leading-3"
-        >
-          {e.project_url}
-        </Link>
-      </div>
-      <p className="mt-2 mb-4 text-sm text-gray-700 lg:my-4">
+    <section className="mb-4 flex flex-col">
+      <h6 className="mb-2 text-lg font-semibold text-gray-700 dark:text-white lg:leading-5">
+        {e.title}
+      </h6>
+      <Link
+        href={e.project_url}
+        className="text-xs font-light tracking-widest text-gray-500 dark:text-white lg:leading-3"
+      >
+        {e.project_url}
+      </Link>
+      <div className="flex w-full lg:leading-4"></div>
+      <p className="mt-2 text-sm text-gray-700 dark:text-white lg:my-4">
         {e.short_description}
       </p>
-    </Fragment>
+    </section>
   );
 }
 interface IProps {
@@ -37,11 +34,7 @@ interface IProps {
 export function ResumeProjects({ projects }: IProps) {
   if (projects === undefined) return <></>;
   return (
-    <ResumeField
-      icon="/assets/images/rocket.png"
-      title="Projects"
-      showMargin={true}
-    >
+    <ResumeField icon={ICRocket} title="Projects" showMargin={true}>
       {projects.map((e) => (
         <ResumeProject key={e.id} e={e!} />
       ))}

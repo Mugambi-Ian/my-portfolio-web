@@ -1,4 +1,9 @@
 {
   "Header_title": "<MY_PORTFOLIO/>",
-  "Header_resume": "Resume"
+  "Header_home": "Go to Homepage",
+  "Header_resume": "Resume",
+  "Header_linkedIn": "Linked In",
+  "Header_twitter": "Twitter",
+  "Header_github": "Github",
+  "Header_download": "Download Resume"
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import type { FunctionComponent, HtmlHTMLAttributes } from 'react';
+import type { FunctionComponent } from 'react';
 
+import type { ISVGProps } from '@/utils';
 import { withHtmlProps } from '@/utils';
 
 interface IAppNavProps {
@@ -10,7 +11,7 @@ interface IAppNavProps {
   hideTitle?: boolean;
 }
 export function AppNav({ title, icon, href, hideTitle }: IAppNavProps) {
-  function NavIcon(props: HtmlHTMLAttributes<HTMLOrSVGElement>) {
+  function NavIcon(props: ISVGProps) {
     return withHtmlProps(icon, props);
   }
   return (

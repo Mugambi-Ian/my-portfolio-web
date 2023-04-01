@@ -1,6 +1,8 @@
 import './global.css';
 
+import clsx from 'clsx';
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { Header } from '@/modules/layout/app_header';
@@ -13,12 +15,26 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { lang: string };
 }) {
+  const headersList = headers();
+  const darkMode = headersList.get('dark-mode');
+  const hideHeader = headersList.get('hide-header');
   const { lang } = usePageTranslation('common', 'Header');
+
   return (
-    <html lang={lang} style={gordita.style} className="dark">
+    <html
+      lang={lang}
+      style={gordita.style}
+      className={darkMode === null || darkMode !== 'false' ? ' dark' : ''}
+    >
       <body className="relative flex h-screen w-screen flex-col antialiased dark:bg-black">
-        <Header />
-        <main className="relative flex h-full w-full flex-col overflow-y-auto overflow-x-clip">
+        {!hideHeader && <Header />}
+        <main
+          className={clsx(
+            'flex w-full flex-col overflow-x-clip',
+            hideHeader && 'fixed inset-x-0 top-0 h-fit',
+            !hideHeader && 'relative h-full overflow-y-auto'
+          )}
+        >
           {children}
         </main>
       </body>

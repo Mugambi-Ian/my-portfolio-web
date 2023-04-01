@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 
 import { AppNav } from '@/components/app-nav';
+import SwitchThemeMode from '@/components/switch_dark_mode';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { ICDown } from '@/modules/icons';
 import {
@@ -11,19 +12,17 @@ import {
   ICLinkedin,
   ICLogo,
   ICMoon,
-  ICResume,
   ICSun,
   ICTranslate,
   ICTwitter,
 } from '@/modules/icons/header';
 import { clientComponent } from '@/utils';
 
+import ResumeLink from './app_resume';
+
 const MobileDrawer = clientComponent(() => import('./app_drawer'));
 const SwitchLanguage = clientComponent(
   () => import('@/components/switch_languages')
-);
-const SwitchThemeMode = clientComponent(
-  () => import('@/components/switch_dark_mode')
 );
 function MobileHeader() {
   const { t } = usePageTranslation('common', 'Header');
@@ -53,7 +52,6 @@ function MobileHeader() {
     </Fragment>
   );
 }
-
 function DesktopHeader() {
   const { t, lang } = usePageTranslation('common', 'Header');
   return (
@@ -74,11 +72,7 @@ function DesktopHeader() {
             </h1>
           </Link>
           <span className="flex-1" />
-          <AppNav
-            href={`/resume?lang=${lang}`}
-            icon={ICResume}
-            title={t('resume')}
-          />
+          <ResumeLink dTitle={t('download')} rTitle={t('resume')} />
           <span className="h-8 w-[2px] bg-primary dark:bg-primary-dark" />
           <AppNav
             href="https://www.linkedin.com/in/ian-mugambi-65893917a/"
@@ -108,9 +102,9 @@ function DesktopHeader() {
               <ICDown className="inherit h-4 w-4  fill-primary dark:fill-primary-dark" />
             </button>
             <div className="flex h-12 items-center justify-center gap-x-4 rounded-lg bg-white px-3 dark:bg-black">
-              <ICMoon className="h-6 w-5" />
-              <SwitchThemeMode />
               <ICSun className="h-6 w-5" />
+              <SwitchThemeMode />
+              <ICMoon className="h-6 w-5" />
             </div>
           </span>
         </div>

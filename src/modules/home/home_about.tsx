@@ -12,7 +12,7 @@ export function HomeAbout() {
     >
       <HomeTitle title={t('title')} number={t('number')} />
       <div className="flex w-full gap-x-10 px-4">
-        <p className="flex-1 whitespace-pre-line text-xl leading-9 tracking-[0.05em] text-black dark:text-white max-md:text-justify max-md:text-sm  max-md:leading-6">
+        <p className="flex-1 whitespace-pre-line leading-9 tracking-[0.05em] text-black dark:text-white max-lg:text-lg max-md:text-justify max-md:text-sm  max-md:leading-6">
           {t('content')}
         </p>
         <div className="relative h-[420px] w-80 rounded-3xl bg-primary dark:bg-primary-dark max-md:hidden">

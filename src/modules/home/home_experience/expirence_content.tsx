@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import Link from 'next/link';
 
 import type {
@@ -11,9 +12,9 @@ import { parseDate } from '@/utils';
 
 interface IDeparmentProps {
   roles: IRolesEntity[];
+  hideBG?: boolean;
 }
-
-function DeparmentRoles({ roles }: IDeparmentProps) {
+export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
   return (
     <>
       {roles.map((r) => (
@@ -43,7 +44,12 @@ function DeparmentRoles({ roles }: IDeparmentProps) {
               </li>
             ))}
           </ul>
-          <div className="mx-2 flex flex-col gap-y-4 rounded-xl bg-secondary py-5 px-3 dark:bg-secondary-dark">
+          <div
+            className={clsx(
+              'mx-2 flex flex-col gap-y-4 rounded-xl ',
+              !hideBG && 'bg-secondary py-5 px-3 dark:bg-secondary-dark'
+            )}
+          >
             <p className="text-sm font-medium uppercase tracking-[0.1em] dark:text-white">
               Tech Stack
             </p>
@@ -51,7 +57,7 @@ function DeparmentRoles({ roles }: IDeparmentProps) {
               {r.tech_stack.data?.map((t) => (
                 <p
                   key={`tech_${t.id}`}
-                  className="rounded-md bg-[#787BC7]  p-1.5 capitalize tracking-[0.2em] text-white dark:bg-solid-dark max-md:text-sm max-md:tracking-[0.1em]"
+                  className="rounded-md  bg-[#787BC7] p-1.5 capitalize tracking-[0.2em] text-white dark:bg-solid-dark max-md:text-sm  max-md:tracking-[0.1em] "
                 >
                   {t.attributes.techStack}
                 </p>

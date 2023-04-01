@@ -1,12 +1,13 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import useTranslation from 'next-translate/useTranslation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { AppNav } from '@/components/app-nav';
 import { clientComponent } from '@/utils';
 
-import { ICDown } from '../icons';
+import { ICDocumentDownload, ICDown } from '../icons';
 import {
   ICGithub,
   ICLinkedin,
@@ -16,6 +17,7 @@ import {
   ICTranslate,
   ICTwitter,
 } from '../icons/header';
+import { ICEngineer } from '../icons/services';
 
 const SwitchLanguage = clientComponent(
   () => import('@/components/switch_languages')
@@ -26,6 +28,7 @@ const SwitchThemeMode = clientComponent(
 export default function MobileDrawer() {
   const [showDrawer, drawerPopup] = useState(false);
   const { t, lang } = useTranslation('common');
+  const pathname = usePathname();
 
   const openModal = useCallback(() => {
     if (showDrawer) drawerPopup(false);
@@ -40,26 +43,41 @@ export default function MobileDrawer() {
   if (!showDrawer) return <></>;
   return (
     <nav className="absolute top-[75px] z-50 hidden h-screen w-screen flex-col gap-y-4 bg-primary px-4 pt-6 dark:bg-black max-md:flex">
+      {pathname.includes('resume') && (
+        <AppNav
+          icon={ICEngineer}
+          href={`/?lang=${lang}`}
+          title={t('Header_home')}
+        />
+      )}
+      {!pathname.includes('resume') && (
+        <AppNav
+          href={`/resume?lang=${lang}`}
+          icon={ICResume}
+          title={t('Header_resume')}
+        />
+      )}
       <AppNav
-        href={`/resume?lang=${lang}`}
-        icon={ICResume}
-        title={t('Header_resume')}
-      />
-      <AppNav
-        href="https://www.linkedin.com/in/ian-mugambi-65893917a/"
-        icon={ICLinkedin}
-        title={t('Header_resume')}
+        href={`/resume/download?lang=${lang}`}
+        icon={ICDocumentDownload}
+        title={t('Header_download')}
       />
       <AppNav
         href="https://github.com/Mugambi-Ian"
         icon={ICGithub}
-        title={t('Header_resume')}
+        title={t('Header_github')}
       />
       <AppNav
         href="https://twitter.com/mugambi_bruv"
         icon={ICTwitter}
-        title={t('Header_resume')}
+        title={t('Header_twitter')}
       />
+      <AppNav
+        href="https://twitter.com/mugambi_bruv"
+        icon={ICLinkedin}
+        title={t('Header_twitter')}
+      />
+
       <span className="relative flex justify-between">
         <button
           className="flex h-12 items-center justify-center gap-x-2 rounded-lg bg-white px-3 dark:bg-black"
@@ -69,9 +87,9 @@ export default function MobileDrawer() {
           <ICDown className="inherit h-4 w-4  fill-primary dark:fill-primary-dark" />
         </button>
         <div className="flex h-12 items-center justify-center gap-x-4 rounded-lg bg-white px-3 dark:bg-black">
-          <ICMoon className="h-6 w-5" />
-          <SwitchThemeMode />
           <ICSun className="h-6 w-5" />
+          <SwitchThemeMode />
+          <ICMoon className="h-6 w-5" />
         </div>
       </span>
       <SwitchLanguage

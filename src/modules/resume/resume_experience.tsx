@@ -1,73 +1,10 @@
-import Link from 'next/link';
-import { Fragment } from 'react';
-
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
-import { getDuration, parseDate } from '@/utils';
+import { parseDate } from '@/utils';
 
+import { DeparmentRoles } from '../home/home_experience/expirence_content';
+import { ICCalendar } from '../icons/resume';
 import { ResumeField } from './hoc/hoc_field';
 
-interface IResumeExperienceProps {
-  e: IWorkExperienceEntity;
-}
-function ResumeExperience({ e }: IResumeExperienceProps) {
-  return (
-    <Fragment>
-      <div className="mb-2 flex w-full leading-6 lg:leading-7">
-        <h6 className="text-lg font-semibold leading-4 text-gray-700 lg:text-xl lg:leading-5">
-          {e.title}
-        </h6>
-        <span className="flex-1" />
-        <p className="whitespace-nowrap text-end text-xs text-gray-500">
-          {parseDate(e.start_date!)} - {parseDate(e.end_date!)}
-        </p>
-      </div>
-      <div className="flex w-full leading-4">
-        <h6 className="font-normal leading-3 text-gray-500 lg:text-lg">
-          {e.company}
-        </h6>
-        <span className="flex-1" />
-        <p className="flex text-xs text-gray-500">
-          {e.location}
-          <span className="hidden lg:block">
-            {` / ${getDuration(e.start_date!, e.end_date!)}`}
-          </span>
-        </p>
-      </div>
-      <p className="mt-3 text-sm text-gray-700">{e.description}</p>
-      {e.roles?.map((role) => (
-        <Fragment key={role?.id}>
-          <span className="mt-4 font-semibold text-gray-700">
-            {role?.department}
-          </span>
-          <Link
-            href={role.project_url}
-            className="mb-2 text-xs font-medium leading-4 text-gray-500"
-          >
-            {role?.project_url}
-          </Link>
-          <ul className="ml-8 list-disc text-sm text-gray-700">
-            {role?.deparment_roles?.data?.map((jd) => (
-              <li key={jd?.id}>{jd?.attributes.role}</li>
-            ))}
-          </ul>
-          <span className="mt-4 mb-2 font-semibold text-gray-700">
-            Tech Stack
-          </span>
-          <div className="mb-5 flex flex-wrap text-xs text-gray-600">
-            {role.tech_stack.data?.map((ts) => (
-              <p
-                className="mr-2 mb-2 whitespace-nowrap rounded p-1 shadow-card"
-                key={ts?.id}
-              >
-                {ts?.attributes.techStack}
-              </p>
-            ))}
-          </div>
-        </Fragment>
-      ))}
-    </Fragment>
-  );
-}
 interface IProps {
   experience?: IWorkExperienceEntity[];
 }
@@ -75,13 +12,35 @@ interface IProps {
 export function ResumeExperiences({ experience }: IProps) {
   if (experience === undefined) return <></>;
   return (
-    <ResumeField
-      icon="/assets/images/calendar.png"
-      title="Work Experience"
-      showMargin={true}
-    >
-      {experience.map((e) => (
-        <ResumeExperience key={e.id} e={e!} />
+    <ResumeField icon={ICCalendar} title="Work Experience" showMargin={true}>
+      {experience.map((exp) => (
+        <section
+          key={exp.id}
+          className="mb-6 flex w-full flex-col gap-y-9 max-md:gap-y-5"
+        >
+          <div className="flex w-full flex-col">
+            <span className="flex w-full items-center gap-y-6 py-1 max-md:flex-col-reverse max-md:items-start">
+              <h1 className="flex-1 font-bold uppercase tracking-[0.25em] text-black dark:text-white">
+                {exp.title}
+              </h1>
+              <p className="rounded bg-[#787BC7] px-4 py-2 text-xs tracking-[0.05em] text-white dark:bg-secondary-dark max-md:self-end">
+                {`${parseDate(exp.start_date)} - ${parseDate(exp.end_date)}`}
+              </p>
+            </span>
+            <span className="flex w-full items-center gap-y-2 py-1 max-md:flex-col max-md:items-start">
+              <h1 className="flex-1 text-sm font-bold uppercase tracking-[0.25em] text-primary dark:text-primary-dark ">
+                {exp.company}
+              </h1>
+              <p className="mr-2 text-xs tracking-[0.05em]  text-black dark:text-white">
+                {exp.location}
+              </p>
+            </span>
+          </div>
+          <p className="leading-8 tracking-[0.05em] dark:text-white max-md:text-sm max-md:leading-6">
+            {exp.description}
+          </p>
+          {exp.roles && <DeparmentRoles roles={exp.roles} hideBG={true} />}
+        </section>
       ))}
     </ResumeField>
   );

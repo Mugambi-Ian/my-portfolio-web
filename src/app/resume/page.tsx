@@ -40,7 +40,6 @@ export default async function Resume() {
       <ResumeProjects projects={attributes?.projects} />
       <ResumeAwards awards={attributes?.awards} />
       <ResumeReferences references={attributes?.references} />
-      <span className="h-8" />
     </Fragment>
   );
 }

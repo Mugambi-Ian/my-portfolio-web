@@ -6,6 +6,7 @@ import { Switch } from './swtich';
 
 export default function SwitchThemeMode() {
   const [loaded, setLoaded] = useState(false);
+  if (document === undefined) return <></>;
 
   const load = () => {
     if (!loaded) {
@@ -25,7 +26,7 @@ export default function SwitchThemeMode() {
 
   return (
     <Switch
-      onChange={(x) => (x ? toDarkMode() : toLightMode())}
+      onChange={(x) => (!x ? toDarkMode() : toLightMode())}
       defaultVal={!document.documentElement.classList.contains('dark')}
     />
   );
