@@ -2,8 +2,7 @@
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-import { AppNav } from '@/components/app-nav';
-import SwitchThemeMode from '@/components/switch_dark_mode';
+import { useAppHeaders } from '@/hooks/useAppHeaders';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { ICDown } from '@/modules/icons';
 import {
@@ -16,14 +15,13 @@ import {
   ICTranslate,
   ICTwitter,
 } from '@/modules/icons/header';
+import { NavLink } from '@/modules/nav/nav_link';
+import NavResumeLink from '@/modules/nav/nav_resume';
+import NavTheme from '@/modules/nav/nav_theme';
 import { clientComponent } from '@/utils';
 
-import ResumeLink from './app_resume';
-
-const MobileDrawer = clientComponent(() => import('./app_drawer'));
-const SwitchLanguage = clientComponent(
-  () => import('@/components/switch_languages')
-);
+const NavDrawer = clientComponent(() => import('../nav/nav_drawer'));
+const NavLang = clientComponent(() => import('@/modules/nav/nav_lang'));
 function MobileHeader() {
   const { t } = usePageTranslation('common', 'Header');
   return (
@@ -48,7 +46,7 @@ function MobileHeader() {
           <ICDrawer className="inherit h-6 w-6  fill-white dark:fill-primary-dark" />
         </button>
       </header>
-      <MobileDrawer />
+      <NavDrawer />
     </Fragment>
   );
 }
@@ -72,21 +70,25 @@ function DesktopHeader() {
             </h1>
           </Link>
           <span className="flex-1" />
-          <ResumeLink dTitle={t('download')} rTitle={t('resume')} />
+          <NavResumeLink
+            dTitle={t('download')}
+            rTitle={t('resume')}
+            lang={lang}
+          />
           <span className="h-8 w-[2px] bg-primary dark:bg-primary-dark" />
-          <AppNav
+          <NavLink
             href="https://www.linkedin.com/in/ian-mugambi-65893917a/"
             icon={ICLinkedin}
             title={t('resume')}
             hideTitle={true}
           />
-          <AppNav
+          <NavLink
             href="https://github.com/Mugambi-Ian"
             icon={ICGithub}
             title={t('resume')}
             hideTitle={true}
           />
-          <AppNav
+          <NavLink
             href="https://twitter.com/mugambi_bruv"
             icon={ICTwitter}
             title={t('resume')}
@@ -103,21 +105,28 @@ function DesktopHeader() {
             </button>
             <div className="flex h-12 items-center justify-center gap-x-4 rounded-lg bg-white px-3 dark:bg-black">
               <ICSun className="h-6 w-5" />
-              <SwitchThemeMode />
+              <NavTheme />
               <ICMoon className="h-6 w-5" />
             </div>
           </span>
         </div>
       </header>
 
-      <SwitchLanguage lang={lang} fixed={true} id="switch-lang-desktop" />
+      <NavLang lang={lang} fixed={true} id="switch-lang-desktop" />
     </Fragment>
   );
 }
 
-export const Header = () => (
-  <Fragment>
-    <MobileHeader />
-    <DesktopHeader />
-  </Fragment>
-);
+export function Header() {
+  const { hideHeader } = useAppHeaders();
+  return (
+    <Fragment>
+      {!hideHeader && (
+        <Fragment>
+          <MobileHeader />
+          <DesktopHeader />
+        </Fragment>
+      )}
+    </Fragment>
+  );
+}

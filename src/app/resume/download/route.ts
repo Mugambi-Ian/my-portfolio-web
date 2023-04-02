@@ -1,10 +1,18 @@
 import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
 
 const { UTILS_URI, PROJECT_URI } = process.env;
-export function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const lang = req.nextUrl.searchParams.get('lang');
-  return NextResponse.redirect(
+  const data = await fetch(
     `${UTILS_URI}/downloadResume?url=${PROJECT_URI}/resume/?lang=${lang}`
   );
+  const buff = await data.arrayBuffer();
+  const res = new Response(buff);
+  res.headers.set('Content-Type', 'application/pdf');
+  res.headers.set(
+    'Content-Disposition',
+    'attachment; filename="mugambis_resume.pdf"'
+  );
+  res.headers.set('Content-Length', `${buff.byteLength}`);
+  return res;
 }

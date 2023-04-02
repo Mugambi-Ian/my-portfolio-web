@@ -4,13 +4,13 @@ import type { FunctionComponent } from 'react';
 import type { ISVGProps } from '@/utils';
 import { withHtmlProps } from '@/utils';
 
-interface IAppNavProps {
+interface INavLinkProps {
   icon: FunctionComponent;
   title: string;
   href: string;
   hideTitle?: boolean;
 }
-export function AppNav({ title, icon, href, hideTitle }: IAppNavProps) {
+export function NavLink({ title, icon, href, hideTitle }: INavLinkProps) {
   function NavIcon(props: ISVGProps) {
     return withHtmlProps(icon, props);
   }

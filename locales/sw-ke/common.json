@@ -1,4 +1,9 @@
 {
-  "Header_title": "<PORTFOLIO_YANGU/>",
-  "Header_resume": "Muhtasari"
+  "Header_title": "<PORTFOLIO/>",
+  "Header_home": "Ukurasa wa nyumbani",
+  "Header_resume": "Mtaala",
+  "Header_linkedIn": "Imeunganishwa Katika",
+  "Header_twitter": "Twitter",
+  "Header_github": "Github",
+  "Header_download": "Mtaala wangu"
 }

@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import useTranslation from 'next-translate/useTranslation';
 import { useCallback, useEffect, useState } from 'react';
 
-import { AppNav } from '@/components/app-nav';
+import { NavLink } from '@/modules/nav/nav_link';
 import { clientComponent } from '@/utils';
 
 import { ICDocumentDownload, ICDown } from '../icons';
@@ -19,13 +19,9 @@ import {
 } from '../icons/header';
 import { ICEngineer } from '../icons/services';
 
-const SwitchLanguage = clientComponent(
-  () => import('@/components/switch_languages')
-);
-const SwitchThemeMode = clientComponent(
-  () => import('@/components/switch_dark_mode')
-);
-export default function MobileDrawer() {
+const NavLang = clientComponent(() => import('@/modules/nav/nav_lang'));
+const NavTheme = clientComponent(() => import('@/modules/nav/nav_theme'));
+export default function NavDrawer() {
   const [showDrawer, drawerPopup] = useState(false);
   const { t, lang } = useTranslation('common');
   const pathname = usePathname();
@@ -44,35 +40,35 @@ export default function MobileDrawer() {
   return (
     <nav className="absolute top-[75px] z-50 hidden h-screen w-screen flex-col gap-y-4 bg-primary px-4 pt-6 dark:bg-black max-md:flex">
       {pathname.includes('resume') && (
-        <AppNav
+        <NavLink
           icon={ICEngineer}
           href={`/?lang=${lang}`}
           title={t('Header_home')}
         />
       )}
       {!pathname.includes('resume') && (
-        <AppNav
+        <NavLink
           href={`/resume?lang=${lang}`}
           icon={ICResume}
           title={t('Header_resume')}
         />
       )}
-      <AppNav
+      <NavLink
         href={`/resume/download?lang=${lang}`}
         icon={ICDocumentDownload}
         title={t('Header_download')}
       />
-      <AppNav
+      <NavLink
         href="https://github.com/Mugambi-Ian"
         icon={ICGithub}
         title={t('Header_github')}
       />
-      <AppNav
+      <NavLink
         href="https://twitter.com/mugambi_bruv"
         icon={ICTwitter}
         title={t('Header_twitter')}
       />
-      <AppNav
+      <NavLink
         href="https://twitter.com/mugambi_bruv"
         icon={ICLinkedin}
         title={t('Header_twitter')}
@@ -88,11 +84,11 @@ export default function MobileDrawer() {
         </button>
         <div className="flex h-12 items-center justify-center gap-x-4 rounded-lg bg-white px-3 dark:bg-black">
           <ICSun className="h-6 w-5" />
-          <SwitchThemeMode />
+          <NavTheme />
           <ICMoon className="h-6 w-5" />
         </div>
       </span>
-      <SwitchLanguage
+      <NavLang
         fixed={false}
         lang={lang}
         id="swicth-lang-mobile"

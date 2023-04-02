@@ -1,29 +1,29 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import useTranslation from 'next-translate/useTranslation';
 
-import { AppNav } from '@/components/app-nav';
+import { NavLink } from '@/modules/nav/nav_link';
 
 import { ICDocumentDownload } from '../icons';
 import { ICResume } from '../icons/header';
 
-export default function ResumeLink({
+export default function NavResumeLink({
   dTitle,
   rTitle,
+  lang,
 }: {
   dTitle: string;
   rTitle: string;
+  lang: string;
 }) {
-  const { lang } = useTranslation('common');
   const pathname = usePathname();
   return pathname.includes('resume') ? (
-    <AppNav
+    <NavLink
       icon={ICDocumentDownload}
       title={dTitle}
       href={`/resume/download?lang=${lang}`}
     />
   ) : (
-    <AppNav icon={ICResume} title={rTitle} href={`/resume?lang=${lang}`} />
+    <NavLink icon={ICResume} title={rTitle} href={`/resume?lang=${lang}`} />
   );
 }

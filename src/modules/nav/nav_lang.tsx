@@ -4,7 +4,6 @@
 
 import clsx from 'clsx';
 import i18n from 'i18n.json';
-import type { FC } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 
 import { useWebQuery } from '@/hooks/useWebQuery';
@@ -16,7 +15,7 @@ interface IProps {
   onSwitch?: () => void;
 }
 
-const SwitchLanguage: FC<IProps> = ({ id, lang, fixed, onSwitch }) => {
+export function NavLang({ id, lang, fixed, onSwitch }: IProps) {
   const { queryPage } = useWebQuery();
   const [changeLangaguge, languagePopup] = useState(false);
 
@@ -77,5 +76,5 @@ const SwitchLanguage: FC<IProps> = ({ id, lang, fixed, onSwitch }) => {
       })}
     </nav>
   );
-};
-export default SwitchLanguage;
+}
+export default NavLang;

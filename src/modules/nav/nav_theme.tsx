@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 
-import { Switch } from './swtich';
+import { Switch } from '../../components/swtich';
 
-export default function SwitchThemeMode() {
+export default function NavTheme() {
   const [loaded, setLoaded] = useState(false);
   if (document === undefined) return <></>;
 

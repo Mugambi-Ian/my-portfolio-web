@@ -2,8 +2,8 @@ import './global.css';
 
 import clsx from 'clsx';
 import type { Metadata } from 'next';
-import { headers } from 'next/headers';
 
+import { useAppHeaders } from '@/hooks/useAppHeaders';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { Header } from '@/modules/layout/app_header';
 
@@ -15,9 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { lang: string };
 }) {
-  const headersList = headers();
-  const darkMode = headersList.get('dark-mode');
-  const hideHeader = headersList.get('hide-header');
+  const { darkMode, hideHeader } = useAppHeaders();
   const { lang } = usePageTranslation('common', 'Header');
 
   return (
@@ -27,7 +25,7 @@ export default function RootLayout({
       className={darkMode === null || darkMode !== 'false' ? ' dark' : ''}
     >
       <body className="relative flex h-screen w-screen flex-col antialiased dark:bg-black">
-        {!hideHeader && <Header />}
+        <Header />
         <main
           className={clsx(
             'flex w-full flex-col overflow-x-clip',
