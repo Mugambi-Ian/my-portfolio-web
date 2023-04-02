@@ -40,23 +40,19 @@ export default function NavDrawer() {
   return (
     <nav className="absolute top-[75px] z-50 hidden h-screen w-screen flex-col gap-y-4 bg-primary px-4 pt-6 dark:bg-black max-md:flex">
       {pathname.includes('resume') && (
-        <NavLink
-          icon={ICEngineer}
-          href={`/?lang=${lang}`}
-          title={t('Header_home')}
-        />
+        <NavLink icon={ICEngineer} href={`/${lang}`} title={t('Header_home')} />
       )}
       {!pathname.includes('resume') && (
         <NavLink
-          href={`/resume?lang=${lang}`}
+          href={`/resume/${lang}`}
           icon={ICResume}
           title={t('Header_resume')}
         />
       )}
       <NavLink
-        href={`/resume/download?lang=${lang}`}
+        href={`/resume/download/${lang}`}
         icon={ICDocumentDownload}
-        title={t('Header_download')}
+        title={t('Header_homepage')}
       />
       <NavLink
         href="https://github.com/Mugambi-Ian"

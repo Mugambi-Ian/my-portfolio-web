@@ -4,7 +4,7 @@ const { UTILS_URI, PROJECT_URI } = process.env;
 export async function GET(req: NextRequest) {
   const lang = req.nextUrl.searchParams.get('lang');
   const data = await fetch(
-    `${UTILS_URI}/downloadResume?url=${PROJECT_URI}/resume/?lang=${lang}`
+    `${UTILS_URI}/downloadResume?url=${PROJECT_URI}/resume/${lang}`
   );
   const buff = await data.arrayBuffer();
   const res = new Response(buff);

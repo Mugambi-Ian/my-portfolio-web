@@ -4,15 +4,15 @@
 
 html {
   min-width: 360px;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
   --scroll-size: 2px;
   --scroll-radius: 10px;
   --scroll-track: rgb(255 255 255 / 10%);
-  --scroll-thumb-color: #787BC7;
+  --scroll-thumb-color: #787bc7;
 }
 .dark {
-
-  --scroll-thumb-color: #28D07E;
-
+  --scroll-thumb-color: #28d07e;
 }
 ::-webkit-scrollbar {
   width: var(--scroll-size, 10px);
@@ -33,8 +33,6 @@ svg.inherit path {
 .blur-on {
   filter: blur(3px);
 }
-
-
 
 .switch {
   cursor: pointer;

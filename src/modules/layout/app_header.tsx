@@ -15,8 +15,8 @@ import {
   ICTranslate,
   ICTwitter,
 } from '@/modules/icons/header';
+import NavButton from '@/modules/nav/nav_button';
 import { NavLink } from '@/modules/nav/nav_link';
-import NavResumeLink from '@/modules/nav/nav_resume';
 import NavTheme from '@/modules/nav/nav_theme';
 import { clientComponent } from '@/utils';
 
@@ -59,22 +59,14 @@ function DesktopHeader() {
         className="sticky  top-0 z-50 mr-[5px] flex w-full items-center justify-center bg-[#E1F0FA] dark:bg-[#141D0E] "
       >
         <div className="flex  w-full max-w-7xl items-center gap-3 self-center px-6 py-7 max-lg:py-3 max-md:hidden">
-          <Link
-            href={`/?lang=${lang}`}
-            className="flex items-center gap-3"
-            aria-label="home"
-          >
+          <div className="flex items-center gap-3">
             <ICLogo className="inherit h-[60px] w-[60px]  fill-primary dark:fill-primary-dark" />
             <h1 className="-mt-2 flex text-xl uppercase tracking-[0.32em] text-primary dark:text-primary-dark max-lg:hidden">
               {t('title')}
             </h1>
-          </Link>
+          </div>
           <span className="flex-1" />
-          <NavResumeLink
-            dTitle={t('download')}
-            rTitle={t('resume')}
-            lang={lang}
-          />
+          <NavButton hTitle={t('homepage')} rTitle={t('resume')} lang={lang} />
           <span className="h-8 w-[2px] bg-primary dark:bg-primary-dark" />
           <NavLink
             href="https://www.linkedin.com/in/ian-mugambi-65893917a/"

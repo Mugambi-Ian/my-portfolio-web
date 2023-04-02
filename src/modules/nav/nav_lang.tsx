@@ -53,7 +53,7 @@ export function NavLang({ id, lang, fixed, onSwitch }: IProps) {
         const current = lang === loc;
         return (
           <a
-            href={`?lang=${loc}`}
+            href={`/${loc}`}
             key={loc + i}
             className={clsx(
               'flex w-full items-center whitespace-nowrap rounded-md px-4 py-2 text-sm tracking-[0.05em]',

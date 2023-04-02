@@ -6,8 +6,6 @@ import { Switch } from '../../components/swtich';
 
 export default function NavTheme() {
   const [loaded, setLoaded] = useState(false);
-  if (document === undefined) return <></>;
-
   const load = () => {
     if (!loaded) {
       document.documentElement.classList.add('animate');
@@ -27,7 +25,11 @@ export default function NavTheme() {
   return (
     <Switch
       onChange={(x) => (!x ? toDarkMode() : toLightMode())}
-      defaultVal={!document.documentElement.classList.contains('dark')}
+      defaultVal={
+        process.browser
+          ? document.documentElement.classList.contains('dark')
+          : true
+      }
     />
   );
 }
