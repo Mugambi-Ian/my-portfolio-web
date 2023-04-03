@@ -1,9 +1,12 @@
 {
   "Header_title": "<PORTFOLIO/>",
-  "Header_home": "Ukurasa wa nyumbani",
-  "Header_resume": "Mtaala",
-  "Header_linkedIn": "Imeunganishwa Katika",
-  "Header_twitter": "Twitter",
-  "Header_github": "Github",
-  "Header_homepage": "Mtaala wangu"
+  "Header_resume": "Resume",
+  "Header_home": "Home",
+
+  "Drawer_linkedIn": "Linked In",
+  "Drawer_twitter": "Twitter",
+  "Drawer_github": "Github",
+  "Drawer_homepage": "Home",
+  "Drawer_home": "Go to Homepage",
+  "Drawer_resume": "My Resume"
 }

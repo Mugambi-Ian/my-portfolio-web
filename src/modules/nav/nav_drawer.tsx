@@ -7,9 +7,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { NavLink } from '@/modules/nav/nav_link';
 import { clientComponent } from '@/utils';
 
-import { ICDocumentDownload, ICDown } from '../icons';
+import { ICDown } from '../icons';
 import {
   ICGithub,
+  ICHome,
   ICLinkedin,
   ICMoon,
   ICResume,
@@ -17,7 +18,6 @@ import {
   ICTranslate,
   ICTwitter,
 } from '../icons/header';
-import { ICEngineer } from '../icons/services';
 
 const NavLang = clientComponent(() => import('@/modules/nav/nav_lang'));
 const NavTheme = clientComponent(() => import('@/modules/nav/nav_theme'));
@@ -26,50 +26,50 @@ export default function NavDrawer() {
   const { t, lang } = useTranslation('common');
   const pathname = usePathname();
 
-  const openModal = useCallback(() => {
+  const switchModal = useCallback(() => {
     if (showDrawer) drawerPopup(false);
     else drawerPopup(true);
   }, [showDrawer]);
 
   useEffect(() => {
     const btn = document.getElementById('drawer-btn');
-    btn!.onclick = openModal;
+    btn!.onclick = switchModal;
   }, [showDrawer]);
 
   if (!showDrawer) return <></>;
   return (
     <nav className="absolute top-[75px] z-50 hidden h-screen w-screen flex-col gap-y-4 bg-primary px-4 pt-6 dark:bg-black max-md:flex">
       {pathname.includes('resume') && (
-        <NavLink icon={ICEngineer} href={`/${lang}`} title={t('Header_home')} />
+        <NavLink
+          icon={ICHome}
+          href={`/${lang}`}
+          title={t('Drawer_home')}
+          onPress={switchModal}
+        />
       )}
       {!pathname.includes('resume') && (
         <NavLink
           href={`/resume/${lang}`}
           icon={ICResume}
-          title={t('Header_resume')}
+          title={t('Drawer_resume')}
+          onPress={switchModal}
         />
       )}
       <NavLink
-        href={`/resume/download/${lang}`}
-        icon={ICDocumentDownload}
-        title={t('Header_homepage')}
+        href="https://twitter.com/mugambi_bruv"
+        icon={ICLinkedin}
+        title={t('Drawer_linkedIn')}
       />
       <NavLink
-        href="https://github.com/Mugambi-Ian"
         icon={ICGithub}
-        title={t('Header_github')}
+        href="https://github.com/Mugambi-Ian"
+        title={t('Drawer_github')}
       />
       <NavLink
         href="https://twitter.com/mugambi_bruv"
         icon={ICTwitter}
-        title={t('Header_twitter')}
+        title={t('Drawer_twitter')}
       />
-      <NavLink
-        href="https://twitter.com/mugambi_bruv"
-        icon={ICLinkedin}
-        title={t('Header_twitter')}
-      />
-
       <span className="relative flex justify-between">
         <button
           className="flex h-12 items-center justify-center gap-x-2 rounded-lg bg-white px-3 dark:bg-black"
@@ -88,7 +88,7 @@ export default function NavDrawer() {
         fixed={false}
         lang={lang}
         id="swicth-lang-mobile"
-        onSwitch={openModal}
+        onSwitch={switchModal}
       />
     </nav>
   );

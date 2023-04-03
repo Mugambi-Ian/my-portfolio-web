@@ -1,9 +1,12 @@
 {
   "Header_title": "<PORTFOLIO/>",
-  "Header_home": "主页",
-  "Header_resume": "简历",
-  "Header_linkedIn": "链接在",
-  "Header_twitter": "推特",
-  "Header_github": "Github",
-  "Header_homepage": "我的简历"
+  "Header_resume": "Resume",
+  "Header_home": "Home",
+
+  "Drawer_linkedIn": "Linked In",
+  "Drawer_twitter": "Twitter",
+  "Drawer_github": "Github",
+  "Drawer_homepage": "Home",
+  "Drawer_home": "Go to Homepage",
+  "Drawer_resume": "My Resume"
 }

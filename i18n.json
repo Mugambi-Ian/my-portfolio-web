@@ -4,6 +4,7 @@
   "loader": true,
   "pages": {
     "*": ["common"],
-    "/": ["home", "common"]
+    "/": ["home"],
+    "/resume": ["resume"]
   }
 }

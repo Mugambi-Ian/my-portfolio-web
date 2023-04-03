@@ -19,13 +19,13 @@ function ResumeAward({ e }: IResumeAwardProps) {
         <span className="flex-1" />
         <Link
           href={`mailto:${e.email}`}
-          className="ml-2 text-sm text-gray-500 dark:text-white"
+          className="ml-2 text-sm text-gray-600 dark:text-white"
         >
           {e.email}
         </Link>
       </div>
       <div className="mb-3 flex w-full">
-        <h6 className="text-base font-normal text-gray-500 dark:text-white lg:leading-3">
+        <h6 className="text-base font-normal text-gray-700 dark:text-white lg:leading-3">
           {e.title}
         </h6>
       </div>

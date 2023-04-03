@@ -11,6 +11,20 @@ html {
   --scroll-track: rgb(255 255 255 / 10%);
   --scroll-thumb-color: #787bc7;
 }
+
+html main * {
+  animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .dark {
   --scroll-thumb-color: #28d07e;
 }

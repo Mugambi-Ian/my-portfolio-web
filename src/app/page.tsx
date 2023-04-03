@@ -11,18 +11,13 @@ import { HomeProjects } from '@/modules/home/home_projects';
 import { HomeServices } from '@/modules/home/home_services';
 
 async function fetchData(locale: string) {
-  try {
-    const { data, error } = await apolloClient.query({
-      query: GET_HOMEPAGE_DATA,
-      variables: { locale },
-      fetchPolicy: 'no-cache',
-    });
-    const val = data as IHomepageEntity;
-    return { data: val.resume.data, error };
-  } catch (error) {
-    console.log(error);
-    return { error };
-  }
+  const { data, error } = await apolloClient.query({
+    query: GET_HOMEPAGE_DATA,
+    variables: { locale },
+    fetchPolicy: 'no-cache',
+  });
+  const val = data as IHomepageEntity;
+  return { data: val.resume.data, error };
 }
 
 export default async function HomePage() {

@@ -1,4 +1,5 @@
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
+import usePageTranslation from '@/hooks/usePageTranslation';
 import { parseDate } from '@/utils';
 
 import { DeparmentRoles } from '../home/home_experience/expirence_content';
@@ -10,9 +11,10 @@ interface IProps {
 }
 
 export function ResumeExperiences({ experience }: IProps) {
+  const { t } = usePageTranslation('resume', 'Title');
   if (experience === undefined) return <></>;
   return (
-    <ResumeField icon={ICCalendar} title="Work Experience" showMargin={true}>
+    <ResumeField icon={ICCalendar} title={t('experience')} showMargin={true}>
       {experience.map((exp) => (
         <section
           key={exp.id}

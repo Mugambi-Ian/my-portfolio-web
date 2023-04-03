@@ -1,5 +1,4 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import Link from 'next/link';
 import { Fragment } from 'react';
 
 import { useAppHeaders } from '@/hooks/useAppHeaders';
@@ -30,12 +29,12 @@ function MobileHeader() {
         id="mobile-header"
         className="sticky hidden w-full items-center border border-primary bg-primary py-3 pl-5 pr-3 dark:border-primary-dark dark:bg-black max-md:flex"
       >
-        <Link href="/" className="flex items-center gap-x-4" aria-label="home">
+        <div className="flex items-center gap-x-4" aria-label="home">
           <ICLogo className="inherit h-9 w-9 fill-white dark:fill-primary-dark" />
           <h1 className="mx-2 ml-1  flex uppercase tracking-[0.32em] text-white dark:text-primary-dark max-[420px]:text-xs ">
             {t('title')}
           </h1>
-        </Link>
+        </div>
         <span className="flex-1" />
         <span className="h-8 w-[2px] bg-white dark:bg-primary-dark" />
         <button
@@ -66,7 +65,7 @@ function DesktopHeader() {
             </h1>
           </div>
           <span className="flex-1" />
-          <NavButton hTitle={t('homepage')} rTitle={t('resume')} lang={lang} />
+          <NavButton hTitle={t('home')} rTitle={t('resume')} lang={lang} />
           <span className="h-8 w-[2px] bg-primary dark:bg-primary-dark" />
           <NavLink
             href="https://www.linkedin.com/in/ian-mugambi-65893917a/"
