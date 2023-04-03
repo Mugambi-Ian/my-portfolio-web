@@ -18,7 +18,7 @@ export const GET_RESUME = gql`
               id
               department
               project_url
-              tech_stack {
+              tech_stack(pagination: { limit: 100 }) {
                 data {
                   id
                   attributes {

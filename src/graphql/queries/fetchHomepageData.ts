@@ -17,7 +17,7 @@ export const GET_HOMEPAGE_DATA = gql`
               id
               department
               project_url
-              tech_stack {
+              tech_stack(pagination: { limit: 100 }) {
                 data {
                   id
                   attributes {

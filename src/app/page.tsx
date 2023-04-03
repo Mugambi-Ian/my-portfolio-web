@@ -38,3 +38,5 @@ export default async function HomePage() {
     </Fragment>
   );
 }
+
+export const revalidate = 120;

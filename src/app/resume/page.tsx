@@ -43,3 +43,5 @@ export default async function Resume() {
     </Fragment>
   );
 }
+
+export const revalidate = 60;
