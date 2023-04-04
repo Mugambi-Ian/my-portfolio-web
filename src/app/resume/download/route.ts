@@ -16,3 +16,5 @@ export async function GET(req: NextRequest) {
   res.headers.set('Content-Length', `${buff.byteLength}`);
   return res;
 }
+
+export const revalidate = 120;
