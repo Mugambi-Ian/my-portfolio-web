@@ -23,7 +23,7 @@ function ResumeProject({ e }: IResumeProject) {
           {e.project_url.replaceAll('https://', '')}
         </Link>
       </div>
-      <p className="mt-2 text-sm text-gray-700 dark:text-white lg:my-4">
+      <p className="my-6 text-justify leading-8 tracking-[0.03em] dark:text-white max-md:text-sm max-md:leading-6">
         {e.short_description}
       </p>
     </section>

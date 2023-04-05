@@ -29,8 +29,8 @@ export function ResumeField({ icon, title, children, showMargin }: IProps) {
           </h5>
           {showMargin && (
             <span className="relative hidden h-full w-4 flex-col items-center self-center lg:flex">
-              <span className="absolute h-3 w-3 rounded-2xl bg-primary dark:bg-primary-dark" />
               <span className="h-full w-[2px] bg-accent dark:bg-accent-dark" />
+              <span className="absolute h-3 w-3 rounded-2xl bg-primary dark:bg-primary-dark" />
             </span>
           )}
         </div>
