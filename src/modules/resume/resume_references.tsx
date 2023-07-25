@@ -12,7 +12,7 @@ interface IResumeAwardProps {
 function ResumeAward({ e }: IResumeAwardProps) {
   return (
     <Fragment>
-      <div className="mb-2 flex w-full lg:mb-1">
+      <div className="my-2 flex w-full lg:mb-1">
         <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
           {e.name}
         </h6>

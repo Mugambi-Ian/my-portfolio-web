@@ -4,10 +4,14 @@ const { UTILS_URI, PROJECT_URI } = process.env;
 export async function GET(req: NextRequest) {
   const lang = req.nextUrl.searchParams.get('lang');
   const data = await fetch(
-    `${UTILS_URI}/downloadResume?url=${PROJECT_URI}/resume/${lang}`
+    `${UTILS_URI}/downloadResume?url=${PROJECT_URI}/resume/${lang}?time=${new Date().getTime()}`,
+    {
+      cache: 'no-store',
+    }
   );
   const buff = await data.arrayBuffer();
   const res = new Response(buff);
+  res.headers.set('Cache-Control', 'no-cache');
   res.headers.set('Content-Type', 'application/pdf');
   res.headers.set(
     'Content-Disposition',
@@ -16,5 +20,3 @@ export async function GET(req: NextRequest) {
   res.headers.set('Content-Length', `${buff.byteLength}`);
   return res;
 }
-
-export const revalidate = 120;

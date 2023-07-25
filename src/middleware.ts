@@ -13,5 +13,11 @@ export function middleware(request: NextRequest) {
       new URL(req.href.replaceAll(`/${match[1]}/`, ''))
     );
   }
-  return NextResponse.next();
+  const requestHeaders = request.headers;
+  requestHeaders.set('path-name', request.url.split('?')[0]!);
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 }

@@ -26,7 +26,9 @@ export function ResumeExperiences({ experience }: IProps) {
                 {exp.title}
               </h1>
               <p className="rounded bg-[#787BC7] px-4 py-2 text-xs tracking-[0.05em] text-white dark:bg-secondary-dark max-md:self-end">
-                {`${parseDate(exp.start_date)} - ${parseDate(exp.end_date)}`}
+                {`${parseDate(exp.start_date)} - ${
+                  exp.end_date ? parseDate(exp.end_date) : 'Current'
+                }`}
               </p>
             </span>
             <span className="flex w-full items-center gap-y-2 py-1 max-md:flex-col max-md:items-start">

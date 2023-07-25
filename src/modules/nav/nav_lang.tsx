@@ -42,7 +42,7 @@ export function NavLang({ id, lang, fixed, onSwitch }: IProps) {
       className={clsx(
         'skip-blur flex flex-col gap-2 rounded-lg bg-white dark:bg-black',
         !fixed && 'relative w-full',
-        fixed && 'fixed top-[96px] right-6 z-50 w-72'
+        fixed && 'fixed right-6 top-[96px] z-50 w-72'
       )}
       id={id}
     >

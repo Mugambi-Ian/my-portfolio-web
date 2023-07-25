@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Fragment } from 'react';
 
 import { apolloClient } from '@/graphql';
@@ -16,6 +17,7 @@ async function fetchData(locale: string) {
     const { data, error } = await apolloClient.query({
       query: GET_RESUME,
       variables: { locale },
+      fetchPolicy: 'no-cache',
     });
     const val = data as IResumeEntity;
     return { data: val.resume.data, error };

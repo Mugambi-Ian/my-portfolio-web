@@ -64,7 +64,7 @@ function HomeExperienceNavDesktop({
               'w-6 flex-1',
               id !== current && 'py-5',
               id === current &&
-                'mt-1 mb-2 rounded-2xl bg-solid dark:bg-solid-dark'
+                'mb-2 mt-1 rounded-2xl bg-solid dark:bg-solid-dark'
             )}
           />
         ))}

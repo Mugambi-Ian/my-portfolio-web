@@ -17,7 +17,7 @@ export function HomeExperience({ experience }: IProps) {
   return (
     <HomeSection
       id="exp"
-      className="relative flex gap-y-20 px-12 py-[120px] max-md:gap-y-8  max-md:py-9 max-md:px-3"
+      className="relative flex gap-y-20 px-12 py-[120px] max-md:gap-y-8  max-md:px-3 max-md:py-9"
       background={
         <span className="absolute h-full w-screen bg-secondary dark:bg-secondary-dark" />
       }

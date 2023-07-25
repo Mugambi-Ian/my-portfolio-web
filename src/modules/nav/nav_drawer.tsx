@@ -56,19 +56,22 @@ export default function NavDrawer() {
         />
       )}
       <NavLink
-        href="https://twitter.com/mugambi_bruv"
+        newTab={true}
         icon={ICLinkedin}
         title={t('Drawer_linkedIn')}
-      />
-      <NavLink
-        icon={ICGithub}
-        href="https://github.com/Mugambi-Ian"
-        title={t('Drawer_github')}
-      />
-      <NavLink
         href="https://twitter.com/mugambi_bruv"
+      />
+      <NavLink
+        newTab={true}
+        icon={ICGithub}
+        title={t('Drawer_github')}
+        href="https://github.com/Mugambi-Ian"
+      />
+      <NavLink
+        newTab={true}
         icon={ICTwitter}
         title={t('Drawer_twitter')}
+        href="https://twitter.com/mugambi_bruv"
       />
       <span className="relative flex justify-between">
         <button

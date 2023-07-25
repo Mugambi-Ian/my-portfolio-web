@@ -81,7 +81,7 @@ function Platforms() {
 export function HomeHeader() {
   return (
     <HomeSection id="header" className="" background={<HeaderBG />}>
-      <section className="z-10 flex w-full items-center py-10 px-9 max-sm:flex-col max-sm:gap-y-6 max-sm:p-6">
+      <section className="z-10 flex w-full items-center px-9 py-10 max-sm:flex-col max-sm:gap-y-6 max-sm:p-6">
         <HomeTitle />
         <span className="flex-1" />
         <Platforms />

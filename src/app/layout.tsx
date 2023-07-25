@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { lang: string };
 }) {
-  const { darkMode, hideHeader } = useAppHeaders();
+  const { darkMode, pathName, hideHeader } = useAppHeaders();
   const { lang } = usePageTranslation('common', 'Header');
 
   return (
@@ -25,7 +25,7 @@ export default function RootLayout({
       className={darkMode === null || darkMode !== 'false' ? ' dark' : ''}
     >
       <body className="relative flex h-screen w-screen flex-col antialiased dark:bg-black">
-        <Header />
+        <Header pathname={`${pathName}`} />
         <main
           className={clsx(
             'flex w-full flex-col overflow-x-clip',

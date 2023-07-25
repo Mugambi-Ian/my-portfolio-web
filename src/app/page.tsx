@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Fragment } from 'react';
 
 import { apolloClient } from '@/graphql';
@@ -39,4 +40,4 @@ export default async function HomePage() {
   );
 }
 
-export const revalidate = 120;
+export const revalidate = 60;

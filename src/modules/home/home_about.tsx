@@ -8,7 +8,7 @@ export function HomeAbout() {
   return (
     <HomeSection
       id="about"
-      className="flex gap-y-2.5 px-9 py-[120px] max-md:py-9 max-md:px-2"
+      className="flex gap-y-2.5 px-9 py-[120px] max-md:px-2 max-md:py-9"
     >
       <HomeTitle title={t('title')} number={t('number')} />
       <div className="flex w-full gap-x-10 px-4">

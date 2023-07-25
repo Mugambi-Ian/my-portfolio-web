@@ -47,7 +47,7 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
           <div
             className={clsx(
               'mx-2 flex flex-col gap-y-4 rounded-xl ',
-              !hideBG && 'bg-secondary py-5 px-3 dark:bg-secondary-dark'
+              !hideBG && 'bg-secondary px-3 py-5 dark:bg-secondary-dark'
             )}
           >
             <p className="text-sm font-medium uppercase tracking-[0.1em] dark:text-white">
@@ -77,14 +77,16 @@ interface IProps {
 export function HomeExperienceContent({ exp }: IProps) {
   if (exp === undefined) return <></>;
   return (
-    <section className="flex w-full flex-col gap-y-9 rounded-[16px] bg-white/30 px-[30px] pt-9 pb-12 dark:bg-accent-dark max-md:gap-y-5 max-md:p-6">
+    <section className="flex w-full flex-col gap-y-9 rounded-[16px] bg-white/30 px-[30px] pb-12 pt-9 dark:bg-accent-dark max-md:gap-y-5 max-md:p-6">
       <div className="flex w-full flex-col">
         <span className="flex w-full items-center gap-y-6 py-1 max-md:flex-col-reverse max-md:items-start">
           <h1 className="flex-1 font-bold uppercase tracking-[0.25em] text-black dark:text-white">
             {exp.title}
           </h1>
           <p className="rounded bg-[#787BC7] px-4 py-2 text-xs tracking-[0.05em] text-white dark:bg-secondary-dark max-md:self-end">
-            {`${parseDate(exp.start_date)} - ${parseDate(exp.end_date)}`}
+            {`${parseDate(exp.start_date)} - ${
+              exp.end_date ? parseDate(exp.end_date) : 'Current'
+            }`}
           </p>
         </span>
         <span className="flex w-full items-center gap-y-2 py-1 max-md:flex-col max-md:items-start">

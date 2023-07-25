@@ -16,7 +16,8 @@ export function ResumeYears({ experience }: IProps) {
   const totalExperience = experience.reduce(
     (c, n) =>
       c +
-      (new Date(n?.end_date!).getTime() - new Date(n?.start_date!).getTime()),
+      (new Date(n?.end_date || new Date().getTime()).getTime() -
+        new Date(n?.start_date!).getTime()),
     0
   );
 

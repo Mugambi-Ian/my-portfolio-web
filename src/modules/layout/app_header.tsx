@@ -7,14 +7,15 @@ import { ICDown } from '@/modules/icons';
 import {
   ICDrawer,
   ICGithub,
+  ICHome,
   ICLinkedin,
   ICLogo,
   ICMoon,
+  ICResume,
   ICSun,
   ICTranslate,
   ICTwitter,
 } from '@/modules/icons/header';
-import NavButton from '@/modules/nav/nav_button';
 import { NavLink } from '@/modules/nav/nav_link';
 import NavTheme from '@/modules/nav/nav_theme';
 import { clientComponent } from '@/utils';
@@ -49,7 +50,7 @@ function MobileHeader() {
     </Fragment>
   );
 }
-function DesktopHeader() {
+function DesktopHeader({ pathname }: { pathname: string }) {
   const { t, lang } = usePageTranslation('common', 'Header');
   return (
     <Fragment>
@@ -65,7 +66,15 @@ function DesktopHeader() {
             </h1>
           </div>
           <span className="flex-1" />
-          <NavButton hTitle={t('home')} rTitle={t('resume')} lang={lang} />
+          {pathname.includes('resume') ? (
+            <NavLink icon={ICHome} title={t('home')} href={`/?lang=${lang}`} />
+          ) : (
+            <NavLink
+              icon={ICResume}
+              title={t('resume')}
+              href={`/resume/?lang=${lang}`}
+            />
+          )}
           <span className="h-8 w-[2px] bg-primary dark:bg-primary-dark" />
           <NavLink
             href="https://www.linkedin.com/in/ian-mugambi-65893917a/"
@@ -108,14 +117,14 @@ function DesktopHeader() {
   );
 }
 
-export function Header() {
+export function Header({ pathname }: { pathname: string }) {
   const { hideHeader } = useAppHeaders();
   return (
     <Fragment>
       {!hideHeader && (
         <Fragment>
           <MobileHeader />
-          <DesktopHeader />
+          <DesktopHeader pathname={pathname} />
         </Fragment>
       )}
     </Fragment>
