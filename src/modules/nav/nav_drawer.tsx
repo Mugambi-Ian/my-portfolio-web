@@ -5,7 +5,6 @@ import useTranslation from 'next-translate/useTranslation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { NavLink } from '@/modules/nav/nav_link';
-import { clientComponent } from '@/utils';
 
 import { ICDown } from '../icons';
 import {
@@ -18,9 +17,9 @@ import {
   ICTranslate,
   ICTwitter,
 } from '../icons/header';
+import { NavLang } from './nav_lang';
+import NavTheme from './nav_theme';
 
-const NavLang = clientComponent(() => import('@/modules/nav/nav_lang'));
-const NavTheme = clientComponent(() => import('@/modules/nav/nav_theme'));
 export default function NavDrawer() {
   const [showDrawer, drawerPopup] = useState(false);
   const { t, lang } = useTranslation('common');

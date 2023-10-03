@@ -1,27 +1,29 @@
 export interface IResumeEntity {
   resume: {
     data: {
-      attributes: {
-        workExperience?: IWorkExperienceEntity[];
-        references?: IReferencesEntity[];
-        projects?: IProjectsEntity[];
-        awards?: IAwardsEntity[];
-      };
+      attributes: IResumeAttributesEntity;
     };
   };
+}
+
+export interface IResumeAttributesEntity {
+  workExperience?: IWorkExperienceEntity[];
+  references?: IReferencesEntity[];
+  projects?: IProjectsEntity[];
+  awards?: IAwardsEntity[];
 }
 
 export interface IHomepageEntity {
   resume: {
     data: {
-      attributes: {
-        workExperience?: IWorkExperienceEntity[];
-        projects?: IProjectsEntity[];
-      };
+      attributes: IHomepageAttributesEntity;
     };
   };
 }
-
+export interface IHomepageAttributesEntity {
+  workExperience?: IWorkExperienceEntity[];
+  projects?: IProjectsEntity[];
+}
 export interface IWorkExperienceEntity {
   id: string;
   title: string;
@@ -71,9 +73,9 @@ export interface IProjectsEntity {
   short_description: string;
   long_description: string;
   project_url: string;
-  project_cover: {
-    data: {
-      attributes: {
+  project_cover?: {
+    data?: {
+      attributes?: {
         url: string;
       };
     };

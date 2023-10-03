@@ -1,6 +1,6 @@
-import type { ISVGProps } from '@/utils';
+import type { AppSvgProps } from '@/utils';
 
-export function ICAward(p: ISVGProps) {
+export function ICAward(p: AppSvgProps) {
   return (
     <svg
       width="513"
@@ -34,7 +34,7 @@ export function ICAward(p: ISVGProps) {
   );
 }
 
-export function ICBriefCase(p: ISVGProps) {
+export function ICBriefCase(p: AppSvgProps) {
   return (
     <svg
       width="513"
@@ -64,7 +64,7 @@ export function ICBriefCase(p: ISVGProps) {
   );
 }
 
-export function ICCalendar(p: ISVGProps) {
+export function ICCalendar(p: AppSvgProps) {
   return (
     <svg
       width="513"
@@ -98,7 +98,7 @@ export function ICCalendar(p: ISVGProps) {
   );
 }
 
-export function ICRocket(p: ISVGProps) {
+export function ICRocket(p: AppSvgProps) {
   return (
     <svg
       width="513"
@@ -132,7 +132,7 @@ export function ICRocket(p: ISVGProps) {
   );
 }
 
-export function ICReferences(p: ISVGProps) {
+export function ICReferences(p: AppSvgProps) {
   return (
     <svg
       width="513"

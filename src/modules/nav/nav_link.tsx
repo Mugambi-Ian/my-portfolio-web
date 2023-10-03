@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 
-import type { ISVGProps } from '@/utils';
+import type { AppSvgProps } from '@/utils';
 import { withHtmlProps } from '@/utils';
 
 interface INavLinkProps {
@@ -19,7 +19,7 @@ export function NavLink({
   onPress,
   newTab,
 }: INavLinkProps) {
-  function NavIcon(props: ISVGProps) {
+  function NavIcon(props: AppSvgProps) {
     return withHtmlProps(icon, props);
   }
   return (

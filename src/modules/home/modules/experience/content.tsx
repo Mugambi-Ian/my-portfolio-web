@@ -18,27 +18,24 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
   return (
     <>
       {roles.map((r) => (
-        <section
-          className="flex flex-col gap-2.5 pb-4 max-md:gap-1.5"
-          key={`role${r.id}`}
-        >
+        <section className="flex flex-col gap-1 pb-4" key={`role${r.id}`}>
           <div className="flex items-center gap-2 px-2 max-md:px-0">
-            <h2 className="font-bold uppercase tracking-[0.1em] dark:text-white">
+            <h2 className="flex-1 font-bold uppercase tracking-[0.1em] dark:text-white">
               {r.department}
             </h2>
             <Link
               href={r.project_url}
-              className="flex items-center gap-2.5 tracking-[0.1em] text-primary dark:text-primary-dark max-md:text-xs"
+              className="flex items-center gap-2.5 text-sm tracking-[0.1em] text-primary dark:text-primary-dark max-md:text-xs"
             >
               {r.project_url}
               <ICLink className="inherit fill-primary dark:fill-primary-dark" />
             </Link>
           </div>
-          <ul className="flex list-disc flex-col p-4 max-md:ml-4 max-md:mt-2 max-md:p-0">
+          <ul className="mx-4 my-1 flex list-disc flex-col">
             {r.deparment_roles.data?.map((rd) => (
               <li
                 key={`rd${rd.id}`}
-                className="mx-4 mb-2 leading-[180%] tracking-[0.1em] dark:text-white max-md:mx-2 max-md:text-sm max-md:leading-6"
+                className="mx-4 mb-1 text-sm leading-6 tracking-[0.02em] dark:text-white"
               >
                 {rd.attributes.role}
               </li>
@@ -46,18 +43,18 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
           </ul>
           <div
             className={clsx(
-              'mx-2 flex flex-col gap-y-4 rounded-xl ',
+              'mx-2 mt-3 flex flex-col gap-y-1 rounded-xl',
               !hideBG && 'bg-secondary px-3 py-5 dark:bg-secondary-dark'
             )}
           >
-            <p className="text-sm font-medium uppercase tracking-[0.1em] dark:text-white">
+            <p className="text-sm font-medium uppercase dark:text-white">
               Tech Stack
             </p>
             <span className="my-2 flex flex-wrap gap-2">
               {r.tech_stack.data?.map((t) => (
                 <p
                   key={`tech_${t.id}`}
-                  className="rounded-md  bg-[#787BC7] p-1.5 capitalize tracking-[0.2em] text-white dark:bg-solid-dark max-md:text-sm  max-md:tracking-[0.1em] "
+                  className="rounded-md  bg-[#787BC7] p-1 text-xs capitalize tracking-[0.1em] text-white dark:bg-solid-dark "
                 >
                   {t.attributes.techStack}
                 </p>

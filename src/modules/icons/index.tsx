@@ -1,6 +1,6 @@
-import type { ISVGProps } from '@/utils';
+import type { AppSvgProps } from '@/utils';
 
-export function ICDown(props: ISVGProps) {
+export function ICDown(props: AppSvgProps) {
   return (
     <svg
       width="15"
@@ -18,7 +18,7 @@ export function ICDown(props: ISVGProps) {
   );
 }
 
-export function ICLink(props: ISVGProps) {
+export function ICLink(props: AppSvgProps) {
   return (
     <svg
       width="12"
@@ -36,7 +36,7 @@ export function ICLink(props: ISVGProps) {
   );
 }
 
-export function ICDocumentDownload(props: ISVGProps) {
+export function ICDocumentDownload(props: AppSvgProps) {
   return (
     <svg
       width="24"
@@ -70,7 +70,7 @@ export function ICDocumentDownload(props: ISVGProps) {
   );
 }
 
-export function ICRepo(p: ISVGProps) {
+export function ICRepo(p: AppSvgProps) {
   return (
     <svg
       width="16"
@@ -88,7 +88,7 @@ export function ICRepo(p: ISVGProps) {
   );
 }
 
-export function ICFigma(p: ISVGProps) {
+export function ICFigma(p: AppSvgProps) {
   return (
     <svg
       width="16"
@@ -132,7 +132,7 @@ export function ICFigma(p: ISVGProps) {
   );
 }
 
-export function ICWebLink(p: ISVGProps) {
+export function ICWebLink(p: AppSvgProps) {
   return (
     <svg
       width="513"

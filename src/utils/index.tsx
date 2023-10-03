@@ -40,7 +40,7 @@ export function clientComponent<T>(path: DynamicOptions<T> | Loader<T>) {
   return dynamic(path, { ssr: false });
 }
 
-export type ISVGProps = HtmlHTMLAttributes<HTMLOrSVGElement>;
+export type AppSvgProps = HtmlHTMLAttributes<HTMLOrSVGElement>;
 export interface IDyanmicI18n {
   t: (x: string) => string;
 }

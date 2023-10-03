@@ -5,7 +5,8 @@ import type { Metadata } from 'next';
 
 import { useAppHeaders } from '@/hooks/useAppHeaders';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { Header } from '@/modules/layout/app_header';
+import { Header } from '@/modules/layout/page';
+import { AppNotification } from '@/modules/notification/page';
 
 import { gordita } from './fonts';
 
@@ -35,6 +36,7 @@ export default function RootLayout({
         >
           {children}
         </main>
+        <AppNotification />
       </body>
     </html>
   );

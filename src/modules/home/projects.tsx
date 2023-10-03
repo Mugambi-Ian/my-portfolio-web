@@ -6,8 +6,8 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 
 import { ICFigma, ICLink, ICRepo } from '../icons';
 import { ICWeb } from '../icons/platform';
-import HomeSection from './hoc/hoc_section';
-import { HomeTitle } from './home_title';
+import { HomeSection } from '../shared/section';
+import { HomeTitle } from './title';
 
 function ProjectCard({ p }: { p: IProjectsEntity }) {
   return (
@@ -66,7 +66,7 @@ function ProjectCard({ p }: { p: IProjectsEntity }) {
           </div>
           <span className="relative mt-4 flex w-3/5 self-center max-md:w-11/12">
             <Image
-              src={p.project_cover.data.attributes.url}
+              src={p.project_cover?.data?.attributes?.url || ''}
               alt={p.title}
               width={575}
               height={420}
@@ -88,11 +88,8 @@ export function HomeProjects({ projects }: IProps) {
   const { t } = usePageTranslation('home', 'Projects');
   return (
     <HomeSection
-      id="projects"
+      parentClass="sticky bg-white dark:bg-black top-0"
       className="relative flex gap-y-4 px-12 py-[120px] max-md:gap-y-8  max-md:px-3 max-md:py-9"
-      background={
-        <span className="absolute h-full w-screen bg-[#464FA3] dark:bg-accent-dark/50" />
-      }
     >
       <HomeTitle white={true} title={t('title')} number={t('number')} />
       <ul className="flex w-full flex-col">

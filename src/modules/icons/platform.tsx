@@ -1,6 +1,6 @@
-import type { ISVGProps } from '@/utils';
+import type { AppSvgProps } from '@/utils';
 
-export function ICWeb(p: ISVGProps) {
+export function ICWeb(p: AppSvgProps) {
   return (
     <svg
       width="20"
@@ -37,7 +37,7 @@ export function ICWeb(p: ISVGProps) {
     </svg>
   );
 }
-export function ICAndroid(p: ISVGProps) {
+export function ICAndroid(p: AppSvgProps) {
   return (
     <svg
       width="20"
@@ -74,7 +74,7 @@ export function ICAndroid(p: ISVGProps) {
     </svg>
   );
 }
-export function ICIPhone(p: ISVGProps) {
+export function ICIPhone(p: AppSvgProps) {
   return (
     <svg
       width="22"
@@ -107,7 +107,7 @@ export function ICIPhone(p: ISVGProps) {
     </svg>
   );
 }
-export function ICMacbook(p: ISVGProps) {
+export function ICMacbook(p: AppSvgProps) {
   return (
     <svg
       width="16"
@@ -136,7 +136,7 @@ export function ICMacbook(p: ISVGProps) {
     </svg>
   );
 }
-export function ICWindows(p: ISVGProps) {
+export function ICWindows(p: AppSvgProps) {
   return (
     <svg
       width="20"
@@ -165,7 +165,7 @@ export function ICWindows(p: ISVGProps) {
     </svg>
   );
 }
-export function ICLinux(p: ISVGProps) {
+export function ICLinux(p: AppSvgProps) {
   return (
     <svg
       fill="none"

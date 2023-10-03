@@ -1,23 +1,23 @@
-'use client';
-
 import clsx from 'clsx';
-import { useState } from 'react';
 
 interface IProps {
-  onChange?: (x: boolean) => void;
-  defaultVal?: boolean;
+  id: string;
+  value: boolean;
+  disabled?: boolean;
+  onChange: (x: boolean) => void;
 }
 
-export function Switch({ onChange, defaultVal }: IProps) {
-  const [active, setActive] = useState(defaultVal);
-
+export function Switch({ id, value, onChange, disabled }: IProps) {
   return (
-    <button
-      className={clsx('switch', active && 'active')}
-      onClick={() => {
-        setActive(!active);
-        if (onChange) onChange(!!active);
-      }}
-    />
+    <>
+      <span title={id} />
+      <button
+        disabled={disabled}
+        className={clsx('switch', value && 'active')}
+        onClick={() => {
+          onChange(!value);
+        }}
+      />
+    </>
   );
 }

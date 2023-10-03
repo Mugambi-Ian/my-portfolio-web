@@ -5,7 +5,7 @@ import { Fragment, useState } from 'react';
 
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
 
-import { HomeExperienceContent } from './expirence_content';
+import { HomeExperienceContent } from './content';
 
 interface IHomeExperienceNavProps {
   current: number;

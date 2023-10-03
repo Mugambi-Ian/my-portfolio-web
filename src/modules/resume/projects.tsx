@@ -4,14 +4,14 @@ import type { IProjectsEntity } from '@/graphql/models/resume';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
 import { ICRocket } from '../icons/resume';
-import { ResumeField } from './hoc/hoc_field';
+import { ResumeField } from '../shared/section';
 
 interface IResumeProject {
   e: IProjectsEntity;
 }
 function ResumeProject({ e }: IResumeProject) {
   return (
-    <section className="mb-4 flex flex-col">
+    <section className="mb-3 flex flex-col">
       <div className=" flex items-center max-sm:flex-col max-sm:items-start">
         <h6 className="flex-1 text-lg font-semibold text-gray-700 dark:text-white lg:leading-5">
           {e.title}
@@ -23,7 +23,7 @@ function ResumeProject({ e }: IResumeProject) {
           {e.project_url.replaceAll('https://', '')}
         </Link>
       </div>
-      <p className="my-6 text-justify leading-8 tracking-[0.03em] dark:text-white max-md:text-sm max-md:leading-6">
+      <p className="my-2 text-sm leading-6 tracking-[0.02em] dark:text-white">
         {e.short_description}
       </p>
     </section>
@@ -37,7 +37,7 @@ export function ResumeProjects({ projects }: IProps) {
   const { t } = usePageTranslation('resume', 'Title');
   if (projects === undefined) return <></>;
   return (
-    <ResumeField icon={ICRocket} title={t('projects')} showMargin={true}>
+    <ResumeField Icon={ICRocket} title={t('projects')} showMargin={true}>
       {projects.map((e) => (
         <ResumeProject key={e.id} e={e!} />
       ))}

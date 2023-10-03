@@ -1,6 +1,6 @@
-import type { ISVGProps } from '@/utils';
+import type { AppSvgProps } from '@/utils';
 
-export function ICArchitecture(p: ISVGProps) {
+export function ICArchitecture(p: AppSvgProps) {
   return (
     <svg
       width="121"
@@ -34,7 +34,7 @@ export function ICArchitecture(p: ISVGProps) {
   );
 }
 
-export function ICEngineer(p: ISVGProps) {
+export function ICEngineer(p: AppSvgProps) {
   return (
     <svg
       {...p}
@@ -64,7 +64,7 @@ export function ICEngineer(p: ISVGProps) {
   );
 }
 
-export function ICDesigner(p: ISVGProps) {
+export function ICDesigner(p: AppSvgProps) {
   return (
     <svg
       {...p}

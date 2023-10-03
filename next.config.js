@@ -10,9 +10,6 @@ module.exports = withBundleAnalyzer({
     webpack: (config) => {
       return config;
     },
-    experimental: {
-      appDir: true,
-    },
 
     eslint: {
       dirs: ['.'],

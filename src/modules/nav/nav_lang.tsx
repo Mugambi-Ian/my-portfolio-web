@@ -77,4 +77,3 @@ export function NavLang({ id, lang, fixed, onSwitch }: IProps) {
     </nav>
   );
 }
-export default NavLang;

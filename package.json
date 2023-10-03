@@ -28,7 +28,7 @@
     "encoding": "^0.1.13",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
-    "next": "^13.2.4",
+    "next": "^13.5.4-canary.1",
     "next-seo": "^5.15.0",
     "next-sitemap": "^3.1.45",
     "next-translate": "^2.0.3",

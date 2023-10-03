@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import type { IReferencesEntity } from '@/graphql/models/resume';
 
 import { ICReferences } from '../icons/resume';
-import { ResumeField } from './hoc/hoc_field';
+import { ResumeField } from '../shared/section';
 
 interface IResumeAwardProps {
   e: IReferencesEntity;
@@ -38,7 +38,7 @@ interface IProps {
 export function ResumeReferences({ references }: IProps) {
   if (references === undefined) return <></>;
   return (
-    <ResumeField icon={ICReferences} title="References" showMargin={true}>
+    <ResumeField Icon={ICReferences} title="References" showMargin={true}>
       {references.map((e) => (
         <ResumeAward key={e.id} e={e!} />
       ))}

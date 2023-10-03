@@ -5,7 +5,7 @@ import type { IAwardsEntity } from '@/graphql/models/resume';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
 import { ICAward } from '../icons/resume';
-import { ResumeField } from './hoc/hoc_field';
+import { ResumeField } from '../shared/section';
 
 interface IResumeAward {
   e: IAwardsEntity;
@@ -20,7 +20,7 @@ const ResumeAward: FC<IResumeAward> = ({ e }) => {
 
   return (
     <Fragment>
-      <div className="mb-2 flex w-full lg:mb-1 lg:leading-7">
+      <div className="mb-2 flex w-full leading-6">
         <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
           {e.title}
         </h6>
@@ -34,7 +34,7 @@ const ResumeAward: FC<IResumeAward> = ({ e }) => {
           {e.award}
         </h6>
       </div>
-      <p className="my-6 text-justify leading-8 tracking-[0.03em] dark:text-white max-md:text-sm max-md:leading-6">
+      <p className="mt-4 text-justify text-sm leading-7 tracking-[0.02em] dark:text-white max-md:leading-6">
         {e.description}
       </p>
     </Fragment>
@@ -48,7 +48,7 @@ export function ResumeAwards({ awards }: IProps) {
   const { t } = usePageTranslation('resume', 'Title');
   if (awards === undefined) return <></>;
   return (
-    <ResumeField icon={ICAward} title={t('awards')} showMargin={true}>
+    <ResumeField Icon={ICAward} title={t('awards')} showMargin={true}>
       {awards.map((e) => (
         <ResumeAward key={e.id} e={e!} />
       ))}

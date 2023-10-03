@@ -1,38 +1,43 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { Fragment } from 'react';
 
-import { apolloClient } from '@/graphql';
-import type { IResumeEntity } from '@/graphql/models/resume';
+import { apollo_server } from '@/graphql';
+import type {
+  IResumeAttributesEntity,
+  IResumeEntity,
+} from '@/graphql/models/resume';
 import { GET_RESUME } from '@/graphql/queries/fetchResume';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { ResumeAwards } from '@/modules/resume/resume_awards';
-import { ResumeExperiences } from '@/modules/resume/resume_experience';
-import { ResumeHeader } from '@/modules/resume/resume_header';
-import { ResumeProjects } from '@/modules/resume/resume_project';
-import { ResumeReferences } from '@/modules/resume/resume_references';
-import { ResumeYears } from '@/modules/resume/resume_years';
+import { ResumeAwards } from '@/modules/resume/awards';
+import { ResumeExperiences } from '@/modules/resume/experience';
+import { ResumeHeader } from '@/modules/resume/header';
+import { ResumeProjects } from '@/modules/resume/projects';
+import { ResumeReferences } from '@/modules/resume/references';
+import { ResumeYears } from '@/modules/resume/years';
 
 async function fetchData(locale: string) {
+  let error: unknown | undefined;
+  let data: IResumeAttributesEntity | undefined;
   try {
-    const { data, error } = await apolloClient.query({
-      query: GET_RESUME,
-      variables: { locale },
-      fetchPolicy: 'no-cache',
-    });
-    const val = data as IResumeEntity;
-    return { data: val.resume.data, error };
-  } catch (error) {
-    return { error };
+    const res = await apollo_server<IResumeEntity>(GET_RESUME, locale);
+    data = res.data?.resume.data.attributes;
+    error = res.error;
+  } catch (err) {
+    error = err;
   }
+  return { data, error };
 }
 
 export default async function Resume() {
   const { lang } = usePageTranslation('common', 'Header');
-  const { data, error } = await fetchData(lang);
+  const { data: attributes, error } = await fetchData(lang);
 
-  if (error) return <span>{JSON.stringify([error])}</span>;
-
-  const attributes = data && data.attributes;
+  if (error)
+    return (
+      <span className="my-12 flex max-w-5xl px-3 text-center text-3xl font-black tracking-wide dark:text-white">
+        <p className="w-full">{JSON.stringify(error)}</p>
+      </span>
+    );
 
   return (
     <Fragment>
@@ -46,4 +51,4 @@ export default async function Resume() {
   );
 }
 
-export const revalidate = 60;
+export const revalidate = 5000;

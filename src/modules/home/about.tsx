@@ -1,13 +1,13 @@
 import usePageTranslation from '@/hooks/usePageTranslation';
 
-import HomeSection from './hoc/hoc_section';
-import { HomeTitle } from './home_title';
+import { HomeSection } from '../shared/section';
+import { HomeTitle } from './title';
 
 export function HomeAbout() {
   const { t } = usePageTranslation('home', 'About');
   return (
     <HomeSection
-      id="about"
+      parentClass="bg-white dark:bg-black sticky -top-24"
       className="flex gap-y-2.5 px-9 py-[120px] max-md:px-2 max-md:py-9"
     >
       <HomeTitle title={t('title')} number={t('number')} />

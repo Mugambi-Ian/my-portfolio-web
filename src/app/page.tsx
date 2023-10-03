@@ -1,33 +1,42 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { Fragment } from 'react';
 
-import { apolloClient } from '@/graphql';
-import type { IHomepageEntity } from '@/graphql/models/resume';
+import { apollo_server } from '@/graphql';
+import type {
+  IHomepageAttributesEntity,
+  IHomepageEntity,
+} from '@/graphql/models/resume';
 import { GET_HOMEPAGE_DATA } from '@/graphql/queries/fetchHomepageData';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { HomeAbout } from '@/modules/home/home_about';
-import { HomeExperience } from '@/modules/home/home_experience';
-import { HomeHeader } from '@/modules/home/home_header';
-import { HomeProjects } from '@/modules/home/home_projects';
-import { HomeServices } from '@/modules/home/home_services';
+import { HomeAbout } from '@/modules/home/about';
+import { HomeHeader } from '@/modules/home/header';
+import { HomeExperience } from '@/modules/home/modules/experience/page';
+import { HomeProjects } from '@/modules/home/projects';
+import { HomeServices } from '@/modules/home/services';
 
 async function fetchData(locale: string) {
-  const { data, error } = await apolloClient.query({
-    query: GET_HOMEPAGE_DATA,
-    variables: { locale },
-    fetchPolicy: 'no-cache',
-  });
-  const val = data as IHomepageEntity;
-  return { data: val.resume.data, error };
+  let error: unknown | undefined;
+  let data: IHomepageAttributesEntity | undefined;
+  try {
+    const res = await apollo_server<IHomepageEntity>(GET_HOMEPAGE_DATA, locale);
+    data = res.data?.resume.data.attributes;
+    error = res.error;
+  } catch (err) {
+    error = err;
+  }
+  return { data, error };
 }
 
-export default async function HomePage() {
+export default async function Page() {
   const { lang } = usePageTranslation('common', 'Header');
-  const { data, error } = await fetchData(lang);
+  const { data: attributes, error } = await fetchData(lang);
 
-  if (error) return <span>{JSON.stringify([error])}</span>;
-
-  const attributes = data && data.attributes;
+  if (error)
+    return (
+      <span className="my-12 flex max-w-5xl px-3 text-center text-3xl font-black tracking-wide dark:text-white">
+        <p className="w-full">{JSON.stringify(error)}</p>
+      </span>
+    );
 
   return (
     <Fragment>

@@ -1,10 +1,10 @@
-import type { ISVGProps } from '@/utils';
+import type { AppSvgProps } from '@/utils';
 
-export function ICLogo(props: ISVGProps) {
+export function ICLogo(props: AppSvgProps) {
   return (
     <svg
-      width="100%"
-      height="100%"
+      width="36px"
+      height="36px"
       viewBox="0 0 60 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ export function ICLogo(props: ISVGProps) {
     </svg>
   );
 }
-export function ICResume(props: ISVGProps) {
+export function ICResume(props: AppSvgProps) {
   return (
     <svg
       width="21"
@@ -46,7 +46,7 @@ export function ICResume(props: ISVGProps) {
     </svg>
   );
 }
-export function ICLinkedin(props: ISVGProps) {
+export function ICLinkedin(props: AppSvgProps) {
   return (
     <svg
       width="24"
@@ -64,7 +64,7 @@ export function ICLinkedin(props: ISVGProps) {
   );
 }
 
-export function ICGithub(props: ISVGProps) {
+export function ICGithub(props: AppSvgProps) {
   return (
     <svg
       width="21"
@@ -82,7 +82,7 @@ export function ICGithub(props: ISVGProps) {
   );
 }
 
-export function ICTwitter(props: ISVGProps) {
+export function ICTwitter(props: AppSvgProps) {
   return (
     <svg
       width="25"
@@ -112,7 +112,7 @@ export function ICTwitter(props: ISVGProps) {
   );
 }
 
-export function ICTranslate(props: ISVGProps) {
+export function ICTranslate(props: AppSvgProps) {
   return (
     <svg
       width="25"
@@ -134,7 +134,7 @@ export function ICTranslate(props: ISVGProps) {
   );
 }
 
-export function ICMoon(props: ISVGProps) {
+export function ICMoon(props: AppSvgProps) {
   return (
     <svg
       width="24"
@@ -191,7 +191,7 @@ export function ICMoon(props: ISVGProps) {
   );
 }
 
-export function ICSun(props: ISVGProps) {
+export function ICSun(props: AppSvgProps) {
   return (
     <svg
       width="24"
@@ -224,7 +224,7 @@ export function ICSun(props: ISVGProps) {
   );
 }
 
-export function ICDrawer(props: ISVGProps) {
+export function ICDrawer(props: AppSvgProps) {
   return (
     <svg
       width="22"
@@ -242,7 +242,7 @@ export function ICDrawer(props: ISVGProps) {
   );
 }
 
-export function ICHome(p: ISVGProps) {
+export function ICHome(p: AppSvgProps) {
   return (
     <svg
       width="513"

@@ -3,10 +3,10 @@ import Link from 'next/link';
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { ICDocumentDownload } from '@/modules/icons';
+import { HomeSection } from '@/modules/shared/section';
 
-import HomeSection from '../hoc/hoc_section';
-import { HomeTitle } from '../home_title';
-import { HomeExperienceContext } from './experience_nav';
+import { HomeTitle } from '../../title';
+import { HomeExperienceContext } from './nav';
 
 interface IProps {
   experience?: IWorkExperienceEntity[];
@@ -17,10 +17,8 @@ export function HomeExperience({ experience }: IProps) {
   return (
     <HomeSection
       id="exp"
+      parentClass="bg-secondary dark:bg-secondary-dark sticky -top-24"
       className="relative flex gap-y-20 px-12 py-[120px] max-md:gap-y-8  max-md:px-3 max-md:py-9"
-      background={
-        <span className="absolute h-full w-screen bg-secondary dark:bg-secondary-dark" />
-      }
     >
       <span className="flex w-full items-center gap-y-8 max-md:flex-col-reverse max-md:items-start">
         <HomeTitle title={t('title')} number={t('number')} />

@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/naming-convention */
+import type { DocumentNode } from '@apollo/client';
 import {
   ApolloClient,
   ApolloLink,
@@ -31,10 +34,25 @@ function createApolloClient() {
         fetchPolicy: 'no-cache',
       },
       query: {
-        fetchPolicy: 'network-only',
+        fetchPolicy: 'no-cache',
+        errorPolicy: 'all',
       },
     },
   });
 }
 
 export const apolloClient = createApolloClient();
+
+export const apollo_server = async <T>(query: DocumentNode, locale: string) => {
+  try {
+    const { data, error } = await apolloClient.query({
+      query,
+      variables: { locale, time: new Date().getTime() },
+    });
+    console.log(data, error);
+
+    return { data: data as T, error };
+  } catch (error) {
+    return { error };
+  }
+};

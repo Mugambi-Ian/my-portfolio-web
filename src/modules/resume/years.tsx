@@ -3,7 +3,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { getDuration } from '@/utils';
 
 import { ICBriefCase } from '../icons/resume';
-import { ResumeField } from './hoc/hoc_field';
+import { ResumeField } from '../shared/section';
 
 interface IProps {
   experience?: IWorkExperienceEntity[];
@@ -22,7 +22,7 @@ export function ResumeYears({ experience }: IProps) {
   );
 
   return (
-    <ResumeField title={t('years')} icon={ICBriefCase}>
+    <ResumeField title={t('years')} Icon={ICBriefCase}>
       <p className="justify-center text-sm text-gray-700 dark:text-white">
         {getDuration(totalExperience)}
       </p>

@@ -2,9 +2,9 @@ import type { IWorkExperienceEntity } from '@/graphql/models/resume';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { parseDate } from '@/utils';
 
-import { DeparmentRoles } from '../home/home_experience/expirence_content';
+import { DeparmentRoles } from '../home/modules/experience/content';
 import { ICCalendar } from '../icons/resume';
-import { ResumeField } from './hoc/hoc_field';
+import { ResumeField } from '../shared/section';
 
 interface IProps {
   experience?: IWorkExperienceEntity[];
@@ -14,11 +14,11 @@ export function ResumeExperiences({ experience }: IProps) {
   const { t } = usePageTranslation('resume', 'Title');
   if (experience === undefined) return <></>;
   return (
-    <ResumeField icon={ICCalendar} title={t('experience')} showMargin={true}>
+    <ResumeField Icon={ICCalendar} title={t('experience')} showMargin={true}>
       {experience.map((exp) => (
         <section
           key={exp.id}
-          className="mb-6 flex w-full flex-col gap-y-9 max-md:gap-y-5"
+          className="mb-3 flex w-full flex-col max-md:gap-y-2"
         >
           <div className="flex w-full flex-col">
             <span className="flex w-full items-center gap-y-6 py-1 max-md:flex-col-reverse max-md:items-start">
@@ -40,7 +40,7 @@ export function ResumeExperiences({ experience }: IProps) {
               </p>
             </span>
           </div>
-          <p className="leading-8 tracking-[0.05em] dark:text-white max-md:text-sm max-md:leading-6">
+          <p className="mb-4 mt-2 text-sm leading-7 tracking-[0.02em] dark:text-white">
             {exp.description}
           </p>
           {exp.roles && <DeparmentRoles roles={exp.roles} hideBG={true} />}

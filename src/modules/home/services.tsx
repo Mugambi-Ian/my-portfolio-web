@@ -8,7 +8,7 @@ import {
 } from '@/modules/icons/services';
 import { withHtmlProps } from '@/utils';
 
-import HomeSection from './hoc/hoc_section';
+import { HomeSection } from '../shared/section';
 
 interface IServiceCardProp {
   icon: FunctionComponent;
@@ -62,7 +62,7 @@ function ServicesDesktop() {
 
 export function HomeServices() {
   return (
-    <HomeSection id="services">
+    <HomeSection parentClass="sticky top-0">
       <ServicesDesktop />
     </HomeSection>
   );

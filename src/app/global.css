@@ -128,3 +128,31 @@ body {
 body header {
   transition: none;
 }
+
+.notification-backdrop {
+  animation: fade-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes notification-backdrop {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.notification-popup {
+  margin-bottom: -30px;
+  animation-delay: 5s;
+  animation: notification-popup 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes notification-popup {
+  0% {
+    
+  margin-bottom: -50px;
+  }
+  100% {
+margin-bottom: 0px;
+  }
+}

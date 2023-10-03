@@ -25,7 +25,7 @@ export function ResumeHeader() {
           target="_blank"
           href={
             hideHeader
-              ? 'https://mugambi-ian.vercel.app'
+              ? 'https://mugambi-ian.vercel.app || https://github.com/Mugambi-Ian'
               : `/resume/download?lang=${lang}`
           }
           className="my-1 flex items-center gap-x-2 font-semibold leading-4 text-gray-600 dark:text-white"

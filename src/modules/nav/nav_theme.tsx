@@ -1,35 +1,52 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Switch } from '../../components/swtich';
 
-export default function NavTheme() {
+export default function NavTheme({ disabled }: { disabled?: boolean }) {
+  const [value, setValue] = useState(true);
   const [loaded, setLoaded] = useState(false);
-  const load = () => {
+  function load() {
     if (!loaded) {
       document.documentElement.classList.add('animate');
       setLoaded(true);
     }
-  };
+  }
+  function refresh() {
+    document.querySelectorAll('span[title="theme-switch"').forEach((b) =>
+      (b as HTMLButtonElement).addEventListener('click', () => {
+        setValue(document.documentElement.classList.contains('dark'));
+        load();
+      })
+    );
+  }
+  function sync() {
+    document
+      .querySelectorAll('span[title="theme-switch"')
+      .forEach((b) => (b as HTMLButtonElement).click());
+  }
   const toDarkMode = () => {
     document.documentElement.classList.add('dark');
-    load();
+    sync();
   };
 
   const toLightMode = () => {
     document.documentElement.classList.remove('dark');
-    load();
+    sync();
   };
+
+  useEffect(() => {
+    setValue(document.documentElement.classList.contains('dark'));
+    refresh();
+  }, []);
 
   return (
     <Switch
-      onChange={(x) => (!x ? toDarkMode() : toLightMode())}
-      defaultVal={
-        process.browser
-          ? document.documentElement.classList.contains('dark')
-          : true
-      }
+      value={value}
+      id="theme-switch"
+      disabled={disabled}
+      onChange={(x) => (x ? toDarkMode() : toLightMode())}
     />
   );
 }
