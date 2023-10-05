@@ -7,7 +7,8 @@ import type {
   IRolesEntity,
   IWorkExperienceEntity,
 } from '@/graphql/models/resume';
-import { ICLink } from '@/modules/icons';
+import { IC_Link } from '@/modules/icons';
+import { AnalyticEvent } from '@/modules/shared/analytics';
 import { parseDate } from '@/utils';
 
 interface IDeparmentProps {
@@ -19,7 +20,7 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
     <>
       {roles.map((r) => (
         <section className="flex flex-col gap-1 pb-4" key={`role${r.id}`}>
-          <div className="flex items-center gap-2 px-2 max-md:px-0">
+          <div className="flex items-center gap-2 max-md:px-0 max-sm:flex-col max-sm:items-start">
             <h2 className="flex-1 font-bold uppercase tracking-[0.1em] dark:text-white">
               {r.department}
             </h2>
@@ -28,10 +29,10 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
               className="flex items-center gap-2.5 text-sm tracking-[0.1em] text-primary dark:text-primary-dark max-md:text-xs"
             >
               {r.project_url}
-              <ICLink className="inherit fill-primary dark:fill-primary-dark" />
+              <IC_Link className="inherit fill-primary dark:fill-primary-dark" />
             </Link>
           </div>
-          <ul className="mx-4 my-1 flex list-disc flex-col">
+          <ul className="mx-4 my-1 flex list-disc flex-col max-sm:mx-2">
             {r.deparment_roles.data?.map((rd) => (
               <li
                 key={`rd${rd.id}`}
@@ -41,26 +42,28 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
               </li>
             ))}
           </ul>
-          <div
-            className={clsx(
-              'mx-2 mt-3 flex flex-col gap-y-1 rounded-xl',
-              !hideBG && 'bg-secondary px-3 py-5 dark:bg-secondary-dark'
-            )}
-          >
-            <p className="text-sm font-medium uppercase dark:text-white">
-              Tech Stack
-            </p>
-            <span className="my-2 flex flex-wrap gap-2">
-              {r.tech_stack.data?.map((t) => (
-                <p
-                  key={`tech_${t.id}`}
-                  className="rounded-md  bg-[#787BC7] p-1 text-xs capitalize tracking-[0.1em] text-white dark:bg-solid-dark "
-                >
-                  {t.attributes.techStack}
-                </p>
-              ))}
-            </span>
-          </div>
+          {r.tech_stack.data?.length !== 0 && (
+            <div
+              className={clsx(
+                'mx-2 mt-3 flex flex-col gap-y-1 rounded-xl max-sm:mx-px',
+                !hideBG && 'bg-secondary px-3 py-5 dark:bg-secondary-dark'
+              )}
+            >
+              <p className="text-sm font-medium uppercase dark:text-white">
+                Tech Stack
+              </p>
+              <span className="my-2 flex flex-wrap gap-2">
+                {r.tech_stack.data?.map((t) => (
+                  <p
+                    key={`tech_${t.id}`}
+                    className="rounded-md  bg-[#787BC7] p-1 text-xs capitalize tracking-[0.1em] text-white dark:bg-solid-dark "
+                  >
+                    {t.attributes.techStack}
+                  </p>
+                ))}
+              </span>
+            </div>
+          )}
         </section>
       ))}
     </>
@@ -98,6 +101,8 @@ export function HomeExperienceContent({ exp }: IProps) {
       <p className="leading-8 tracking-[0.05em] dark:text-white max-md:text-sm max-md:leading-6">
         {exp.description}
       </p>
+
+      {<AnalyticEvent type="scroll" title={`home_expirence_${exp.title}`} />}
       {exp.roles && <DeparmentRoles roles={exp.roles} />}
     </section>
   );

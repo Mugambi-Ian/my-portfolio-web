@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import type { AppSvgProps } from '@/utils';
 
-export function ICDown(props: AppSvgProps) {
+export function IC_Down(props: AppSvgProps) {
   return (
     <svg
       width="15"
@@ -18,7 +19,7 @@ export function ICDown(props: AppSvgProps) {
   );
 }
 
-export function ICLink(props: AppSvgProps) {
+export function IC_Link(props: AppSvgProps) {
   return (
     <svg
       width="12"
@@ -36,7 +37,7 @@ export function ICLink(props: AppSvgProps) {
   );
 }
 
-export function ICDocumentDownload(props: AppSvgProps) {
+export function IC_DocumentDownload(props: AppSvgProps) {
   return (
     <svg
       width="24"
@@ -70,7 +71,7 @@ export function ICDocumentDownload(props: AppSvgProps) {
   );
 }
 
-export function ICRepo(p: AppSvgProps) {
+export function IC_Repo(p: AppSvgProps) {
   return (
     <svg
       width="16"
@@ -88,7 +89,7 @@ export function ICRepo(p: AppSvgProps) {
   );
 }
 
-export function ICFigma(p: AppSvgProps) {
+export function IC_Figma(p: AppSvgProps) {
   return (
     <svg
       width="16"
@@ -132,7 +133,7 @@ export function ICFigma(p: AppSvgProps) {
   );
 }
 
-export function ICWebLink(p: AppSvgProps) {
+export function IC_WebLink(p: AppSvgProps) {
   return (
     <svg
       width="513"

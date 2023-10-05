@@ -8,5 +8,10 @@
   "Drawer_github": "Github",
   "Drawer_homepage": "Home",
   "Drawer_home": "Go to Homepage",
-  "Drawer_resume": "My Resume"
+  "Drawer_resume": "My Resume",
+
+  "Notification_exit": "Close",
+  "Notification_title": "Now multilingual and with Dark Mode",
+  "Notification_message": " Use the language switch on the Navigation Menu to switch between available languages and the theme switch to change between light and dark mode.Try it out here.",
+  "Notification_disclaimer": " *Other languages have been used as a proof of concept. Parts may be missing or have grammartical errors."
 }

@@ -26,8 +26,10 @@
     "bufferutil": "^4.0.7",
     "clsx": "^1.2.1",
     "encoding": "^0.1.13",
+    "firebase": "^10.4.0",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
+    "keen-slider": "^6.8.6",
     "next": "^13.5.4-canary.1",
     "next-seo": "^5.15.0",
     "next-sitemap": "^3.1.45",
@@ -37,6 +39,7 @@
     "react-dom": "^18.2.0",
     "react-switch": "^7.0.0",
     "sharp": "^0.32.0",
+    "universal-cookie": "^6.1.1",
     "utf-8-validate": "^5.0.10"
   },
   "devDependencies": {

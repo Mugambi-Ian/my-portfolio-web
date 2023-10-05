@@ -46,7 +46,13 @@ export const GET_RESUME = gql`
             id
             title
             project_url
-            short_description
+            long_description
+          }
+          education {
+            start
+            school
+            course
+            end_date
           }
           awards {
             id

@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from 'react';
 
+import { AppCookies } from '@/utils/browser';
+
 import { Switch } from '../../components/swtich';
 
 export default function NavTheme({ disabled }: { disabled?: boolean }) {
+  const cookies = AppCookies;
   const [value, setValue] = useState(true);
   const [loaded, setLoaded] = useState(false);
   function load() {
@@ -28,16 +31,20 @@ export default function NavTheme({ disabled }: { disabled?: boolean }) {
   }
   const toDarkMode = () => {
     document.documentElement.classList.add('dark');
+    cookies.save('theme', 'dark');
     sync();
   };
 
   const toLightMode = () => {
     document.documentElement.classList.remove('dark');
+    cookies.save('theme', 'light');
     sync();
   };
 
   useEffect(() => {
-    setValue(document.documentElement.classList.contains('dark'));
+    const theme = cookies.get('theme');
+    const isLight = theme === 'light';
+    setValue(!isLight);
     refresh();
   }, []);
 

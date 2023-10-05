@@ -5,8 +5,8 @@ import type { Metadata } from 'next';
 
 import { useAppHeaders } from '@/hooks/useAppHeaders';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { Header } from '@/modules/layout/page';
-import { AppNotification } from '@/modules/notification/page';
+import { Header } from '@/modules/layout/header';
+import { AppNotification } from '@/modules/notification/notifitcation';
 
 import { gordita } from './fonts';
 
@@ -20,12 +20,8 @@ export default function RootLayout({
   const { lang } = usePageTranslation('common', 'Header');
 
   return (
-    <html
-      lang={lang}
-      style={gordita.style}
-      className={darkMode === null || darkMode !== 'false' ? ' dark' : ''}
-    >
-      <body className="relative flex h-screen w-screen flex-col antialiased dark:bg-black">
+    <html lang={lang} style={gordita.style} className={darkMode ? ' dark' : ''}>
+      <body className="relative flex h-screen w-screen flex-col overflow-x-clip antialiased dark:bg-black">
         <Header pathname={`${pathName}`} />
         <main
           className={clsx(

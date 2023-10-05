@@ -1,5 +1,5 @@
 {
-  "locales": ["en", "sw-ke", "zh-cn"],
+  "locales": ["en", "sw-KE", "zh"],
   "defaultLocale": "en",
   "loader": true,
   "pages": {

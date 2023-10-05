@@ -1,9 +1,11 @@
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 export function useAppHeaders() {
+  const cookie = cookies();
   const headersList = headers();
-  const darkMode = headersList.get('dark-mode');
   const pathName = headersList.get('path-name');
   const hideHeader = headersList.get('hide-header');
+  const darkMode =
+    !cookie.get('theme') || cookie.get('theme')?.value === 'dark';
   return { darkMode, pathName, hideHeader };
 }

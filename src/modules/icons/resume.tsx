@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import type { AppSvgProps } from '@/utils';
 
-export function ICAward(p: AppSvgProps) {
+export function IC_Award(p: AppSvgProps) {
   return (
     <svg
       width="513"
@@ -34,7 +35,7 @@ export function ICAward(p: AppSvgProps) {
   );
 }
 
-export function ICBriefCase(p: AppSvgProps) {
+export function IC_BriefCase(p: AppSvgProps) {
   return (
     <svg
       width="513"
@@ -64,7 +65,7 @@ export function ICBriefCase(p: AppSvgProps) {
   );
 }
 
-export function ICCalendar(p: AppSvgProps) {
+export function IC_Calendar(p: AppSvgProps) {
   return (
     <svg
       width="513"
@@ -98,7 +99,7 @@ export function ICCalendar(p: AppSvgProps) {
   );
 }
 
-export function ICRocket(p: AppSvgProps) {
+export function IC_Rocket(p: AppSvgProps) {
   return (
     <svg
       width="513"
@@ -132,7 +133,7 @@ export function ICRocket(p: AppSvgProps) {
   );
 }
 
-export function ICReferences(p: AppSvgProps) {
+export function IC_References(p: AppSvgProps) {
   return (
     <svg
       width="513"

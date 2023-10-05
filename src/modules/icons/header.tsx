@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import type { AppSvgProps } from '@/utils';
 
-export function ICLogo(props: AppSvgProps) {
+export function IC_Logo(props: AppSvgProps) {
   return (
     <svg
       width="36px"
@@ -21,7 +22,7 @@ export function ICLogo(props: AppSvgProps) {
     </svg>
   );
 }
-export function ICResume(props: AppSvgProps) {
+export function IC_Resume(props: AppSvgProps) {
   return (
     <svg
       width="21"
@@ -46,7 +47,7 @@ export function ICResume(props: AppSvgProps) {
     </svg>
   );
 }
-export function ICLinkedin(props: AppSvgProps) {
+export function IC_Linkedin(props: AppSvgProps) {
   return (
     <svg
       width="24"
@@ -64,7 +65,7 @@ export function ICLinkedin(props: AppSvgProps) {
   );
 }
 
-export function ICGithub(props: AppSvgProps) {
+export function IC_Github(props: AppSvgProps) {
   return (
     <svg
       width="21"
@@ -82,7 +83,7 @@ export function ICGithub(props: AppSvgProps) {
   );
 }
 
-export function ICTwitter(props: AppSvgProps) {
+export function IC_Twitter(props: AppSvgProps) {
   return (
     <svg
       width="25"
@@ -112,7 +113,7 @@ export function ICTwitter(props: AppSvgProps) {
   );
 }
 
-export function ICTranslate(props: AppSvgProps) {
+export function IC_Translate(props: AppSvgProps) {
   return (
     <svg
       width="25"
@@ -134,7 +135,7 @@ export function ICTranslate(props: AppSvgProps) {
   );
 }
 
-export function ICMoon(props: AppSvgProps) {
+export function IC_Moon(props: AppSvgProps) {
   return (
     <svg
       width="24"
@@ -191,7 +192,7 @@ export function ICMoon(props: AppSvgProps) {
   );
 }
 
-export function ICSun(props: AppSvgProps) {
+export function IC_Sun(props: AppSvgProps) {
   return (
     <svg
       width="24"
@@ -224,7 +225,7 @@ export function ICSun(props: AppSvgProps) {
   );
 }
 
-export function ICDrawer(props: AppSvgProps) {
+export function IC_Drawer(props: AppSvgProps) {
   return (
     <svg
       width="22"
@@ -242,7 +243,7 @@ export function ICDrawer(props: AppSvgProps) {
   );
 }
 
-export function ICHome(p: AppSvgProps) {
+export function IC_Home(p: AppSvgProps) {
   return (
     <svg
       width="513"

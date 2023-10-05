@@ -49,7 +49,6 @@ export const apollo_server = async <T>(query: DocumentNode, locale: string) => {
       query,
       variables: { locale, time: new Date().getTime() },
     });
-    console.log(data, error);
 
     return { data: data as T, error };
   } catch (error) {

@@ -40,13 +40,7 @@ export const GET_HOMEPAGE_DATA = gql`
             title
             long_description
             project_url
-            project_cover {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
+            project_cover
             links {
               id
               link

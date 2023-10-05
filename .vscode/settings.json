@@ -21,8 +21,10 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.ignorePath": ".gitignore" // Don't run prettier for files listed in .gitignore
-  ,
+  "prettier.ignorePath": ".gitignore", // Don't run prettier for files listed in .gitignore
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }

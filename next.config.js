@@ -19,7 +19,7 @@ module.exports = withBundleAnalyzer({
     basePath: '',
     reactStrictMode: true,
     images: {
-      domains: ['my-portfolio-cms-bucket.s3.eu-central-1.amazonaws.com'],
+      domains: ['firebasestorage.googleapis.com'],
     },
   }),
 });

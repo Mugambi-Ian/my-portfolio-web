@@ -1,7 +1,7 @@
 {
   "Header_title": "MY NAME IS IAN",
-  "Header_subtitle": "A FULLSTACK DEVELOPER,\nUI/UX DESIGNER.",
-  "Header_p": "Thanks for visiting.\nI am based in Nairobi, Kenya.\nLets get to know me 🚀🚀💯💯",
+  "Header_subtitle": "A FULLSTACK DEVELOPER\nUI/UX DESIGNER.",
+  "Header_p": "I am actively looking for work.\nI am based in Nairobi, Kenya.\nHere is more about what I Do🚀🚀💯💯",
 
   "Platform_title": "Let Me Help You Develop On",
   "Platform_web": "Web",
@@ -15,14 +15,48 @@
   "Service_architecture": "Systems Architecture",
   "Service_architectureDesc": " I aim to clearly understand a problem’s requirements and design an efficient scalable system that has little to no downtime",
 
-  "About_number": "00",
-  "About_title": "About Me",
-  "About_content": "Hi, My name is Ian Mugambi. I am currently based in Nairobi, Kenya, and have had the pleasure of working with companies from around the world, including Singapore and Vietnam. I have a passion for coding and problem-solving, and I love exploring new technologies and tools to build and improve amazing products.\n\nMy dev journey started in high school. I participated in the Computer Science category at the Kenya National Science and Engineering Fair. Honestly, this is still among the best experiences of my life. I put a lot of work into my project and ended  up a national finalist. The event served as a profound catalyst  that fundamentally altered the timeline I exist in. It pushed further my passion for software engineering. And to this day! I still write code </br>\n\nOverall, I am a driven and passionate software engineer with experience and a strong desire to create innovative solutions. I am always willing to learn, collaborate, and go the extra mile to ensure that the products I build are of the highest quality. If you are looking for a talented software engineer to join your team, I would be more than happy to discuss how I can help.",
+  "Tech_number": "00",
+  "Tech_title": "Technologies",
+  "Tech_desc": "I have experience writing solutions for different layers of software tech stacks. Some of the solutions I have extensively used in production include",
+  "Tech_l1-title": "ASP.NET",
+  "Tech_l1-desc": "I Use ASP .NET  to build server-side applications that expose Rest API’s or GraphQL endpoints",
+  "Tech_l2-title": "NodeJS | TS | JS",
+  "Tech_l2-desc": "I have experience developing Web  solutions that have been built using popular NodeJS frameworks.",
+  "Tech_l3-title": "PHP",
+  "Tech_l3-desc": "I have written and deployed solutions for platforms using WordPress. Laravel and plain PHP.",
 
-  "Experience_number": "01",
-  "Experience_title": "Work Experience",
+  "Deployment_number": "01",
+  "Deployment_title": "Deployment",
+  "Deployment_desc": "I have experience setting up automated deployment pipelines and maintaining release software for different platforms. To do this, I configure and use the following tools",
+  "Deployment_l1-title": "Docker",
+  "Deployment_l1-desc": "I can build  and run a docker container to run applications in any technology and securely communicate with external required resources.",
+  "Deployment_l2-title": "Azure Devops | Github",
+  "Deployment_l2-desc": "I can configure workflows that run on both GitHub and Azure DevOps to automate testing, building, and application release using container registries.",
+  "Deployment_l3-title": "Jira",
+  "Deployment_l3-desc": "I can setup work  boards that integrate with MS Teams and Slack for notifications and track development from scoping to release with a changelog for repos.",
+
+  "Development_number": "02",
+  "Development_title": "Development",
+  "Development_desc": "Most of my day-to-day work is done around the following software",
+  "Development_l1-title": "VS Code",
+  "Development_l1-desc": "",
+  "Development_l2-title": "Figma",
+  "Development_l2-desc": "",
+  "Development_l3-title": "Lucid Chart",
+  "Development_l3-desc": "",
+
+  "About_number": "03",
+  "About_title": "About Me",
+  "About_content": "Hi, My name is Ian Mugambi. I have a passion for coding and problem-solving, and I love using technology and automation to build tools that improve efficiency and offer amazing service.\n\nMy dev journey started in high school. I participated in the Computer Science category at the Kenya National Science and Engineering Fair. Honestly, this is still among the best experiences of my life. I put a lot of work into my project and ended up a national finalist. The event served as a profound catalyst that fundamentally altered the timeline I exist. It pushed further my passion for software engineering. And to this day! I still write code </br>\n\nOverall, I am driven and passionate about software engineering. I have experience and a strong desire to be innovative. I am always willing to learn, collaborate, and go the extra mile to ensure that my work is of the highest quality. If you are looking for a talented software engineer to join your team, I would be more than happy to discuss how I can help.",
+
+  "UI_number": "04",
+  "UI_title": "UI",
+  "UI_scroll": "Slide To Navigate",
+
+  "Experience_number": "05",
+  "Experience_title": "Experience",
   "Experience_download": "CV Download",
 
-  "Projects_number": "02",
-  "Projects_title": " Things I’ve Built"
+  "Projects_number": "06",
+  "Projects_title": "Projects"
 }

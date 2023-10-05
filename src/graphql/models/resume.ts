@@ -10,6 +10,7 @@ export interface IResumeAttributesEntity {
   workExperience?: IWorkExperienceEntity[];
   references?: IReferencesEntity[];
   projects?: IProjectsEntity[];
+  education?: IEducationEntity;
   awards?: IAwardsEntity[];
 }
 
@@ -73,13 +74,7 @@ export interface IProjectsEntity {
   short_description: string;
   long_description: string;
   project_url: string;
-  project_cover?: {
-    data?: {
-      attributes?: {
-        url: string;
-      };
-    };
-  };
+  project_cover?: string;
   links: {
     id: string;
     link: string;
@@ -93,4 +88,11 @@ export interface IReferencesEntity {
   name: string;
   email: string;
   title: string;
+}
+
+export interface IEducationEntity {
+  start: string;
+  school: string;
+  course: string;
+  end_date: string;
 }

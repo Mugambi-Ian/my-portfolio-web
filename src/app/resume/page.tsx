@@ -8,12 +8,14 @@ import type {
 } from '@/graphql/models/resume';
 import { GET_RESUME } from '@/graphql/queries/fetchResume';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { ResumeAwards } from '@/modules/resume/awards';
-import { ResumeExperiences } from '@/modules/resume/experience';
-import { ResumeHeader } from '@/modules/resume/header';
-import { ResumeProjects } from '@/modules/resume/projects';
-import { ResumeReferences } from '@/modules/resume/references';
-import { ResumeYears } from '@/modules/resume/years';
+import { ResumeHeader } from '@/modules/resume/__header';
+import { ResumeYears } from '@/modules/resume/00_years';
+import { ResumeExperiences } from '@/modules/resume/01_experience';
+import { ResumeEducation } from '@/modules/resume/02_education';
+import { ResumeProjects } from '@/modules/resume/03_projects';
+import { ResumeAwards } from '@/modules/resume/04_awards';
+import { ResumeReferences } from '@/modules/resume/05_references';
+import { AnalyticEvent } from '@/modules/shared/analytics';
 
 async function fetchData(locale: string) {
   let error: unknown | undefined;
@@ -42,8 +44,10 @@ export default async function Resume() {
   return (
     <Fragment>
       <ResumeHeader />
+      <AnalyticEvent type="navigate" title="resume" />
       <ResumeYears experience={attributes?.workExperience} />
       <ResumeExperiences experience={attributes?.workExperience} />
+      <ResumeEducation education={attributes?.education} />
       <ResumeProjects projects={attributes?.projects} />
       <ResumeAwards awards={attributes?.awards} />
       <ResumeReferences references={attributes?.references} />
