@@ -49,7 +49,7 @@ export default function NavDrawer() {
       )}
       {!pathname.includes('resume') && (
         <NavLink
-          href={`/resume/${lang}`}
+          href={`/resume/?lang=${lang}`}
           icon={IC_Resume}
           title={t('Drawer_resume')}
           onPress={switchModal}
