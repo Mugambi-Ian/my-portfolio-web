@@ -16,12 +16,16 @@ import { ResumeProjects } from '@/modules/resume/03_projects';
 import { ResumeAwards } from '@/modules/resume/04_awards';
 import { ResumeReferences } from '@/modules/resume/05_references';
 import { AnalyticEvent } from '@/modules/shared/analytics';
+import { locale_resolve } from '@/utils';
 
 async function fetchData(locale: string) {
   let error: unknown | undefined;
   let data: IResumeAttributesEntity | undefined;
   try {
-    const res = await apollo_server<IResumeEntity>(GET_RESUME, locale);
+    const res = await apollo_server<IResumeEntity>(
+      GET_RESUME,
+      locale_resolve(locale)
+    );
     data = res.data?.resume.data.attributes;
     error = res.error;
   } catch (err) {

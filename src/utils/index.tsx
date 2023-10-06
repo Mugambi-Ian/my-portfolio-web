@@ -44,3 +44,8 @@ export type AppSvgProps = HtmlHTMLAttributes<HTMLOrSVGElement>;
 export interface IDyanmicI18n {
   t: (x: string) => string;
 }
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export function locale_resolve(locale: string) {
+  return locale === 'sw' ? 'sw-KE' : locale;
+}

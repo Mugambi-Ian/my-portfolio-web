@@ -18,12 +18,16 @@ import { HomeUI } from '@/modules/home/04_ui';
 import { HomeExperience } from '@/modules/home/05_expirence';
 import { HomeProjects } from '@/modules/home/06_projects';
 import { AnalyticEvent } from '@/modules/shared/analytics';
+import { locale_resolve } from '@/utils';
 
 async function fetchData(locale: string) {
   let error: unknown | undefined;
   let data: IHomepageAttributesEntity | undefined;
   try {
-    const res = await apollo_server<IHomepageEntity>(GET_HOMEPAGE_DATA, locale);
+    const res = await apollo_server<IHomepageEntity>(
+      GET_HOMEPAGE_DATA,
+      locale_resolve(locale)
+    );
     data = res.data?.resume.data.attributes;
     error = res.error;
   } catch (err) {
