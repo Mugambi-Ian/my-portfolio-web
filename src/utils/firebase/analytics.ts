@@ -7,6 +7,6 @@ export function analytics_log_event(
   type: 'navigate' | 'scroll' | 'click',
   e: string
 ) {
-  //const analytics = loadClientAnalytics();
-  //logEvent(analytics, `${type}_${e}`);
+  const analytics = loadClientAnalytics();
+  logEvent(analytics, `${type}_${e}`);
 }
