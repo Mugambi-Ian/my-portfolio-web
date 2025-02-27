@@ -20,7 +20,7 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
     <>
       {roles.map((r) => (
         <section className="flex flex-col gap-1 py-2" key={`role${r.id}`}>
-          <div className="flex items-center px-1 gap-2 max-sm:px-0 max-sm:flex-col max-sm:items-start">
+          <div className="flex items-center gap-2 px-1 max-sm:flex-col max-sm:items-start max-sm:px-0">
             <h2 className="flex-1 font-bold uppercase tracking-[0.1em] dark:text-white">
               {r.department}
             </h2>
@@ -45,18 +45,18 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
           {r.tech_stack.data?.length !== 0 && (
             <div
               className={clsx(
-                'mx-2 mt-1.5 mb-4 flex flex-col gap-y-1 rounded-xl max-sm:mx-px',
+                'mx-2 mb-4 mt-1.5 flex flex-col gap-y-1 rounded-xl max-sm:mx-px',
                 !hideBG && 'bg-secondary px-3 py-5 dark:bg-secondary-dark'
               )}
             >
               <p className="text-sm font-medium uppercase dark:text-white">
                 Tech Stack
               </p>
-              <span className="mt-1 mb-3 flex flex-wrap gap-2">
+              <span className="mb-3 mt-1 flex flex-wrap gap-2">
                 {r.tech_stack.data?.map((t) => (
                   <p
                     key={`tech_${t.id}`}
-                    className="rounded px-2  bg-[#787BC7] p-1 text-xs capitalize tracking-[0.1em] text-white dark:bg-solid-dark "
+                    className="rounded bg-[#787BC7]  p-1 px-2 text-xs capitalize tracking-[0.1em] text-white dark:bg-solid-dark "
                   >
                     {t.attributes.techStack}
                   </p>

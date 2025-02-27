@@ -47,7 +47,7 @@ export function ResumeField({ Icon, title, children, showMargin }: IProps) {
         className="my-3 h-px w-full max-w-7xl self-center"
         id={title?.replace(' ', '_').toLowerCase()}
       />
-      <div className="flex w-full  max-w-7xl my-4 flex-col gap-y-3 self-center px-8 dark:text-white max-sm:px-4 lg:flex-row lg:gap-x-6 lg:gap-y-0">
+      <div className="my-4 flex  w-full max-w-7xl flex-col gap-y-3 self-center px-8 dark:text-white max-sm:px-4 lg:flex-row lg:gap-x-6 lg:gap-y-0">
         <div className="flex basis-1/5">
           {Icon && (
             <Icon className="inherit h-5 w-5 fill-solid dark:fill-secondary-dark" />

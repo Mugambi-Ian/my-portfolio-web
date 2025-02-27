@@ -49,7 +49,7 @@ function AppTitle() {
 function Platforms() {
   const { t } = usePageTranslation('home', 'Platform');
   return (
-    <ul className="flex h-min w-80 flex-col items-center gap-y-3 rounded-lg bg-white/50 pb-4 dark:bg-black/50 max-sm:text-sm max-sm:w-11/12 max-sm:self-start max-sm:bg-accent max-sm:dark:bg-accent-dark">
+    <ul className="flex h-min w-80 flex-col items-center gap-y-3 rounded-lg bg-white/50 pb-4 dark:bg-black/50 max-sm:w-11/12 max-sm:self-start max-sm:bg-accent max-sm:text-sm max-sm:dark:bg-accent-dark">
       <li className="w-full rounded-t-lg bg-primary p-2.5 text-center text-lg font-medium tracking-[0.02em] text-white dark:bg-solid-dark max-sm:text-base">
         {t('title')}
       </li>

@@ -21,7 +21,8 @@ interface IProps {
 function UISlide(p: IProps) {
   return (
     <section className="flex w-full justify-between">
-      <div className="flex flex-col justify-center gap-12 px-6 text-3xl font-light tracking-widest text-white max-lg:text-xl max-sm:text-2xl max-sm:px-3 max-sm:text-base">
+      {/* eslint-disable-next-line tailwindcss/no-contradicting-classname */}
+      <div className="flex flex-col justify-center gap-12 px-6 text-3xl font-light tracking-widest text-white max-lg:text-xl max-sm:px-3 max-sm:text-2xl max-sm:text-base">
         <p className="mb-36 font-black uppercase tracking-widest dark:text-white max-lg:text-primary max-sm:mb-5">
           {p.title}
         </p>
@@ -36,7 +37,7 @@ function UISlide(p: IProps) {
           width={750}
           height={615}
           alt={`${p.title} ${p.points}`}
-          className="self-start max-sm:w-[380px] max-sm:w-[220px]"
+          className="self-start max-sm:w-[220px]"
         />
       </Link>
     </section>
