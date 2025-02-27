@@ -28,13 +28,13 @@ function ProjectCard({ p }: { p: IProjectsEntity }) {
           href={p.project_url}
           className="flex items-center gap-2 px-2 py-1 font-normal lowercase tracking-[0.1em] text-primary dark:text-white"
         >
-          <span className="max-md:hidden">visit-project</span>
+          <span className="max-sm:hidden">visit-project</span>
           <IC_Link className="inherit fill-white " />
         </Link>
       </span>
       <span className="h-[6px] w-full bg-primary dark:bg-[#0F4D2F]" />
       <div className="relative w-full px-3  pr-4">
-        <div className=" flex w-full items-start gap-x-8 rounded-b-2xl bg-[#505ABA] p-6 dark:bg-black dark:shadow-dark-ring  max-lg:flex-col max-md:gap-y-2 max-md:px-3 max-md:py-0 max-md:pb-8">
+        <div className=" flex w-full items-start gap-x-8 rounded-b-2xl bg-[#505ABA] p-6 dark:bg-black dark:shadow-dark-ring  max-lg:flex-col max-sm:gap-y-2 max-sm:px-3 max-sm:py-0 max-sm:pb-8">
           <div
             className={clsx(
               'flex w-full flex-col',
@@ -45,8 +45,8 @@ function ProjectCard({ p }: { p: IProjectsEntity }) {
               {p.long_description}
             </p>
             {p.links[0] && (
-              <div className="mt-8 flex flex-col gap-y-4 max-md:mt-2">
-                <h2 className="w-min bg-[#6D78D7]  px-6 py-1 uppercase tracking-[0.36em] text-white dark:bg-solid-dark max-md:text-sm">
+              <div className="mt-8 flex flex-col gap-y-4 max-sm:mt-2">
+                <h2 className="w-min bg-[#6D78D7]  px-6 py-1 uppercase tracking-[0.36em] text-white dark:bg-solid-dark max-sm:text-sm">
                   Links
                 </h2>
                 <div className="flex flex-wrap gap-x-4">
@@ -110,7 +110,7 @@ export function HomeProjects({ projects }: IProps) {
   return (
     <HomeSection
       parentClass="sticky bg-white dark:bg-black -top-24"
-      className="relative flex gap-y-4 px-12 py-[120px] max-md:gap-y-8  max-md:px-3 max-md:py-9"
+      className="relative flex gap-y-4 px-12 py-[120px] max-sm:gap-y-8  max-sm:px-3 max-sm:py-9"
     >
       <span className="flex w-full items-center gap-4 max-lg:flex-col max-lg:items-start">
         <AppTitle title={t('Projects_title')} number={t('Projects_number')} />

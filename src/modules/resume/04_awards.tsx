@@ -34,7 +34,7 @@ const ResumeAward: FC<IResumeAward> = ({ e }) => {
           {e.award}
         </h6>
       </div>
-      <p className="mt-4 text-justify text-sm leading-7 tracking-[0.02em] dark:text-white max-md:leading-6">
+      <p className="mt-4 text-justify text-sm leading-7 tracking-[0.02em] dark:text-white max-sm:leading-6">
         {e.description}
       </p>
     </Fragment>

@@ -52,8 +52,8 @@ export function LargeHeader({ pathname }: { pathname?: string }) {
         <div
           className={clsx(
             'flex w-full max-w-7xl items-center gap-3 self-center px-6 max-lg:py-3',
-            pathname && 'py-7 max-md:hidden',
-            !pathname && 'py-3 max-md:px-2'
+            pathname && 'py-7 max-sm:hidden',
+            !pathname && 'py-3 max-sm:px-2'
           )}
         >
           <div className="flex items-center gap-3">
@@ -61,7 +61,7 @@ export function LargeHeader({ pathname }: { pathname?: string }) {
               className={clsx(
                 'inherit  fill-primary dark:fill-primary-dark',
                 pathname && ' h-[60px] w-[60px]',
-                !pathname && 'h-10 w-10 max-md:hidden'
+                !pathname && 'h-10 w-10 max-sm:hidden'
               )}
             />
             {pathname && (
@@ -70,7 +70,7 @@ export function LargeHeader({ pathname }: { pathname?: string }) {
               </h1>
             )}
           </div>
-          <span className="flex-1 max-md:hidden" />
+          <span className="flex-1 max-sm:hidden" />
           {pathname && (
             <>
               {pathname.includes('resume') ? (
@@ -101,11 +101,11 @@ export function LargeHeader({ pathname }: { pathname?: string }) {
               />
             </>
           )}
-          <span className="h-8 w-[2px] bg-primary dark:bg-primary-dark max-md:hidden" />
+          <span className="h-8 w-[2px] bg-primary dark:bg-primary-dark max-sm:hidden" />
           <span
             className={clsx(
               'relative flex justify-between gap-4',
-              !pathname && 'max-md:flex-1'
+              !pathname && 'max-sm:flex-1'
             )}
           >
             <NavTranslate />

@@ -20,14 +20,19 @@ export default function RootLayout({
   const { lang } = usePageTranslation('common', 'Header');
 
   return (
-    <html lang={lang} style={gordita.style} className={darkMode ? ' dark' : ''}>
+    <html
+      lang={lang}
+      style={gordita.style}
+      className={darkMode ? ' dark bg-black' : ''}
+    >
       <body className="relative flex h-screen w-screen flex-col overflow-x-clip antialiased dark:bg-black">
         <Header pathname={`${pathName}`} />
         <main
           className={clsx(
             'flex w-full flex-col overflow-x-clip',
             hideHeader && 'fixed inset-x-0 top-0 h-fit',
-            !hideHeader && 'relative h-full overflow-y-auto'
+            !hideHeader && 'relative h-full overflow-y-auto',
+            darkMode && 'bg-black'
           )}
         >
           {children}

@@ -20,7 +20,7 @@ export function ResumeYears({ experience }: IProps) {
         new Date(n?.start_date!).getTime()),
     0
   );
-
+    console.log(totalExperience)
   return (
     <ResumeField title={t('years')} Icon={IC_BriefCase}>
       <p className="justify-center text-sm text-gray-700 dark:text-white">

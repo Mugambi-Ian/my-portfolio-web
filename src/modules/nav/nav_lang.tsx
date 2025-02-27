@@ -43,7 +43,7 @@ export function NavLang({ lang, fixed }: IProps) {
   return (
     <nav
       className={clsx(
-        'skip-blur flex max-w-xs flex-col gap-2 self-end rounded-lg bg-white dark:bg-black max-md:max-w-none',
+        'skip-blur flex max-w-xs flex-col gap-2 self-end rounded-lg bg-white dark:bg-black max-sm:max-w-none',
         !fixed && 'relative w-full',
         fixed && 'fixed right-6 top-[96px] z-[500] w-72'
       )}

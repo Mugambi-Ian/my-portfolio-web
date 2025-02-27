@@ -13,7 +13,7 @@ function ServicesDesktop() {
   const { t } = usePageTranslation('home', 'Service');
   return (
     <>
-      <section className="flex gap-x-9 px-9 pb-8 max-lg:gap-x-5 max-md:hidden">
+      <section className="flex gap-x-9 px-9 pb-8 max-lg:gap-x-5 max-sm:hidden">
         <ListingCard
           Icon={IC_Designer}
           title={t('designer')}

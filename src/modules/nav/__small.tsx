@@ -14,7 +14,7 @@ export function SmallHeader() {
     <Fragment>
       <header
         id="mobile-header"
-        className="sticky hidden w-full items-center border border-primary bg-primary py-3 pl-5 pr-3 dark:border-primary-dark dark:bg-black max-md:flex"
+        className="sticky hidden w-full items-center border border-primary bg-primary py-3 pl-5 pr-3 dark:border-primary-dark dark:bg-black max-sm:flex"
       >
         <div className="flex items-center gap-x-4" aria-label="home">
           <IC_Logo className="inherit h-9 w-9 fill-white dark:fill-primary-dark" />

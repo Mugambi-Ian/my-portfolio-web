@@ -35,7 +35,7 @@ export function NavLink({
         <NavIcon className="inherit h-6 w-5 self-center  fill-primary dark:fill-primary-dark" />
       </span>
       {!hideTitle && (
-        <p className="text-lg tracking-[0.05em] text-primary dark:text-primary-dark max-md:text-sm">
+        <p className="text-lg tracking-[0.05em] text-primary dark:text-primary-dark max-sm:text-sm">
           {title}
         </p>
       )}

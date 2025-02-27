@@ -25,7 +25,7 @@ export const GET_HOMEPAGE_DATA = gql`
                   }
                 }
               }
-              deparment_roles {
+              deparment_roles(pagination: { limit: 100 }) {
                 data {
                   id
                   attributes {

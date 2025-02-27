@@ -26,7 +26,7 @@ export const GET_RESUME = gql`
                   }
                 }
               }
-              deparment_roles {
+              deparment_roles(pagination: { limit: 100 }) {
                 data {
                   id
                   attributes {

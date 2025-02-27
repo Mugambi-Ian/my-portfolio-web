@@ -21,8 +21,8 @@ interface IProps {
 function UISlide(p: IProps) {
   return (
     <section className="flex w-full justify-between">
-      <div className="flex flex-col justify-center gap-12 px-6 text-3xl font-light tracking-widest text-white max-lg:text-xl max-md:text-2xl max-sm:px-3 max-sm:text-base">
-        <p className="mb-36 font-black uppercase tracking-widest dark:text-white max-lg:text-primary max-md:mb-5">
+      <div className="flex flex-col justify-center gap-12 px-6 text-3xl font-light tracking-widest text-white max-lg:text-xl max-sm:text-2xl max-sm:px-3 max-sm:text-base">
+        <p className="mb-36 font-black uppercase tracking-widest dark:text-white max-lg:text-primary max-sm:mb-5">
           {p.title}
         </p>
         <p
@@ -36,7 +36,7 @@ function UISlide(p: IProps) {
           width={750}
           height={615}
           alt={`${p.title} ${p.points}`}
-          className="self-start max-md:w-[380px] max-sm:w-[220px]"
+          className="self-start max-sm:w-[380px] max-sm:w-[220px]"
         />
       </Link>
     </section>
@@ -50,10 +50,10 @@ export function HomeUI() {
   return (
     <HomeSection
       id="exp"
-      parentClass="bg-white dark:bg-black sticky max-md:relative -top-28 max-md:top-0"
+      parentClass="bg-white dark:bg-black sticky max-sm:relative -top-28 max-sm:top-0"
       className="relative flex gap-y-20 px-12 pt-[120px] max-lg:gap-y-8  max-lg:px-3 max-lg:py-9"
       background={
-        <span className="absolute inset-x-0 bottom-0 top-4 h-full w-full bg-primary/70 dark:bg-primary-dark/50 max-lg:top-64 max-md:top-40" />
+        <span className="absolute inset-x-0 bottom-0 top-4 h-full w-full bg-primary/70 dark:bg-primary-dark/50 max-lg:top-64 max-sm:top-40" />
       }
     >
       <span className="flex w-full items-center gap-y-8  max-lg:items-start">

@@ -38,7 +38,7 @@ export default function NavDrawer() {
 
   if (!showDrawer) return <></>;
   return (
-    <nav className="absolute top-[75px] z-50 hidden h-screen w-screen flex-col gap-y-4 bg-primary px-4 pt-6 dark:bg-black max-md:flex">
+    <nav className="absolute top-[75px] z-50 hidden h-screen w-screen flex-col gap-y-4 bg-primary px-4 pt-6 dark:bg-black max-sm:flex">
       {pathname.includes('resume') && (
         <NavLink
           icon={IC_Home}
