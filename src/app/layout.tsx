@@ -31,7 +31,7 @@ export default async function RootLayout({
         >
           {children}
         </main>
-        <AppNotification />
+        <AppNotification hide={!!hideHeader} />
       </body>
     </html>
   );

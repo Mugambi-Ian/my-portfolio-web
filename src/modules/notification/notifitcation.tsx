@@ -7,12 +7,12 @@ import { analytics_log_event } from '@/utils/firebase/analytics';
 import { NavThemeSwitch } from '../nav/__large';
 import { IC_MEGAPHONE } from './icons/page';
 
-export function AppNotification() {
+export function AppNotification(props:{hide?:boolean}) {
   const [shouldShow, setShouldShow] = useState(false);
 
   useEffect(() => {
     const isNotified = localStorage.getItem('notified');
-    if (!isNotified) setShouldShow(true);
+    if (!isNotified && !props.hide) setShouldShow(true);
   }, []);
 
   const handleClose = () => {
