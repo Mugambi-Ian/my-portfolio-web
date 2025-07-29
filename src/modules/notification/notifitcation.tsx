@@ -7,7 +7,7 @@ import { analytics_log_event } from '@/utils/firebase/analytics';
 import { NavThemeSwitch } from '../nav/__large';
 import { IC_MEGAPHONE } from './icons/page';
 
-export function AppNotification(props:{hide?:boolean}) {
+export function AppNotification(props: { hide?: boolean }) {
   const [shouldShow, setShouldShow] = useState(false);
 
   useEffect(() => {
