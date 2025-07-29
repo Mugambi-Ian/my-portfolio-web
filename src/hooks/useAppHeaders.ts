@@ -11,9 +11,9 @@ export async function appHeaders() {
   const themeFromHeader = headerStore.get('theme') ?? 'dark';
 
   const darkMode =
-    themeFromCookie !== undefined
-      ? themeFromCookie === 'dark'
-      : themeFromHeader === 'dark';
+    themeFromHeader !== undefined
+      ? themeFromHeader === 'dark'
+      : themeFromCookie === 'dark';
 
   return {
     darkMode,
