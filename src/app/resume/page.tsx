@@ -7,7 +7,6 @@ import type {
   IResumeEntity,
 } from '@/graphql/models/resume';
 import { GET_RESUME } from '@/graphql/queries/fetchResume';
-import usePageTranslation from '@/hooks/usePageTranslation';
 import { ResumeHeader } from '@/modules/resume/__header';
 import { ResumeYears } from '@/modules/resume/00_years';
 import { ResumeExperiences } from '@/modules/resume/01_experience';
@@ -35,8 +34,7 @@ async function fetchData(locale: string) {
 }
 
 export default async function Resume() {
-  const { lang } = usePageTranslation('common', 'Header');
-  const { data: attributes, error } = await fetchData(lang);
+  const { data: attributes, error } = await fetchData('en');
 
   if (error)
     return (

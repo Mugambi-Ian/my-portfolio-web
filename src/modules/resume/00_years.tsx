@@ -1,5 +1,4 @@
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
-import usePageTranslation from '@/hooks/usePageTranslation';
 import { getDuration } from '@/utils';
 
 import { IC_BriefCase } from '../icons/resume';
@@ -10,7 +9,6 @@ interface IProps {
 }
 
 export function ResumeYears({ experience }: IProps) {
-  const { t } = usePageTranslation('resume', 'Title');
   if (experience === undefined) return <></>;
 
   const totalExperience = experience.reduce(
@@ -21,8 +19,8 @@ export function ResumeYears({ experience }: IProps) {
     0
   );
   return (
-    <ResumeField title={t('years')} Icon={IC_BriefCase}>
-      <p className="justify-center text-sm text-gray-700 dark:text-white">
+    <ResumeField title={'Total Experience'} Icon={IC_BriefCase}>
+      <p className="justify-center text-sm text-slate-900 dark:text-white">
         {getDuration(totalExperience)}
       </p>
     </ResumeField>

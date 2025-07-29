@@ -10,6 +10,7 @@ interface INavLinkProps {
   hideTitle?: boolean;
   onPress?: () => void;
   newTab?: boolean;
+  className?: string;
 }
 export function NavLink({
   title,
@@ -18,6 +19,7 @@ export function NavLink({
   hideTitle,
   onPress,
   newTab,
+  className,
 }: INavLinkProps) {
   function NavIcon(props: AppSvgProps) {
     return withHtmlProps(icon, props);
@@ -29,13 +31,16 @@ export function NavLink({
       aria-label={title}
       onClick={onPress || undefined}
       target={newTab ? '_blank' : '_self'}
-      className="flex w-fit items-center gap-x-2 rounded-lg bg-white py-2 pl-2 pr-3 dark:bg-black"
+      className={
+        className ??
+        'flex w-fit items-center gap-x-2 rounded-lg bg-white py-2 pl-2 pr-3 ring-1 ring-blue-600 dark:bg-black dark:ring-blue-600'
+      }
     >
-      <span className="flex h-9 w-8 justify-center rounded ">
-        <NavIcon className="inherit h-6 w-5 self-center  fill-primary dark:fill-primary-dark" />
+      <span className="flex size-9 justify-center rounded">
+        <NavIcon className="inherit m-auto h-6 w-5 fill-blue-800  pl-1 dark:fill-blue-600" />
       </span>
       {!hideTitle && (
-        <p className="text-lg tracking-[0.05em] text-primary dark:text-primary-dark max-sm:text-sm">
+        <p className="text-lg tracking-wider text-blue-800 dark:text-blue-600 max-sm:text-sm">
           {title}
         </p>
       )}

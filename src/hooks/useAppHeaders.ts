@@ -1,12 +1,23 @@
 import { cookies, headers } from 'next/headers';
 
-export function useAppHeaders() {
-  const cookie = cookies();
-  const header = headers();
-  const pathName = header.get('path-name');
-  const hideHeader = header.get('hide-header');
-  const darkMode = !cookie.get('theme')
-    ? header.get('theme') === 'dark'
-    : cookie.get('theme')?.value === 'dark';
-  return { darkMode, pathName, hideHeader };
+export async function appHeaders() {
+  const cookieStore = await cookies();
+  const headerStore = await headers();
+
+  const pathName = headerStore.get('path-name');
+  const hideHeader = headerStore.get('hide-header');
+
+  const themeFromCookie = cookieStore.get('theme')?.value ?? 'dark';
+  const themeFromHeader = headerStore.get('theme') ?? 'dark';
+
+  const darkMode =
+    themeFromCookie !== undefined
+      ? themeFromCookie === 'dark'
+      : themeFromHeader === 'dark';
+
+  return {
+    darkMode,
+    pathName,
+    hideHeader,
+  };
 }

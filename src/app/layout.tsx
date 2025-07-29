@@ -2,37 +2,31 @@ import './global.css';
 
 import clsx from 'clsx';
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 
-import { useAppHeaders } from '@/hooks/useAppHeaders';
-import usePageTranslation from '@/hooks/usePageTranslation';
+import { appHeaders } from '@/hooks/useAppHeaders';
 import { Header } from '@/modules/layout/header';
 import { AppNotification } from '@/modules/notification/notifitcation';
 
 import { gordita } from './fonts';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   params: { lang: string };
 }) {
-  const { darkMode, pathName, hideHeader } = useAppHeaders();
-  const { lang } = usePageTranslation('common', 'Header');
+  const { darkMode, pathName, hideHeader } = await appHeaders();
 
   return (
-    <html
-      lang={lang}
-      style={gordita.style}
-      className={darkMode ? ' dark bg-black' : ''}
-    >
-      <body className="relative flex h-screen w-screen flex-col overflow-x-clip antialiased dark:bg-black">
+    <html lang={'en'} style={gordita.style} className={darkMode ? 'dark' : ''}>
+      <body className="relative flex h-screen w-screen flex-col overflow-x-clip bg-white antialiased dark:bg-black">
         <Header pathname={`${pathName}`} />
         <main
           className={clsx(
             'flex w-full flex-col overflow-x-clip',
             hideHeader && 'fixed inset-x-0 top-0 h-fit',
-            !hideHeader && 'relative h-full overflow-y-auto',
-            darkMode && 'bg-black'
+            !hideHeader && 'relative h-full overflow-y-auto'
           )}
         >
           {children}

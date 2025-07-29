@@ -93,10 +93,9 @@ export function SliderNav({ active, setCurrent, title }: ISliderNavProps) {
     <button
       onClick={setCurrent}
       className={clsx(
-        'min-w-full whitespace-nowrap px-2 py-3 text-start text-xs uppercase tracking-[0.2em]',
-        !active && 'font-light text-black dark:text-white ',
-        active &&
-          'rounded-md bg-solid  font-bold  text-white  dark:bg-solid-dark'
+        'min-w-full whitespace-nowrap px-2 py-3 text-start text-xs uppercase',
+        !active && 'font-light text-blue-300 dark:text-white ',
+        active && 'rounded-md font-bold text-blue-600  ring-1  ring-blue-600'
       )}
     >
       <p>{title}</p>

@@ -119,11 +119,13 @@ body button:active {
   transform: scale(0.8);
 }
 
-body > *,
-body {
-  transition: fill 0.2s ease-in-out, padding 0.2s ease-in-out,
-    color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+body, body * {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+  padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+  color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+  background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
 
 body header {
   transition: none;

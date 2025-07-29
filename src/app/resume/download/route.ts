@@ -1,10 +1,8 @@
 /* eslint-disable no-console */
-import type { NextRequest } from 'next/server';
 
 const { UTILS_URI } = process.env;
-export async function GET(req: NextRequest) {
-  const lang = req.nextUrl.searchParams.get('lang');
-  const path = `${UTILS_URI}?lang=${lang}?time=${new Date().getTime()}`;
+export async function GET() {
+  const path = `${UTILS_URI}?lang=en?time=${new Date().getTime()}`;
   const data = await fetch(path, {
     cache: 'no-store',
   });

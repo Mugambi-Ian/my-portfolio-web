@@ -12,7 +12,7 @@ export function AppTitle({ number, title, white }: IProps) {
       <h1
         className={clsx(
           'whitespace-nowrap text-xl font-black uppercase tracking-[0.2em] max-sm:text-lg max-sm:font-bold max-sm:tracking-[0.125em]',
-          !white && 'text-primary dark:text-primary-dark ',
+          !white && 'text-blue-800 dark:text-blue-600 ',
           white && 'text-white'
         )}
       >
@@ -21,7 +21,7 @@ export function AppTitle({ number, title, white }: IProps) {
       <span
         className={clsx(
           'h-[2px] w-[120px] max-lg:w-24 max-sm:hidden',
-          !white && 'bg-primary dark:bg-primary-dark',
+          !white && 'bg-blue-800 dark:bg-blue-600',
           white && 'bg-white'
         )}
       />

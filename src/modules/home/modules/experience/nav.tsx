@@ -25,7 +25,7 @@ function NavDesktop({ current, positions, setCurrent }: IDesktopNavProps) {
         className="relative flex flex-col"
         style={{ height: `${dividerHeight}px` }}
       >
-        <span className="absolute h-full w-[1px] self-center bg-solid dark:bg-solid-dark" />
+        <span className="absolute h-full w-px self-center bg-blue-800 dark:bg-blue-800" />
         {positions.map((_, id) => (
           <span
             key={id}
@@ -33,7 +33,7 @@ function NavDesktop({ current, positions, setCurrent }: IDesktopNavProps) {
               'w-6 flex-1',
               id !== current && 'py-5',
               id === current &&
-                'mb-2 mt-1 rounded-2xl bg-solid dark:bg-solid-dark'
+                'mb-2 mt-1 rounded-2xl bg-blue-800 dark:bg-blue-800'
             )}
           />
         ))}
@@ -50,7 +50,7 @@ function NavDesktop({ current, positions, setCurrent }: IDesktopNavProps) {
                 !active &&
                   'w-min whitespace-nowrap py-7 font-light text-black dark:text-white',
                 active &&
-                  'w-full  rounded-2xl bg-solid py-5  font-bold  text-white  dark:bg-solid-dark'
+                  'w-full  rounded-2xl bg-blue-800 py-5  font-bold  text-white  dark:bg-blue-800'
               )}
             >
               {p.company}

@@ -1,12 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import useTranslation from 'next-translate/useTranslation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { NavLink } from '@/modules/shared/link';
 
-import { IC_Down } from '../icons';
 import {
   IC_Github,
   IC_Home,
@@ -14,14 +12,11 @@ import {
   IC_Moon,
   IC_Resume,
   IC_Sun,
-  IC_Translate,
 } from '../icons/header';
-import { NavLang } from './nav_lang';
 import NavTheme from './nav_theme';
 
 export default function NavDrawer() {
   const pathname = usePathname();
-  const { t, lang } = useTranslation('common');
   const [showDrawer, drawerPopup] = useState(false);
 
   const switchModal = useCallback(() => {
@@ -38,50 +33,48 @@ export default function NavDrawer() {
 
   if (!showDrawer) return <></>;
   return (
-    <nav className="absolute top-[75px] z-50 hidden h-screen w-screen flex-col gap-y-4 bg-primary px-4 pt-6 dark:bg-black max-sm:flex">
-      {pathname.includes('resume') && (
+    <nav className="absolute top-[75px] z-50 flex h-screen w-screen flex-col gap-6 bg-gradient-to-b from-sky-600 to-indigo-600 px-6 pt-8 text-white dark:from-indigo-800 dark:to-sky-800">
+      {pathname.includes('resume') ? (
         <NavLink
           icon={IC_Home}
-          href={`/${lang}`}
-          title={t('Drawer_home')}
+          href={`/`}
+          title={'Home'}
           onPress={switchModal}
+          className="flex items-center gap-3 text-lg font-semibold hover:underline"
         />
-      )}
-      {!pathname.includes('resume') && (
+      ) : (
         <NavLink
-          href={`/resume/?lang=${lang}`}
+          href={`/resume`}
           icon={IC_Resume}
-          title={t('Drawer_resume')}
+          title={'Resume'}
           onPress={switchModal}
+          className="flex items-center gap-3 text-lg font-semibold hover:underline"
         />
       )}
+
       <NavLink
-        newTab={true}
+        newTab
         icon={IC_Linkedin}
-        title={t('Drawer_linkedIn')}
-        href="https://twitter.com/mugambi_bruv"
+        title={'Linked In'}
+        href="https://www.linkedin.com/in/ian-mugambi-65893917a/"
+        className="flex items-center gap-3 text-lg font-semibold hover:underline"
       />
+
       <NavLink
-        newTab={true}
+        newTab
         icon={IC_Github}
-        title={t('Drawer_github')}
+        title={'Github'}
         href="https://github.com/Mugambi-Ian"
+        className="flex items-center gap-3 text-lg font-semibold hover:underline"
       />
-      <span className="relative flex justify-between">
-        <button
-          className="flex h-12 items-center justify-center gap-x-2 rounded-lg bg-white px-3 dark:bg-black"
-          title="switch-lang"
-        >
-          <IC_Translate className="inherit h-6 w-5  fill-primary dark:fill-primary-dark" />
-          <IC_Down className="inherit h-4 w-4  fill-primary dark:fill-primary-dark" />
-        </button>
-        <div className="flex h-12 items-center justify-center gap-x-4 rounded-lg bg-white px-3 dark:bg-black">
-          <IC_Sun className="h-6 w-5" />
+
+      <div className="mt-auto flex w-full items-center justify-center">
+        <div className="flex h-12 items-center gap-4 rounded-full bg-white/20 px-4 backdrop-blur-md dark:bg-white/10">
+          <IC_Sun className="size-5" />
           <NavTheme />
-          <IC_Moon className="h-6 w-5" />
+          <IC_Moon className="size-5" />
         </div>
-      </span>
-      <NavLang fixed={false} lang={lang} />
+      </div>
     </nav>
   );
 }

@@ -7,12 +7,8 @@ import type {
   IHomepageEntity,
 } from '@/graphql/models/resume';
 import { GET_HOMEPAGE_DATA } from '@/graphql/queries/fetchHomepageData';
-import usePageTranslation from '@/hooks/usePageTranslation';
 import { HomePlatforms } from '@/modules/home/__platform';
-import { HomeServices } from '@/modules/home/__services';
 import { HomeTech } from '@/modules/home/00_tech';
-import { HomeDeploy } from '@/modules/home/01_deploy';
-import { HomeTools } from '@/modules/home/02_tools';
 import { HomeAbout } from '@/modules/home/03_about';
 import { HomeUI } from '@/modules/home/04_ui';
 import { HomeExperience } from '@/modules/home/05_expirence';
@@ -37,8 +33,7 @@ async function fetchData(locale: string) {
 }
 
 export default async function Page() {
-  const { lang } = usePageTranslation('common', 'Header');
-  const { data: attributes, error } = await fetchData(lang);
+  const { data: attributes, error } = await fetchData('en');
 
   if (error)
     return (
@@ -50,14 +45,11 @@ export default async function Page() {
   return (
     <Fragment>
       <HomePlatforms />
-      <HomeServices />
       <HomeTech />
-      <HomeDeploy />
-      <HomeTools />
       <HomeAbout />
       <HomeUI />
       <AnalyticEvent type="navigate" title="homepage" />
-      <HomeExperience experience={attributes?.workExperience} />
+      <HomeExperience workExperience={attributes?.workExperience} />
       <HomeProjects projects={attributes?.projects} />
     </Fragment>
   );
