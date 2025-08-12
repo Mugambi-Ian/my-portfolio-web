@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaLaptopCode, FaServer, FaTools } from 'react-icons/fa';
+import { FaComments, FaLaptopCode, FaServer, FaTools } from 'react-icons/fa';
 
 const technologies = [
   {
@@ -43,6 +43,19 @@ const technologies = [
       'DigitalOcean',
     ],
   },
+  {
+    title: 'Support & Comms',
+    icon: <FaComments className="text-6xl text-sky-600 dark:text-white" />,
+    stack: [
+      'HubSpot & Asana',
+      'Browser DevTools',
+      'Technical Support',
+      'Video Call Support',
+      'Ecommerce Platforms',
+      'Knowledge Base Setup',
+      'Onboarding & Training',
+    ],
+  },
 ];
 
 export function HomeTech() {
@@ -61,22 +74,22 @@ export function HomeTech() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center items-center">
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="rounded-xl bg-gradient-to-br from-sky-100 to-sky-200 p-6 text-slate-900 shadow-md transition duration-300 hover:from-sky-200 hover:to-sky-300 hover:shadow-2xl dark:from-indigo-500 dark:to-sky-500 dark:text-white dark:hover:from-sky-500 dark:hover:to-indigo-600"
+              className="rounded-xl justify-around bg-gradient-to-br p-6 text-slate-900 shadow-md transition duration-300 dark:text-white dark:hover:from-sky-500 "
             >
-              <div className="mb-4 flex justify-center">{tech.icon}</div>
-              <h3 className="my-2 text-center text-xl font-bold">
+              <div className="mb-4 flex">{tech.icon}</div>
+              <h3 className="my-2 text-xl font-bold">
                 {tech.title}
               </h3>
               <ul className="list-inside list-disc space-y-1 text-sm text-slate-700 dark:text-slate-100/90">
                 {tech.stack.map((item, i) => (
-                  <li key={i} className="py-1 text-center">
+                  <li key={i} className="py-1">
                     {item}
                   </li>
                 ))}

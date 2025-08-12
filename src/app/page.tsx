@@ -15,6 +15,7 @@ import { HomeExperience } from '@/modules/home/05_expirence';
 import { HomeProjects } from '@/modules/home/06_projects';
 import { AnalyticEvent } from '@/modules/shared/analytics';
 import { locale_resolve } from '@/utils';
+import { HomePortfolioStack } from '@/modules/home/07_portfolio';
 
 async function fetchData(locale: string) {
   let error: unknown | undefined;
@@ -41,10 +42,11 @@ export default async function Page() {
         <p className="w-full">{JSON.stringify(error)}</p>
       </span>
     );
-
+  console.log(JSON.stringify(attributes?.workExperience));
   return (
     <Fragment>
       <HomePlatforms />
+      <HomePortfolioStack/>
       <HomeTech />
       <HomeAbout />
       <HomeUI />

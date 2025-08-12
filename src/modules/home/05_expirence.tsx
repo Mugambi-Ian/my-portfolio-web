@@ -1,7 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
 
 interface IExperienceProps {
@@ -27,14 +23,10 @@ export function HomeExperience({ workExperience }: IExperienceProps) {
 
         {/* Experience Cards */}
         <div className="grid gap-6 md:grid-cols-2">
-          {workExperience?.map((exp, index) => (
-            <motion.div
+          {workExperience?.map((exp) => (
+            <div
               key={exp.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="rounded-xl bg-gradient-to-br p-6 text-slate-900 shadow-md transition duration-300 hover:scale-125 hover:from-sky-200 hover:to-sky-300 hover:shadow-2xl dark:text-white dark:hover:from-sky-500 dark:hover:to-indigo-600"
+              className="rounded-xl bg-gradient-to-br p-6 text-slate-900 shadow-md transition duration-300 dark:text-white"
             >
               <h3 className="mb-1 text-xl font-bold">{exp.title}</h3>
               <p className="mb-2 text-sm">
@@ -75,7 +67,7 @@ export function HomeExperience({ workExperience }: IExperienceProps) {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
