@@ -74,19 +74,17 @@ export function HomeTech() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center items-center">
+        <div className="grid items-center justify-center gap-8 md:grid-cols-2 lg:grid-cols-4">
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="rounded-xl justify-around bg-gradient-to-br p-6 text-slate-900 shadow-md transition duration-300 dark:text-white dark:hover:from-sky-500 "
+              className="justify-around rounded-xl bg-gradient-to-br p-6 text-slate-900 shadow-md transition duration-300 dark:text-white dark:hover:from-sky-500 "
             >
               <div className="mb-4 flex">{tech.icon}</div>
-              <h3 className="my-2 text-xl font-bold">
-                {tech.title}
-              </h3>
+              <h3 className="my-2 text-xl font-bold">{tech.title}</h3>
               <ul className="list-inside list-disc space-y-1 text-sm text-slate-700 dark:text-slate-100/90">
                 {tech.stack.map((item, i) => (
                   <li key={i} className="py-1">

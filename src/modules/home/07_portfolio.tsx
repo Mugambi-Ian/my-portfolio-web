@@ -1,21 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { FaDatabase } from 'react-icons/fa';
 import {
-  FaDatabase,
-} from 'react-icons/fa';
-import {
-  SiNextdotjs,
-  SiTailwindcss,
   SiFramer,
+  SiGraphql,
+  SiNextdotjs,
   SiStrapi,
-  SiGraphql
+  SiTailwindcss,
 } from 'react-icons/si';
 
 const portfolioStack = [
   {
     title: 'Next.js',
-    description: 'React-based framework powering fast server-side rendering and static generation.',
+    description:
+      'React-based framework powering fast server-side rendering and static generation.',
     icon: <SiNextdotjs className="text-4xl text-sky-600 dark:text-white" />,
   },
   {
@@ -25,7 +24,8 @@ const portfolioStack = [
   },
   {
     title: 'Framer Motion',
-    description: 'Smooth animations and page transitions for an engaging user experience.',
+    description:
+      'Smooth animations and page transitions for an engaging user experience.',
     icon: <SiFramer className="text-4xl text-sky-600 dark:text-white" />,
   },
   {
@@ -35,12 +35,14 @@ const portfolioStack = [
   },
   {
     title: 'GraphQL + Apollo',
-    description: 'Flexible API queries with GraphQL, consumed using Apollo Client.',
+    description:
+      'Flexible API queries with GraphQL, consumed using Apollo Client.',
     icon: <SiGraphql className="text-4xl text-sky-600 dark:text-white" />,
   },
   {
     title: 'Node.js & PostgreSQL',
-    description: 'Backend runtime with a robust relational database for structured data.',
+    description:
+      'Backend runtime with a robust relational database for structured data.',
     icon: <FaDatabase className="text-4xl text-sky-600 dark:text-white" />,
   },
 ];
@@ -57,9 +59,9 @@ export function HomePortfolioStack() {
           <h1 className="mt-2 pb-10 text-center text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">
             How This Portfolio Was Built
           </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400">
-            This site is crafted with modern tools for speed, scalability, and a great developer
-            experience. Here’s the stack that powers it.
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+            This site is crafted with modern tools for speed, scalability, and a
+            great developer experience. Here’s the stack that powers it.
           </p>
         </div>
 
