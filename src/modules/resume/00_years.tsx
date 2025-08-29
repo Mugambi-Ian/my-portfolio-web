@@ -14,9 +14,9 @@ export function ResumeYears({ experience }: IProps) {
   const totalExperience = experience.reduce(
     (c, n) =>
       c +
-      (new Date(n?.end_date || new Date().getTime()).getTime() -
+      (new Date(n?.end_date || new Date()).getTime() -
         new Date(n?.start_date!).getTime()),
-    0
+    3 * 365 * 24 * 60 * 60 * 1000
   );
   return (
     <ResumeField title={'Total Experience'} Icon={IC_BriefCase}>
