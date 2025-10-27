@@ -2,54 +2,66 @@
 
 import { motion } from 'framer-motion';
 
+
 export function HomeAbout() {
   return (
-    <section className="w-full bg-white px-6 py-12 text-slate-800  transition-colors duration-300 dark:bg-slate-950 dark:text-white">
-      <div className="mx-auto flex max-w-6xl flex-col items-start gap-12 md:flex-row">
-        <div className="flex-1">
-          <h2 className="mb-2 text-sm uppercase tracking-widest text-amber-500">
-            01. About Me
+    <section
+      id="about"
+      className="relative isolate scroll-mt-28 overflow-hidden bg-white px-6 pt-32 pb-56 text-slate-900 md:scroll-mt-32"
+    >
+      <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-slate-100 via-white to-transparent" />
+      <div className="mx-auto flex max-w-7xl flex-col gap-16 lg:flex-row lg:items-center">
+        <div className="flex-1 space-y-6">
+          <p className="text-xs uppercase tracking-[0.4em] text-slate-500">
+            01 • Who I Am
+          </p>
+          <h2 className="text-4xl font-black text-slate-950 md:text-5xl">
+            Product-minded engineer with 7+ years turning ideas into durable
+            outcomes
           </h2>
-          <h1 className="mb-6 text-4xl font-extrabold">
-            Driven by Passion, Powered by Code
-          </h1>
-
-          <p className="mb-4 text-lg text-slate-600 dark:text-slate-300">
-            Hello! I’m Ian Mugambi — a Fullstack Developer and UI/UX Designer
-            based in Nairobi, Kenya. I’m passionate about solving problems with
-            technology and building scalable tools that improve efficiency,
-            security, and user experience across industries.
+          <p className="text-lg text-slate-600">
+            I’m Ian Mugambi — a Nairobi-based senior fullstack engineer and
+            designer. I thrive where ambitious UX and systems architecture meet.
+            From fintech to SaaS, I’ve led cross-functional squads, shipped
+            high-stakes launches, and kept the craft sharp while doing it.
           </p>
-
-          <p className="mb-4 text-lg text-slate-600 dark:text-slate-300">
-            My journey began in high school, where I became a national finalist
-            in the Kenya National Science and Engineering Fair for a digital
-            police records system. That experience ignited a lifelong commitment
-            to software engineering, and I’ve been building ever since.
-          </p>
-
-          <p className="mb-4 text-lg text-slate-600 dark:text-slate-300">
-            With over 5 years of professional experience across fintech,
-            insurtech, and logistics, I’ve led cross-platform app development,
-            architected resilient systems, and designed intuitive interfaces
-            used in production environments.
-          </p>
-
-          <p className="text-lg text-slate-600 dark:text-slate-300">
-            I thrive in collaborative teams, embrace agile workflows, and am
-            constantly exploring better ways to ship reliable software. If
-            you're looking for a versatile engineer who delivers polished
-            results with a strong product mindset, I’d love to connect.
+          <p className="text-lg text-slate-600">
+            My path started in high school, prototyping a national award-winning
+            digital police records system. Since then, I’ve architected
+            platforms used daily by global operators and designed experiences
+            that keep customers loyal.
           </p>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4 }}
-          className="relative h-80 w-full rounded-3xl border border-amber-500 bg-amber-400/60 shadow-xl md:w-80"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative isolate h-[420px] w-full overflow-hidden rounded-[2.5rem] bg-slate-950 p-1 shadow-[0_25px_90px_-45px_rgba(16,185,129,0.6)] lg:w-[420px]"
         >
-          <div className="absolute left-3 top-3 -z-10 size-full rounded-3xl bg-amber-400" />
+          <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.15),_transparent_60%)]" />
+          <div className="absolute inset-0 z-0 bg-[linear-gradient(135deg,_rgba(15,23,42,0.95),_rgba(2,6,23,0.85))]" />
+          <div className="relative z-20 flex h-full flex-col justify-between rounded-[2.2rem] border border-slate-800/80 bg-slate-950/80 p-10">
+            <div className="space-y-4 text-white">
+              <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">
+                Operating System
+              </p>
+              <p className="text-2xl font-semibold">
+                Pragmatic optimism, ruthless prioritisation, and craft that
+                makes complex products feel effortless.
+              </p>
+            </div>
+            <div className="space-y-4 text-slate-300">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                Currently exploring
+              </p>
+              <p className="text-lg">
+                Machine-assisted UX workflows, high-scale data pipelines, and
+                ways to mentor the next wave of builders in Nairobi.
+              </p>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

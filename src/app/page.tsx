@@ -44,14 +44,16 @@ export default async function Page() {
     );
   return (
     <Fragment>
-      <HomePlatforms />
-      <HomePortfolioStack />
-      <HomeTech />
-      <HomeAbout />
-      <HomeUI />
+      <div className="flex flex-col">
+        <HomePlatforms />
+        <HomePortfolioStack />
+        <HomeTech />
+        <HomeAbout />
+        <HomeUI />
+        <HomeExperience workExperience={attributes?.workExperience} />
+        <HomeProjects projects={attributes?.projects} />
+      </div>
       <AnalyticEvent type="navigate" title="homepage" />
-      <HomeExperience workExperience={attributes?.workExperience} />
-      <HomeProjects projects={attributes?.projects} />
     </Fragment>
   );
 }

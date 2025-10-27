@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Fragment } from 'react';
 
 import type { IReferencesEntity } from '@/graphql/models/resume';
 
@@ -11,34 +10,43 @@ interface IResumeAwardProps {
 }
 function ResumeAward({ e }: IResumeAwardProps) {
   return (
-    <Fragment>
-      <div className="my-2 flex w-full lg:mb-1">
-        <h6 className="text-lg font-semibold text-slate-900 dark:text-white">
+    <article className="rounded-2xl border border-slate-200/70 bg-white/70 p-5 dark:border-slate-700/60 dark:bg-slate-900/40">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           {e.name}
-        </h6>
-        <span className="flex-1" />
-        <Link
-          href={`mailto:${e.email}`}
-          className="ml-2 text-sm text-gray-600 dark:text-white"
-        >
-          {e.email}
-        </Link>
+        </h3>
+        {e.email && (
+          <Link
+            href={`mailto:${e.email}`}
+            className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300 transition hover:text-emerald-200"
+          >
+            Email
+          </Link>
+        )}
       </div>
-      <div className="mb-3 flex w-full">
-        <h6 className="text-base font-normal text-slate-900 dark:text-white lg:leading-3">
-          {e.title}
-        </h6>
-      </div>
-    </Fragment>
+      <p className="text-sm text-slate-600 dark:text-slate-300">{e.title}</p>
+      {e.phone && (
+        <p className="mt-2 text-xs uppercase tracking-[0.3em] text-slate-400">
+          {e.phone}
+        </p>
+      )}
+    </article>
   );
 }
 interface IProps {
   references?: IReferencesEntity[];
 }
 export function ResumeReferences({ references }: IProps) {
-  if (references === undefined) return <></>;
+  if (!references || references.length === 0) return <></>;
   return (
-    <ResumeField Icon={IC_References} title={'References'} showMargin={true}>
+    <ResumeField
+      Icon={IC_References}
+      title="References"
+      eyebrow="Trusted Voices"
+      description="Leaders and collaborators who can speak to my delivery, communication, and problem-solving."
+      showMargin
+      id="references"
+    >
       {references.map((e) => (
         <ResumeAward key={e.id} e={e!} />
       ))}

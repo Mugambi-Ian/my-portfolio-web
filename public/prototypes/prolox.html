@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prolox Service Ecosystem</title>
+    <style>
+      :root {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color-scheme: light dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 28px;
+        display: flex;
+        background: radial-gradient(circle at bottom, #cffafe, #f8fafc 55%);
+        color: #0f172a;
+      }
+
+      .frame {
+        margin: auto;
+        width: min(980px, 100%);
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 30px;
+        border: 1px solid rgba(14, 165, 233, 0.2);
+        box-shadow: 0 30px 90px -60px rgba(14, 165, 233, 0.7);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      header {
+        padding: 32px clamp(26px, 5vw, 48px) 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: clamp(30px, 5vw, 44px);
+        font-weight: 800;
+      }
+
+      header p {
+        margin: 12px 0 0;
+        color: rgba(37, 99, 235, 0.9);
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .pulse-toggle {
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 999px;
+        padding: 12px 18px;
+        font-size: 12px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(15, 23, 42, 0.75);
+        background: rgba(239, 246, 255, 0.9);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+
+      .pulse-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.7);
+        position: relative;
+      }
+
+      .pulse-indicator::after {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: inherit;
+        border: 2px solid rgba(59, 130, 246, 0.5);
+        opacity: var(--pulse, 0);
+        transform: scale(var(--scale, 0.6));
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(240px, 280px) 1fr;
+        gap: 1px;
+        background: rgba(14, 165, 233, 0.12);
+      }
+
+      aside {
+        background: rgba(240, 249, 255, 0.85);
+        padding: 32px 26px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .node {
+        border-radius: 18px;
+        border: 1px solid transparent;
+        padding: 16px 18px;
+        display: grid;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.18s ease;
+        background: rgba(255, 255, 255, 0.65);
+      }
+
+      .node strong {
+        font-size: 15px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(30, 64, 175, 0.8);
+      }
+
+      .node span {
+        font-size: 13px;
+        color: #334155;
+      }
+
+      .node[data-active='true'] {
+        border-color: rgba(14, 165, 233, 0.6);
+        background: rgba(224, 242, 254, 0.9);
+        box-shadow: 0 20px 40px -32px rgba(14, 165, 233, 0.9);
+      }
+
+      main {
+        background: rgba(255, 255, 255, 0.88);
+        padding: clamp(26px, 4vw, 42px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .grid {
+        width: 100%;
+        height: 100%;
+        border-radius: 24px;
+        border: 1px solid rgba(14, 165, 233, 0.18);
+        background:
+          linear-gradient(0deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+        background-size: 80px 80px;
+        position: relative;
+      }
+
+      .hub,
+      .service {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        border-radius: 26px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 18px;
+        gap: 8px;
+        background: rgba(14, 165, 233, 0.14);
+        border: 1px solid rgba(14, 165, 233, 0.3);
+        color: rgba(15, 23, 42, 0.82);
+      }
+
+      .hub span,
+      .service span {
+        font-size: 12px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .hub strong,
+      .service strong {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .hub {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(56, 189, 248, 0.24);
+        border-color: rgba(14, 165, 233, 0.6);
+        box-shadow: 0 25px 60px -50px rgba(14, 165, 233, 1);
+      }
+
+      .service[data-node='onboarding'] {
+        left: 14%;
+        top: 18%;
+      }
+
+      .service[data-node='billing'] {
+        right: 16%;
+        top: 22%;
+      }
+
+      .service[data-node='support'] {
+        left: 12%;
+        bottom: 18%;
+      }
+
+      .service[data-node='insights'] {
+        right: 12%;
+        bottom: 20%;
+      }
+
+      .beam {
+        position: absolute;
+        width: 2px;
+        background: linear-gradient(180deg, rgba(14, 165, 233, 0), rgba(14, 165, 233, 0.9));
+        transform-origin: top;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .beam.on {
+        opacity: 1;
+      }
+
+      .bridge-tag {
+        position: absolute;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(14, 165, 233, 0.16);
+        border: 1px solid rgba(14, 165, 233, 0.28);
+        font-size: 12px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: rgba(14, 116, 144, 0.9);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .bridge-tag.on {
+        opacity: 1;
+      }
+
+      footer {
+        padding: 20px 32px 32px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 13px;
+        color: rgba(30, 64, 175, 0.7);
+      }
+
+      footer span {
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 860px) {
+        body {
+          padding: 18px;
+        }
+
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        aside {
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+
+        main {
+          min-height: 420px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <header>
+        <div>
+          <h1>Service connection orchestration</h1>
+          <p>Realtime APIs · SLA automation · Experience tiering</p>
+        </div>
+        <button class="pulse-toggle" type="button">
+          <span class="pulse-indicator"></span>
+          <span>Signal routes</span>
+        </button>
+      </header>
+      <div class="layout">
+        <aside data-list></aside>
+        <main>
+          <div class="grid" data-grid>
+            <div class="hub">
+              <span>Core</span>
+              <strong>Prolox Nexus</strong>
+            </div>
+            <div class="service" data-node="onboarding">
+              <span>Flow</span>
+              <strong>Activation</strong>
+            </div>
+            <div class="service" data-node="billing">
+              <span>Flow</span>
+              <strong>Billing</strong>
+            </div>
+            <div class="service" data-node="support">
+              <span>Flow</span>
+              <strong>Care Desk</strong>
+            </div>
+            <div class="service" data-node="insights">
+              <span>Flow</span>
+              <strong>Insights</strong>
+            </div>
+            <div class="beam" data-beam></div>
+            <div class="bridge-tag" data-bridge>Latency 220ms → 38ms</div>
+          </div>
+        </main>
+      </div>
+      <footer>
+        <span>Orchestrated in 5 weeks</span>
+        <div>20+ services · 3 data residency zones · 11 automation playbooks</div>
+      </footer>
+    </div>
+
+    <script>
+      const services = [
+        {
+          id: 'onboarding',
+          title: 'Activation',
+          detail: 'Guided setup + progressive verification',
+          beam: { x1: 50, y1: 50, x2: 17, y2: 28 },
+        },
+        {
+          id: 'billing',
+          title: 'Billing',
+          detail: 'Usage-based plans, realtime reconciliation',
+          beam: { x1: 50, y1: 50, x2: 83, y2: 30 },
+        },
+        {
+          id: 'support',
+          title: 'Care desk',
+          detail: 'Predictive routing + AI co-pilot',
+          beam: { x1: 50, y1: 50, x2: 18, y2: 72 },
+        },
+        {
+          id: 'insights',
+          title: 'Insights',
+          detail: 'Unifies telemetry, churn prediction',
+          beam: { x1: 50, y1: 50, x2: 82, y2: 74 },
+        },
+      ];
+
+      const list = document.querySelector('[data-list]');
+      const beam = document.querySelector('[data-beam]');
+      const tag = document.querySelector('[data-bridge]');
+      const toggle = document.querySelector('.pulse-toggle');
+      const indicator = document.querySelector('.pulse-indicator');
+
+      function renderList() {
+        list.innerHTML = services
+          .map((item) => {
+            return `
+              <article class="node" data-node-id="${item.id}">
+                <strong>${item.title}</strong>
+                <span>${item.detail}</span>
+              </article>
+            `;
+          })
+          .join('');
+      }
+
+      function activate(id) {
+        const items = Array.from(document.querySelectorAll('[data-node-id]'));
+        items.forEach((node) => {
+          node.dataset.active = String(node.dataset.nodeId === id);
+        });
+
+        const config = services.find((item) => item.id === id);
+        if (!config) return;
+
+        const { x1, y1, x2, y2 } = config.beam;
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const length = Math.hypot(dx, dy);
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+        beam.style.left = `${x1}%`;
+        beam.style.top = `${y1}%`;
+        beam.style.height = `${length}%`;
+        beam.style.transform = `rotate(${angle}deg)`;
+        beam.classList.add('on');
+
+        tag.style.left = `${(x1 + x2) / 2}%`;
+        tag.style.top = `${(y1 + y2) / 2}%`;
+        tag.classList.add('on');
+        tag.textContent = `${config.title} · latency delta 38ms`;
+      }
+
+      function deactivate() {
+        const items = Array.from(document.querySelectorAll('[data-node-id]'));
+        items.forEach((node) => {
+          node.dataset.active = 'false';
+        });
+        beam.classList.remove('on');
+        tag.classList.remove('on');
+      }
+
+      let signals = false;
+
+      toggle.addEventListener('click', () => {
+        signals = !signals;
+        indicator.style.setProperty('--pulse', signals ? 1 : 0);
+        indicator.style.setProperty('--scale', signals ? 1.1 : 0.6);
+
+        if (!signals) {
+          deactivate();
+          return;
+        }
+
+        activate('onboarding');
+      });
+
+      list.addEventListener('click', (event) => {
+        const target = event.target.closest('[data-node-id]');
+        if (!target) return;
+        signals = true;
+        indicator.style.setProperty('--pulse', 1);
+        indicator.style.setProperty('--scale', 1.1);
+        activate(target.dataset.nodeId);
+      });
+
+      renderList();
+    </script>
+  </body>
+</html>

@@ -1,30 +1,49 @@
-import { Fragment } from 'react';
+'use client';
 
-import NavDrawer from '@/modules/nav/__drawer';
+import clsx from 'clsx';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 import { IC_Drawer } from '../icons/header';
+import NavDrawer from './__drawer';
 
 export function SmallHeader() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
   return (
-    <Fragment>
-      <header
-        id="mobile-header"
-        className="sticky top-0 z-50 flex w-full items-center justify-between bg-gradient-to-r from-sky-600 to-indigo-600 px-4 py-6 text-white dark:from-indigo-800 dark:to-sky-700 sm:hidden"
-      >
-        <div className="flex items-center gap-3">
-          <h1 className="text-base uppercase tracking-widest">
-            {'<MY_PORTFOLIO/>'}
-          </h1>
-        </div>
-        <button
-          id="drawer-btn"
-          aria-label="Open drawer"
-          className="flex size-10 items-center justify-center rounded-full bg-white/10"
+    <>
+      <header className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-4 md:hidden">
+        <div
+          className={clsx(
+            'pointer-events-auto flex w-full max-w-3xl items-center justify-between rounded-full border border-slate-800/60 bg-slate-950/80 px-4 py-3 text-slate-200 shadow-[0_25px_70px_-40px_rgba(16,185,129,0.65)] backdrop-blur'
+          )}
         >
-          <IC_Drawer className="size-6 fill-white" />
-        </button>
+          <Link href="/" className="flex items-center gap-3">
+            <span className="font-display text-xs font-semibold uppercase tracking-[0.45em] text-emerald-300">
+              Ian Mugambi
+            </span>
+          </Link>
+
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              aria-label={open ? 'Close navigation' : 'Open navigation'}
+              onClick={() => setOpen((prev) => !prev)}
+              className="flex size-10 items-center justify-center rounded-full border border-slate-700/60 text-slate-100 transition hover:border-emerald-300 hover:text-emerald-200"
+            >
+              <IC_Drawer className="size-5" />
+            </button>
+          </div>
+        </div>
       </header>
-      <NavDrawer />
-    </Fragment>
+
+      <NavDrawer
+        open={open}
+        onClose={() => setOpen(false)}
+        pathname={pathname}
+      />
+    </>
   );
 }

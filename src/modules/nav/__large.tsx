@@ -1,62 +1,79 @@
-import clsx from 'clsx';
-import { Fragment } from 'react';
+import Link from 'next/link';
 
-import { IC_Github, IC_Linkedin, IC_Resume } from '../icons/header';
-import { NavLink } from '../shared/link';
-import NavTheme from './nav_theme';
-
-export function NavThemeSwitch() {
-  return (
-    <div className="flex h-10 items-center gap-2 rounded-full bg-white px-3 dark:bg-slate-900">
-      <span className="text-xs text-slate-700 dark:text-white">Light</span>
-      <NavTheme />
-      <span className="text-xs text-slate-700 dark:text-white">Dark</span>
-    </div>
-  );
+import { IC_Github, IC_Linkedin, IC_Logo } from '../icons/header';
+import {
+  type HeaderSectionLink,
+  HOME_SECTIONS,
+  RESUME_DOWNLOAD_PATH,
+  RESUME_SECTIONS,
+  SOCIAL_LINKS,
+} from './config';
+function resolveHref(target: string, pathname?: string) {
+  const hash = `#${target}`;
+  if (!pathname) return hash;
+  if (pathname.includes('resume')) return hash;
+  return hash;
 }
 
 export function LargeHeader({ pathname }: { pathname?: string }) {
-  return (
-    <Fragment>
-      <header
-        id="desktop-header"
-        className="sticky top-0 z-50 hidden w-full justify-center border-b border-b-gray-300 bg-gradient-to-r from-white to-white shadow-md drop-shadow-xl backdrop-blur-md dark:border-b-transparent dark:from-indigo-900 dark:to-sky-800 sm:flex"
-      >
-        <div
-          className={clsx(
-            'flex w-full max-w-7xl items-center justify-between px-6 py-4'
-          )}
-        >
-          <a href="/" className="flex items-center gap-3">
-            <h1 className="font-mono text-lg text-sky-800 dark:text-white">
-              {"<a href='/'/>"}
-            </h1>
-          </a>
+  const isResume = pathname?.includes('resume');
+  const sectionLinks: HeaderSectionLink[] = isResume
+    ? RESUME_SECTIONS
+    : HOME_SECTIONS;
 
-          <div className="flex items-center gap-4">
-            {pathname && (
-              <>
-                {!pathname.includes('resume') && (
-                  <NavLink icon={IC_Resume} title={'Resume'} href={`/resume`} />
-                )}
-                <NavLink
-                  href="https://www.linkedin.com/in/ian-mugambi-65893917a/"
-                  icon={IC_Linkedin}
-                  title="LinkedIn"
-                  hideTitle
-                />
-                <NavLink
-                  href="https://github.com/Mugambi-Ian"
-                  icon={IC_Github}
-                  title="GitHub"
-                  hideTitle
-                />
-              </>
-            )}
-            <NavThemeSwitch />
+  const primaryCta = isResume
+    ? { label: 'Download', href: RESUME_DOWNLOAD_PATH }
+    : { label: 'Résumé', href: '/resume' };
+
+  return (
+    <header className="pointer-events-none fixed inset-x-0 top-6 z-50 hidden justify-center px-4 md:flex">
+      <div className="pointer-events-auto flex w-full max-w-6xl items-center gap-6 rounded-full border border-slate-800/60 bg-slate-950/80 px-6 py-3 shadow-[0_30px_80px_-40px_rgba(16,185,129,0.65)] backdrop-blur">
+        <Link href="/" className="flex items-center gap-3">
+          <IC_Logo className="size-8" />
+          <span className="font-display text-sm font-semibold uppercase tracking-[0.4em] text-slate-100">
+            Ian Mugambi
+          </span>
+        </Link>
+
+        <nav className="hidden flex-1 items-center justify-center gap-2 lg:flex">
+          {sectionLinks.map((link) => (
+            <a
+              key={link.target}
+              href={resolveHref(link.target, pathname)}
+              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-300 transition hover:text-emerald-200"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <div className="hidden items-center gap-2 lg:flex">
+            <a
+              href={SOCIAL_LINKS[0]?.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex size-9 items-center justify-center rounded-full border border-slate-700/60 text-emerald-300 transition hover:border-emerald-300 hover:text-emerald-200"
+            >
+              <IC_Linkedin className="size-4" />
+            </a>
+            <a
+              href={SOCIAL_LINKS[1]?.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex size-9 items-center justify-center rounded-full border border-slate-700/60 text-emerald-300 transition hover:border-emerald-300 hover:text-emerald-200"
+            >
+              <IC_Github className="size-4" />
+            </a>
           </div>
+          <Link
+            href={primaryCta.href}
+            className="hidden rounded-full border border-emerald-400/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200 transition hover:border-emerald-300 hover:text-emerald-100 lg:inline-flex"
+          >
+            {primaryCta.label}
+          </Link>
         </div>
-      </header>
-    </Fragment>
+      </div>
+    </header>
   );
 }

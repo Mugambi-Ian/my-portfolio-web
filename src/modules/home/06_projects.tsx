@@ -10,23 +10,29 @@ interface IProjectsProps {
 
 export function HomeProjects({ projects }: IProjectsProps) {
   return (
-    <section className="z-10 w-full bg-white px-6 py-24 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
+    <section
+      id="projects"
+      className="relative z-10 w-full scroll-mt-28 overflow-hidden bg-slate-950 px-6 py-32 text-slate-100 md:scroll-mt-32"
+    >
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.15),_transparent_60%)]" />
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-16 text-center">
-          <h2 className="text-sm uppercase tracking-widest text-sky-600 dark:text-sky-400">
-            My Side Hustles
+        <div className="mb-16 flex flex-col gap-6 text-center">
+          <p className="text-xs uppercase tracking-[0.35em] text-emerald-300">
+            04 • Experiments & Impact
+          </p>
+          <h2 className="text-4xl font-black text-white md:text-5xl">
+            From zero to resonance
           </h2>
-          <h1 className="mt-2 text-5xl font-extrabold text-slate-900 dark:text-white md:text-6xl">
-            Projects
-          </h1>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            Some personal projects and experiments I’ve built.
+          <p className="mx-auto max-w-3xl text-lg text-slate-300">
+            Side hustles, prototypes, and lab work that sharpen my instincts.
+            Each project taught me something about scale, usability, or how to
+            guide teams toward evidence-backed decisions.
           </p>
         </div>
 
         {/* Project Cards */}
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-8">
           {projects?.map((project, index) => (
             <motion.div
               key={project.id}
@@ -34,24 +40,33 @@ export function HomeProjects({ projects }: IProjectsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="flex flex-col border-t-2 border-sky-600 dark:border-sky-400 md:flex-row md:items-center"
+              className="group flex flex-col gap-6 rounded-3xl border border-slate-800/70 bg-slate-900/60 p-10 shadow-[0_25px_80px_-40px_rgba(16,185,129,0.45)] transition hover:border-emerald-300/40 md:flex-row md:items-start"
             >
-              <div className="flex-1 rounded-b-xl bg-sky-600 p-6 text-white dark:bg-sky-700 md:rounded-b-none md:rounded-r-xl">
-                <h3 className="mb-4 text-2xl font-bold">{project.title}</h3>
-                <p className="mb-6">{project.long_description}</p>
+              <div className="flex-1 space-y-5">
+                <div className="flex flex-wrap items-center gap-4">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-300">
+                    Concept Lab
+                  </span>
+                  <h3 className="text-3xl font-semibold text-white">
+                    {project.title}
+                  </h3>
+                </div>
+                <p className="text-base text-slate-300">
+                  {project.long_description}
+                </p>
                 {project.links?.length > 0 && (
-                  <div>
-                    <span className="mb-2 block text-xs uppercase tracking-widest">
-                      Links
+                  <div className="space-y-3">
+                    <span className="block text-xs uppercase tracking-[0.3em] text-slate-500">
+                      Featured Links
                     </span>
-                    <ul className="flex flex-wrap gap-4">
+                    <ul className="flex flex-wrap gap-4 text-sm text-emerald-200">
                       {project.links.map((link, idx) => (
                         <li key={idx}>
                           <a
                             href={link.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-sm text-white hover:underline"
+                            className="inline-flex items-center gap-2 rounded-full border border-transparent px-4 py-2 transition hover:border-emerald-200 hover:text-white"
                           >
                             {link.name} ↗
                           </a>
@@ -61,12 +76,12 @@ export function HomeProjects({ projects }: IProjectsProps) {
                   </div>
                 )}
               </div>
-              <div className="p-6">
+              <div className="md:w-48">
                 <a
                   href={project.project_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-semibold uppercase tracking-wider text-sky-700 hover:underline dark:text-sky-400"
+                  className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-200 transition hover:border-emerald-200"
                 >
                   Visit Project
                 </a>

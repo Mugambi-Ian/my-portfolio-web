@@ -1,80 +1,113 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
-
-import { NavLink } from '@/modules/shared/link';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 
 import {
-  IC_Github,
-  IC_Home,
-  IC_Linkedin,
-  IC_Moon,
-  IC_Resume,
-  IC_Sun,
-} from '../icons/header';
-import NavTheme from './nav_theme';
+  CONTACT_EMAIL,
+  HOME_SECTIONS,
+  RESUME_DOWNLOAD_PATH,
+  RESUME_SECTIONS,
+  SOCIAL_LINKS,
+} from './config';
 
-export default function NavDrawer() {
-  const pathname = usePathname();
-  const [showDrawer, drawerPopup] = useState(false);
+interface NavDrawerProps {
+  open: boolean;
+  onClose: () => void;
+  pathname: string;
+}
 
-  const switchModal = useCallback(() => {
-    if (showDrawer) drawerPopup(false);
-    else drawerPopup(true);
-  }, [showDrawer]);
+function resolveHref(target: string, pathname: string) {
+  const hash = `#${target}`;
+  if (pathname.includes('resume')) return hash;
+  return pathname === '/' ? hash : `/#${target}`;
+}
 
-  useEffect(() => {
-    const btn = document.getElementById('drawer-btn');
-    setTimeout(() => {
-      btn!.onclick = switchModal;
-    }, 750);
-  }, [showDrawer]);
+export default function NavDrawer({ open, onClose, pathname }: NavDrawerProps) {
+  const isResume = pathname.includes('resume');
+  const navItems = isResume ? RESUME_SECTIONS : HOME_SECTIONS;
 
-  if (!showDrawer) return <></>;
+  const primaryCta = isResume
+    ? { label: 'Download', href: RESUME_DOWNLOAD_PATH }
+    : { label: 'Résumé', href: '/resume' };
+
+  const secondaryCta = isResume
+    ? { label: 'Back Home', href: '/' }
+    : { label: 'Let’s Talk', href: `mailto:${CONTACT_EMAIL}` };
+
   return (
-    <nav className="absolute top-[75px] z-50 flex h-screen w-screen flex-col gap-6 bg-gradient-to-b from-sky-600 to-indigo-600 px-6 pt-8 text-white dark:from-indigo-800 dark:to-sky-800">
-      {pathname.includes('resume') ? (
-        <NavLink
-          icon={IC_Home}
-          href={`/`}
-          title={'Home'}
-          onPress={switchModal}
-          className="flex items-center gap-3 text-lg font-semibold hover:underline"
-        />
-      ) : (
-        <NavLink
-          href={`/resume`}
-          icon={IC_Resume}
-          title={'Resume'}
-          onPress={switchModal}
-          className="flex items-center gap-3 text-lg font-semibold hover:underline"
-        />
+    <AnimatePresence>
+      {open && (
+        <motion.nav
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 16 }}
+          transition={{ duration: 0.25, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[60] flex flex-col bg-slate-950/95 px-6 py-8 text-slate-100 backdrop-blur-md"
+        >
+          <div className="flex items-center justify-between">
+            <span className="font-display text-xs font-semibold uppercase tracking-[0.45em] text-emerald-300">
+              Navigate
+            </span>
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded-full border border-slate-700/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-300 transition hover:border-emerald-300 hover:text-emerald-200"
+            >
+              Close
+            </button>
+          </div>
+
+          <ul className="mt-10 flex flex-col gap-3">
+            {navItems.map((item) => (
+              <li key={item.target}>
+                <Link
+                  href={resolveHref(item.target, pathname)}
+                  onClick={onClose}
+                  className="flex w-full items-center justify-between rounded-2xl border border-slate-800/70 bg-slate-900/60 px-5 py-4 text-sm font-semibold uppercase tracking-[0.35em] text-slate-200 transition hover:border-emerald-300 hover:text-emerald-200"
+                >
+                  {item.label}
+                  <span className="text-[10px] uppercase tracking-[0.45em] text-emerald-300">
+                    Jump
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-12 flex flex-col gap-3">
+            <Link
+              href={primaryCta.href}
+              onClick={onClose}
+              className="rounded-2xl border border-emerald-400/40 px-5 py-4 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-200 transition hover:border-emerald-300 hover:text-emerald-100"
+            >
+              {primaryCta.label}
+            </Link>
+            <a
+              href={secondaryCta.href}
+              onClick={onClose}
+              className="rounded-2xl bg-emerald-400 px-5 py-4 text-center text-sm font-semibold uppercase tracking-[0.35em] text-slate-950 transition hover:bg-emerald-300"
+            >
+              {secondaryCta.label}
+            </a>
+          </div>
+
+          <div className="mt-auto grid grid-cols-2 gap-3 pt-10">
+            {SOCIAL_LINKS.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                className="rounded-2xl border border-slate-800/70 bg-slate-900/60 px-5 py-4 text-sm font-semibold uppercase tracking-[0.35em] text-slate-300 transition hover:border-emerald-300 hover:text-emerald-100"
+              >
+                {social.label}
+              </a>
+            ))}
+          </div>
+        </motion.nav>
       )}
-
-      <NavLink
-        newTab
-        icon={IC_Linkedin}
-        title={'Linked In'}
-        href="https://www.linkedin.com/in/ian-mugambi-65893917a/"
-        className="flex items-center gap-3 text-lg font-semibold hover:underline"
-      />
-
-      <NavLink
-        newTab
-        icon={IC_Github}
-        title={'Github'}
-        href="https://github.com/Mugambi-Ian"
-        className="flex items-center gap-3 text-lg font-semibold hover:underline"
-      />
-
-      <div className="mt-auto flex w-full items-center justify-center">
-        <div className="flex h-12 items-center gap-4 rounded-full bg-white/20 px-4 backdrop-blur-md dark:bg-white/10">
-          <IC_Sun className="size-5" />
-          <NavTheme />
-          <IC_Moon className="size-5" />
-        </div>
-      </div>
-    </nav>
+    </AnimatePresence>
   );
 }

@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export function ResumeYears({ experience }: IProps) {
-  if (experience === undefined) return <></>;
+  if (!experience || experience.length === 0) return <></>;
 
   const totalExperience = experience.reduce(
     (c, n) =>
@@ -18,9 +18,16 @@ export function ResumeYears({ experience }: IProps) {
         new Date(n?.start_date!).getTime()),
     365 * 24 * 60 * 60 * 1000
   );
+
   return (
-    <ResumeField title={'Total Experience'} Icon={IC_BriefCase}>
-      <p className="justify-center text-sm text-slate-900 dark:text-white">
+    <ResumeField
+      title="Total Experience"
+      eyebrow="Snapshot"
+      description="Years spent leading product engineering, design systems, and resilient delivery."
+      Icon={IC_BriefCase}
+      id="total-experience"
+    >
+      <p className="text-4xl font-black tracking-tight text-emerald-400">
         {getDuration(totalExperience)}
       </p>
     </ResumeField>

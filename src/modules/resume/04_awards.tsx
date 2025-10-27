@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import { Fragment } from 'react';
 
 import type { IAwardsEntity } from '@/graphql/models/resume';
 
@@ -10,33 +9,29 @@ interface IResumeAward {
   e: IAwardsEntity;
 }
 const ResumeAward: FC<IResumeAward> = ({ e }) => {
-  const parseDate = (date: string) => {
-    return new Date(date).toLocaleDateString(undefined, {
+  const parseDate = (date: string) =>
+    new Date(date).toLocaleDateString(undefined, {
       year: 'numeric',
       month: 'long',
     });
-  };
 
   return (
-    <Fragment>
-      <div className="mb-2 flex w-full leading-6">
-        <h6 className="text-lg font-semibold text-slate-900 dark:text-white">
-          {e.title}
-        </h6>
-        <span className="flex-1" />
-        <p className="whitespace-nowrap text-xs text-gray-600 dark:text-white">
+    <article className="rounded-2xl border border-slate-200/70 bg-white/70 p-5 dark:border-slate-700/60 dark:bg-slate-900/40">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            {e.title}
+          </h3>
+          <p className="text-sm font-medium text-emerald-400">{e.award}</p>
+        </div>
+        <p className="text-xs uppercase tracking-[0.35em] text-slate-400">
           {parseDate(e.date!)}
         </p>
       </div>
-      <div className="flex w-full leading-4">
-        <h6 className="text-base font-normal leading-3 text-slate-900 dark:text-white">
-          {e.award}
-        </h6>
-      </div>
-      <p className="mt-4 text-justify text-sm leading-7 tracking-[0.02em] dark:text-white max-sm:leading-6">
+      <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
         {e.description}
       </p>
-    </Fragment>
+    </article>
   );
 };
 interface IProps {
@@ -44,9 +39,16 @@ interface IProps {
 }
 
 export function ResumeAwards({ awards }: IProps) {
-  if (awards === undefined) return <></>;
+  if (!awards || awards.length === 0) return <></>;
   return (
-    <ResumeField Icon={IC_Award} title={'Awards'} showMargin={true}>
+    <ResumeField
+      Icon={IC_Award}
+      title="Awards"
+      eyebrow="Recognition"
+      description="Highlights from competitions and organisations that have trusted my craft."
+      showMargin
+      id="awards"
+    >
       {awards.map((e) => (
         <ResumeAward key={e.id} e={e!} />
       ))}

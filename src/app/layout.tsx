@@ -6,9 +6,8 @@ import type { ReactNode } from 'react';
 
 import { appHeaders } from '@/hooks/useAppHeaders';
 import { Header } from '@/modules/layout/header';
-import { AppNotification } from '@/modules/notification/notifitcation';
 
-import { gordita } from './fonts';
+import { bodyFont, displayFont } from './fonts';
 
 export default async function RootLayout({
   children,
@@ -19,8 +18,15 @@ export default async function RootLayout({
   const { darkMode, pathName, hideHeader } = await appHeaders();
 
   return (
-    <html lang={'en'} style={gordita.style} className={darkMode ? 'dark' : ''}>
-      <body className="relative flex h-screen w-screen flex-col overflow-x-clip bg-white antialiased dark:bg-black">
+    <html
+      lang={'en'}
+      className={clsx(
+        bodyFont.variable,
+        displayFont.variable,
+        darkMode ? 'dark' : ''
+      )}
+    >
+      <body className="relative flex h-screen w-screen flex-col overflow-x-clip bg-white font-sans antialiased dark:bg-black">
         <Header pathname={`${pathName}`} />
         <main
           className={clsx(
@@ -31,7 +37,6 @@ export default async function RootLayout({
         >
           {children}
         </main>
-        {!hideHeader && <AppNotification />}
       </body>
     </html>
   );

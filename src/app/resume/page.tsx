@@ -45,14 +45,16 @@ export default async function Resume() {
 
   return (
     <Fragment>
-      <ResumeHeader />
+      <div className="flex flex-col gap-12 pb-24">
+        <ResumeHeader />
+        <ResumeYears experience={attributes?.workExperience} />
+        <ResumeExperiences experience={attributes?.workExperience} />
+        <ResumeEducation education={attributes?.education} />
+        <ResumeProjects projects={attributes?.projects} />
+        <ResumeAwards awards={attributes?.awards} />
+        <ResumeReferences references={attributes?.references} />
+      </div>
       <AnalyticEvent type="navigate" title="resume" />
-      <ResumeYears experience={attributes?.workExperience} />
-      <ResumeExperiences experience={attributes?.workExperience} />
-      <ResumeEducation education={attributes?.education} />
-      <ResumeProjects projects={attributes?.projects} />
-      <ResumeAwards awards={attributes?.awards} />
-      <ResumeReferences references={attributes?.references} />
     </Fragment>
   );
 }

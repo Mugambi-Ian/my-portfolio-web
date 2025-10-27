@@ -1,89 +1,54 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import {
-  FaCode,
-  FaCogs,
-  FaDesktop,
-  FaGlobe,
-  FaMobileAlt,
-  FaPaintBrush,
-} from 'react-icons/fa';
-
-const services = [
-  {
-    title: 'UI/UX Designer',
-    description:
-      'Modern, intuitive interfaces that are scalable and responsive across devices.',
-    icon: <FaPaintBrush className="text-4xl text-sky-600 dark:text-white" />,
-  },
-  {
-    title: 'Fullstack Engineer',
-    description:
-      'Clean, efficient, and scalable code for both frontend and backend systems.',
-    icon: <FaCode className="text-4xl text-sky-600 dark:text-white" />,
-  },
-  {
-    title: 'System Design',
-    description:
-      'Designing scalable and resilient systems with minimal downtime.',
-    icon: <FaCogs className="text-4xl text-sky-600 dark:text-white" />,
-  },
-];
+import Link from 'next/link';
 
 export function HomePlatforms() {
   return (
-    <section className="w-full bg-white px-6 pb-6 pt-24 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
-      <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <h2 className="text-sm uppercase tracking-widest text-sky-600 dark:text-sky-400">
-            My Name is Ian
-          </h2>
-          <h1 className="mt-2 pb-20 text-center text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">
-            Fullstack Dev (FE) <br />
-            UI/UX Designer
-          </h1>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            Actively seeking opportunities. Based in Nairobi, Kenya.
-            <br />
-            Here’s more about what I do 🚀💯
-          </p>
+    <section
+      id="intro"
+      className="relative isolate overflow-hidden bg-slate-950 px-6 py-80 text-slate-100"
+    >
+      <div className="absolute -left-40 top-0 size-[620px] rounded-full bg-gradient-to-br from-teal-400/40 via-sky-500/20 to-transparent blur-3xl" />
+      <div className="absolute -right-28 bottom-10 size-[460px] rounded-full bg-gradient-to-br from-emerald-400/30 via-indigo-500/10 to-transparent blur-3xl" />
 
-          {/* Platforms */}
-          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm">
-            <span className="flex items-center gap-2 rounded-full bg-slate-200 px-4 py-2 text-slate-800 dark:bg-slate-700 dark:text-white">
-              <FaGlobe /> Web
-            </span>
-            <span className="flex items-center gap-2 rounded-full bg-slate-200 px-4 py-2 text-slate-800 dark:bg-slate-700 dark:text-white">
-              <FaMobileAlt /> Mobile
-            </span>
-            <span className="flex items-center gap-2 rounded-full bg-slate-200 px-4 py-2 text-slate-800 dark:bg-slate-700 dark:text-white">
-              <FaDesktop /> Desktop
-            </span>
+      <div className="relative mx-auto grid max-w-7xl gap-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-10"
+        >
+
+          <div className="space-y-6">
+            <h1 className="text-4xl font-black leading-tight text-white md:text-6xl">
+              Senior Fullstack & Product Engineer crafting confident digital
+              experiences.
+            </h1>
+            <p className="max-w-2xl text-lg text-slate-300 md:text-xl">
+              I ship resilient platforms end-to-end — aligning product strategy
+              with pixel-level craft. Seven years in, I still obsess over the
+              detail that makes users trust and teams move faster.
+            </p>
           </div>
-        </div>
 
-        {/* Services */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="rounded-xl bg-gradient-to-br from-sky-100 to-sky-200 p-6 text-slate-900 shadow-md transition duration-300 hover:from-sky-200 hover:to-sky-300 hover:shadow-2xl dark:from-indigo-500 dark:to-sky-500 dark:text-white dark:hover:from-sky-500 dark:hover:to-indigo-600"
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/resume"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
             >
-              <div className="mb-4 flex justify-center">{service.icon}</div>
-              <h3 className="mb-2 text-center text-xl font-bold">
-                {service.title}
-              </h3>
-              <p className="text-center text-sm text-slate-700 dark:text-slate-100/90">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+              View Résumé
+            </Link>
+            <Link
+              href="mailto:linksian63@gmail.com"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-6 py-2 text-sm font-semibold text-white transition hover:border-emerald-400 hover:text-emerald-300"
+            >
+              Let’s Talk Opportunities
+            </Link>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
