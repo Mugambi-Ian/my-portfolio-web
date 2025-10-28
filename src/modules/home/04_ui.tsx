@@ -25,7 +25,8 @@ const slides: SlideProps[] = [
     title: 'Zamara',
     embedSrc: 'https://zamaragroup.com',
     aspectRatio: 16 / 10,
-  }, {
+  },
+  {
     title: 'Prolox Ecosystem',
     embedSrc: 'https://prolox.co.ke',
     aspectRatio: 16 / 10,
@@ -35,8 +36,6 @@ const slides: SlideProps[] = [
     embedSrc: 'https://mugambi-ian.vercel.app',
     aspectRatio: 16 / 10,
   },
-
-
 ];
 
 function UISlide({ embedSrc, title, aspectRatio = 16 / 10 }: SlideProps) {
@@ -85,7 +84,7 @@ function UISlide({ embedSrc, title, aspectRatio = 16 / 10 }: SlideProps) {
         <div className="pointer-events-none absolute inset-x-4 top-0 h-64 -translate-y-1/2 rounded-full bg-emerald-300/25 blur-3xl sm:inset-x-10 sm:h-72" />
         <div className="relative flex w-full flex-col gap-5">
           <div
-            className="relative w-full min-h-[720px] overflow-hidden rounded-[1.35rem] border border-slate-200/70 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] transition-shadow duration-500 group-hover:shadow-[inset_0_0_1px_rgba(16,185,129,0.35)] dark:border-slate-800/70 dark:bg-slate-900 sm:rounded-[1.65rem]"
+            className="relative min-h-[720px] w-full overflow-hidden rounded-[1.35rem] border border-slate-200/70 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] transition-shadow duration-500 group-hover:shadow-[inset_0_0_1px_rgba(16,185,129,0.35)] dark:border-slate-800/70 dark:bg-slate-900 sm:rounded-[1.65rem]"
             style={{ aspectRatio: `${aspectRatio}`, paddingBottom }}
           >
             <iframe
@@ -127,12 +126,12 @@ export function HomeUI() {
     <HomeSection
       id="ui"
       parentClass="relative isolate bg-slate-100 text-slate-900 scroll-mt-28 md:scroll-mt-32"
-      className="relative max-w-none flex flex-col gap-16 px-4 py-28 sm:px-6 md:py-36 lg:px-12 xl:px-16"
+      className="relative flex max-w-none flex-col gap-16 px-4 py-28 sm:px-6 md:py-36 lg:px-12 xl:px-16"
       background={
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
           <span className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.16),_transparent_60%)]" />
-          <span className="absolute -left-28 top-1/3 h-80 w-80 rounded-full bg-emerald-300/25 blur-3xl" />
-          <span className="absolute -right-36 top-10 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl" />
+          <span className="absolute -left-28 top-1/3 size-80 rounded-full bg-emerald-300/25 blur-3xl" />
+          <span className="absolute -right-36 top-10 size-72 rounded-full bg-sky-300/20 blur-3xl" />
         </div>
       }
     >
@@ -147,7 +146,9 @@ export function HomeUI() {
                 {slides[current]?.title || 'Experience systems'}
               </h2>
               <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
-                Live builds, performance dashboards, and product ecosystems crafted to feel native on every device. Swipe through to see how each surface scales with almost edge-to-edge precision.
+                Live builds, performance dashboards, and product ecosystems
+                crafted to feel native on every device. Swipe through to see how
+                each surface scales with almost edge-to-edge precision.
               </p>
             </div>
           </div>
@@ -157,14 +158,14 @@ export function HomeUI() {
               Explore the live previews
             </span>
             <div className="flex w-full overflow-hidden">
-              <div className="flex w-full snap-x items-center gap-2 overflow-x-auto rounded-full border border-slate-200/80 bg-white/70 px-2 py-2 backdrop-blur-sm dark:border-slate-800/70 dark:bg-slate-900/70">
+              <div className="flex w-full snap-x items-center gap-2 overflow-x-auto rounded-full border border-slate-200/80 bg-white/70 p-2 backdrop-blur-sm dark:border-slate-800/70 dark:bg-slate-900/70">
                 {slides.map((slide, index) => (
                   <button
                     key={slide.title}
                     type="button"
                     onClick={() => instance?.current?.moveToIdx(index)}
                     className={clsx(
-                      'flex min-w-[7.25rem] items-center gap-2 rounded-full px-3 py-2 text-[0.52rem] font-semibold uppercase tracking-[0.22em] transition-colors duration-200 sm:min-w-[9rem] sm:gap-3 sm:px-4 sm:text-[0.58rem] sm:tracking-[0.3em]',
+                      'flex min-w-[7.25rem] items-center gap-2 rounded-full px-3 py-2 text-[0.52rem] font-semibold uppercase tracking-[0.22em] transition-colors duration-200 sm:min-w-36 sm:gap-3 sm:px-4 sm:text-[0.58rem] sm:tracking-[0.3em]',
                       current === index
                         ? 'bg-slate-900 text-white shadow-[0_25px_80px_-50px_rgba(15,23,42,0.8)] dark:bg-slate-100 dark:text-slate-900'
                         : 'bg-white/60 text-slate-500 hover:bg-slate-900/10 hover:text-slate-900 dark:bg-slate-900/40 dark:text-slate-300 dark:hover:bg-slate-800'

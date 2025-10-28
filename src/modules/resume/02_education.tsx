@@ -33,11 +33,6 @@ const EducationView: FC<IResumeEducation> = ({ e }) => {
           {e.course}
         </h6>
       </div>
-      {e.description && (
-        <p className="text-sm text-slate-600 dark:text-slate-300">
-          {e.description}
-        </p>
-      )}
     </Fragment>
   );
 };

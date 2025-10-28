@@ -6,7 +6,7 @@ export async function appHeaders() {
   const pathName = headerStore.get('path-name') ?? '/';
   const hideHeader = headerStore.get('hide-header');
 
-  const darkMode = pathName.startsWith('/resume') ? false : true;
+  const darkMode = !pathName.startsWith('/resume');
 
   return {
     darkMode,

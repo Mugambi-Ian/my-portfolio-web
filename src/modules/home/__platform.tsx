@@ -19,7 +19,6 @@ export function HomePlatforms() {
           transition={{ duration: 0.6 }}
           className="space-y-10"
         >
-
           <div className="space-y-6">
             <h1 className="text-4xl font-black leading-tight text-white md:text-6xl">
               Senior Fullstack & Product Engineer crafting confident digital
@@ -31,7 +30,6 @@ export function HomePlatforms() {
               detail that makes users trust and teams move faster.
             </p>
           </div>
-
 
           <div className="flex flex-wrap items-center gap-4">
             <Link
@@ -48,7 +46,6 @@ export function HomePlatforms() {
             </Link>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

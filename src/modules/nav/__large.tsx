@@ -8,6 +8,7 @@ import {
   RESUME_SECTIONS,
   SOCIAL_LINKS,
 } from './config';
+
 function resolveHref(target: string, pathname?: string) {
   const hash = `#${target}`;
   if (!pathname) return hash;

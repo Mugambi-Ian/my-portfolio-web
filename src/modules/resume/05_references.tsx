@@ -25,11 +25,6 @@ function ResumeAward({ e }: IResumeAwardProps) {
         )}
       </div>
       <p className="text-sm text-slate-600 dark:text-slate-300">{e.title}</p>
-      {e.phone && (
-        <p className="mt-2 text-xs uppercase tracking-[0.3em] text-slate-400">
-          {e.phone}
-        </p>
-      )}
     </article>
   );
 }

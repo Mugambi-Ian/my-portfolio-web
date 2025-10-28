@@ -2,12 +2,11 @@
 
 import { motion } from 'framer-motion';
 
-
 export function HomeAbout() {
   return (
     <section
       id="about"
-      className="relative isolate scroll-mt-28 overflow-hidden bg-white px-6 pt-32 pb-56 text-slate-900 md:scroll-mt-32"
+      className="relative isolate scroll-mt-28 overflow-hidden bg-white px-6 pb-56 pt-32 text-slate-900 md:scroll-mt-32"
     >
       <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-slate-100 via-white to-transparent" />
       <div className="mx-auto flex max-w-7xl flex-col gap-16 lg:flex-row lg:items-center">
