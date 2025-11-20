@@ -20,10 +20,6 @@ const CONTACT_POINTS = [
     value: 'ianmugambi.com',
     href: 'https://ianmugambi.com',
   },
-  {
-    label: 'Availability',
-    value: 'Open to senior product engineering roles',
-  },
 ];
 
 export async function ResumeHeader() {
