@@ -125,7 +125,7 @@ export function HomeUI() {
   return (
     <HomeSection
       id="ui"
-      parentClass="relative isolate bg-slate-100 text-slate-900 scroll-mt-28 md:scroll-mt-32"
+      parentClass="relative  md:px-20 isolate bg-slate-100 text-slate-900 scroll-mt-28 md:scroll-mt-32"
       className="relative flex max-w-none flex-col gap-16 px-4 py-28 sm:px-6 md:py-36 lg:px-12 xl:px-16"
       background={
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

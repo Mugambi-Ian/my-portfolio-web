@@ -13,5 +13,7 @@ export function loadClientAnalytics() {
       measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID,
     });
   // @ts-expect-error firebase
-  return getAnalytics(window.firebase);
+  if (process.env.NEXT_PUBLIC_FIREBASE_APPID)
+    return getAnalytics(window.firebase);
+  return undefined;
 }

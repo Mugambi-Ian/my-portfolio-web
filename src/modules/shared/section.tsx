@@ -68,44 +68,38 @@ export function ResumeField({
   return (
     <section
       id={sectionId}
-      className="relative mx-auto mt-16 w-full max-w-6xl px-4 sm:px-6"
+      className="flex flex-col gap-4 border-t border-slate-200 pt-8 text-slate-900 first:border-t-0 first:pt-0"
     >
-      <div className="relative overflow-hidden rounded-[2rem] border border-slate-200/60 bg-white/95 px-6 py-8 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.6)] backdrop-blur dark:border-slate-800/60 dark:bg-slate-950/80 sm:p-10">
-        <div className="absolute -top-24 right-8 size-48 rounded-full bg-gradient-to-br from-emerald-400/20 via-transparent to-transparent blur-3xl" />
-        <div className="absolute -bottom-32 left-14 size-56 rounded-full bg-gradient-to-tr from-sky-500/15 via-transparent to-transparent blur-3xl" />
-
-        <div className="relative flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
-          {Icon && (
-            <div className="flex size-12 items-center justify-center rounded-2xl border border-emerald-400/40 bg-emerald-400/10 text-emerald-300">
-              <Icon className="size-6 fill-current" />
-            </div>
+      <div className="flex items-start gap-4">
+        {Icon && (
+          <span className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 print:border-slate-500 print:bg-transparent">
+            <Icon className="size-5" />
+          </span>
+        )}
+        <div>
+          {eyebrow && (
+            <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-500">
+              {eyebrow}
+            </p>
           )}
-          <div className="flex-1 space-y-2">
-            {eyebrow && (
-              <p className="text-[11px] uppercase tracking-[0.45em] text-emerald-300">
-                {eyebrow}
-              </p>
-            )}
-            <h2 className="font-display text-2xl font-semibold tracking-[-0.01em] text-slate-900 dark:text-white">
-              {title}
-            </h2>
-            {description && (
-              <p className="text-sm text-slate-600 dark:text-slate-300">
-                {description}
-              </p>
-            )}
-          </div>
+          <h2 className="font-display text-xl font-semibold tracking-tight text-slate-900">
+            {title}
+          </h2>
         </div>
-
-        <div
-          className={clsx(
-            'relative mt-6 flex flex-col gap-6 text-sm text-slate-700 dark:text-slate-200',
-            showMargin &&
-              'border-l border-slate-200/60 pl-6 dark:border-slate-700/60'
-          )}
-        >
-          {children}
-        </div>
+      </div>
+      {description && (
+        <p className="mt-1 text-sm leading-relaxed text-slate-600 print:text-slate-900">
+          {description}
+        </p>
+      )}
+      <div
+        className={clsx(
+          'flex flex-col gap-5 text-sm leading-relaxed text-slate-800',
+          showMargin &&
+            'divide-y divide-slate-200 [&>*:first-child]:pt-0 [&>*]:pt-5'
+        )}
+      >
+        {children}
       </div>
     </section>
   );

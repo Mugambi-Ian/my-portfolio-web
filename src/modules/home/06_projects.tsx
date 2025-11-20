@@ -12,7 +12,7 @@ export function HomeProjects({ projects }: IProjectsProps) {
   return (
     <section
       id="projects"
-      className="relative z-10 w-full scroll-mt-28 overflow-hidden bg-slate-950 px-6 py-32 text-slate-100 md:scroll-mt-32"
+      className="relative  z-10 w-full scroll-mt-28 overflow-hidden bg-slate-950 px-6 py-32 text-slate-100 md:scroll-mt-32 md:px-20"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.15),_transparent_60%)]" />
       <div className="mx-auto max-w-7xl">

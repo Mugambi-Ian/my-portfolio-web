@@ -8,7 +8,7 @@ export function HomeExperience({ workExperience }: IExperienceProps) {
   return (
     <section
       id="experience"
-      className="relative z-10 w-full scroll-mt-28 overflow-hidden bg-white px-6 py-32 text-slate-900 md:scroll-mt-32"
+      className="relative  z-10 w-full scroll-mt-28 overflow-hidden bg-white px-6 py-32 text-slate-900 md:scroll-mt-32 md:px-20"
     >
       <div className="mx-auto max-w-7xl">
         {/* Header */}

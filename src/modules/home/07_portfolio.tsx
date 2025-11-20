@@ -53,7 +53,7 @@ export function HomePortfolioStack() {
   return (
     <section
       id="stack"
-      className="relative isolate scroll-mt-28 overflow-hidden bg-slate-950 px-6 py-56 text-slate-100 md:scroll-mt-32"
+      className="relative  isolate scroll-mt-28 overflow-hidden bg-slate-950 px-6 py-56 text-slate-100 md:scroll-mt-32 md:px-20"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.15),_transparent_55%)]" />
       <div className="mx-auto max-w-7xl">

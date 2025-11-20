@@ -26,7 +26,7 @@ export default async function RootLayout({
         darkMode ? 'dark' : ''
       )}
     >
-      <body className="relative flex h-screen w-screen flex-col overflow-x-clip bg-white font-sans antialiased dark:bg-black">
+      <body className="relative flex h-screen w-screen flex-col overflow-x-clip bg-white font-sans antialiased">
         <Header pathname={`${pathName}`} />
         <main
           className={clsx(

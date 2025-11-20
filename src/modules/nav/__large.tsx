@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { IC_Github, IC_Linkedin, IC_Logo } from '../icons/header';
 import {
   type HeaderSectionLink,
@@ -29,12 +27,12 @@ export function LargeHeader({ pathname }: { pathname?: string }) {
   return (
     <header className="pointer-events-none fixed inset-x-0 top-6 z-50 hidden justify-center px-4 md:flex">
       <div className="pointer-events-auto flex w-full max-w-6xl items-center gap-6 rounded-full border border-slate-800/60 bg-slate-950/80 px-6 py-3 shadow-[0_30px_80px_-40px_rgba(16,185,129,0.65)] backdrop-blur">
-        <Link href="/" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <IC_Logo className="size-8" />
           <span className="font-display text-sm font-semibold uppercase tracking-[0.4em] text-slate-100">
             Ian Mugambi
           </span>
-        </Link>
+        </a>
 
         <nav className="hidden flex-1 items-center justify-center gap-2 lg:flex">
           {sectionLinks.map((link) => (
@@ -67,12 +65,12 @@ export function LargeHeader({ pathname }: { pathname?: string }) {
               <IC_Github className="size-4" />
             </a>
           </div>
-          <Link
+          <a
             href={primaryCta.href}
             className="hidden rounded-full border border-emerald-400/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200 transition hover:border-emerald-300 hover:text-emerald-100 lg:inline-flex"
           >
             {primaryCta.label}
-          </Link>
+          </a>
         </div>
       </div>
     </header>

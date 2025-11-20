@@ -1,9 +1,6 @@
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
 import { getDuration } from '@/utils';
 
-import { IC_BriefCase } from '../icons/resume';
-import { ResumeField } from '../shared/section';
-
 interface IProps {
   experience?: IWorkExperienceEntity[];
 }
@@ -20,16 +17,16 @@ export function ResumeYears({ experience }: IProps) {
   );
 
   return (
-    <ResumeField
-      title="Total Experience"
-      eyebrow="Snapshot"
-      description="Years spent leading product engineering, design systems, and resilient delivery."
-      Icon={IC_BriefCase}
-      id="total-experience"
-    >
-      <p className="text-4xl font-black tracking-tight text-emerald-400">
+    <section className="rounded-3xl border border-slate-200 bg-white/90 px-6 py-7 text-center text-slate-900 shadow-[0_25px_70px_-45px_rgba(15,23,42,0.5)] print:border-0 print:bg-transparent print:p-0 print:text-left print:shadow-none">
+      <h2 className="mt-3 text-sm font-semibold tracking-[0.08em] text-slate-600">
+        Total Experience
+      </h2>
+      <p className="mt-2 text-5xl font-black tracking-tight text-slate-900">
         {getDuration(totalExperience)}
       </p>
-    </ResumeField>
+      <p className="mt-3 text-sm text-slate-600">
+        Years crafting focused product engineering outcomes.
+      </p>
+    </section>
   );
 }

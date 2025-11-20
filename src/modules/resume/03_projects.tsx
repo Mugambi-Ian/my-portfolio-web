@@ -10,30 +10,28 @@ interface IResumeProject {
 }
 function ResumeProject({ e }: IResumeProject) {
   return (
-    <article className="rounded-2xl border border-slate-200/70 bg-white/70 p-5 transition hover:border-emerald-200/60 dark:border-slate-700/60 dark:bg-slate-900/40">
+    <article className="rounded-2xl border border-slate-200 bg-white/90 p-5 text-slate-800 shadow-sm print:border-0 print:bg-transparent print:p-0 print:shadow-none">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          {e.title}
-        </h3>
+        <h3 className="text-lg font-semibold text-slate-900">{e.title}</h3>
         {e.project_url && (
           <Link
             href={e.project_url}
-            className="inline-flex items-center gap-2 rounded-full border border-emerald-400/50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300 transition hover:border-emerald-300 hover:text-emerald-200"
+            className="text-xs font-semibold uppercase tracking-[0.35em] text-blue-700 underline"
           >
             View Live
           </Link>
         )}
       </div>
-      <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+      <p className="mt-3 text-sm leading-6 text-slate-600">
         {e.long_description}
       </p>
       {e.links && e.links.length > 0 && (
-        <ul className="mt-4 flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-slate-400">
+        <ul className="mt-4 flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em] text-slate-500">
           {e.links.map((link) => (
             <li key={link.id}>
               <Link
                 href={link.link}
-                className="rounded-full border border-slate-200/80 px-3 py-1 text-[11px] font-semibold text-slate-500 transition hover:border-emerald-300 hover:text-emerald-300 dark:border-slate-700/60 dark:text-slate-300"
+                className="rounded-full border border-slate-200 px-3 py-1 text-[11px] font-semibold text-slate-600"
               >
                 {link.name}
               </Link>
@@ -57,7 +55,6 @@ export function ResumeProjects({ projects }: IProps) {
       title="Projects"
       eyebrow="Selected Work"
       description="Experiments and launches that demonstrate how I translate product bets into measurable results."
-      showMargin
       id="resume-projects"
     >
       {projects.map((e) => (

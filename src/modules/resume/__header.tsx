@@ -30,69 +30,65 @@ export async function ResumeHeader() {
   const hideControls = Boolean(hideHeader);
 
   return (
-    <section className="relative mx-auto mt-24 w-full max-w-6xl overflow-hidden rounded-[2.5rem] border border-slate-800/60 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-8 py-12 text-slate-100 shadow-[0_45px_120px_-50px_rgba(16,185,129,0.6)] sm:px-12">
-      <div className="absolute -left-32 top-0 size-[420px] rounded-full bg-gradient-to-br from-emerald-400/40 via-transparent to-transparent blur-3xl" />
-      <div className="absolute -right-16 bottom-0 size-[340px] rounded-full bg-gradient-to-tl from-sky-500/30 via-transparent to-transparent blur-3xl" />
-
-      <div className="relative flex flex-col gap-10 lg:flex-row lg:items-start">
-        <div className="flex-1 space-y-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-emerald-200">
-            Professional Résumé
-          </span>
-          <div className="space-y-4">
-            <h1 className="font-display text-4xl font-black leading-tight tracking-[-0.02em] text-white md:text-5xl">
-              Ian Mugambi — Senior Fullstack & Product Engineer
+    <section className="relative mx-auto mt-4 w-full max-w-5xl rounded-[32px] border border-slate-200 bg-white px-8 py-10 text-slate-900 shadow-[0_45px_120px_rgba(15,23,42,0.08)] print:border-0 print:bg-transparent print:p-0 print:shadow-none">
+      <div className="flex flex-wrap items-start gap-8 pt-10">
+        <div className="flex-1 space-y-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
+            Ian Mugambi
+          </p>
+          <div>
+            <h1 className="font-display text-4xl font-black leading-tight tracking-tight">
+              Senior Product & Fullstack Engineer
             </h1>
-            <p className="max-w-2xl text-lg text-slate-300">
-              I merge product strategy, interaction design, and reliable code to
-              ship experiences teams can scale. Seven years in, I still obsess
-              over the detail that keeps users confident and roadmaps on track.
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-700">
+              {
+                'I align design, product, and engineering to ship resilient consumer experiences. From 0→1 bets to scale-ups, my focus is on reducing ambiguity, pairing thoughtful systems with measurable delivery, and mentoring teams so velocity never compromises craft.'
+              }
             </p>
           </div>
-
-          {!hideControls && (
-            <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href={RESUME_DOWNLOAD_PATH}
-                className="rounded-full border border-emerald-400/50 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200 transition hover:border-emerald-300 hover:text-emerald-100"
-              >
-                Download PDF
-              </Link>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="rounded-full bg-emerald-400 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-950 transition hover:bg-emerald-300"
-              >
-                Let’s Talk
-              </a>
-            </div>
-          )}
         </div>
-
-        <div className="grid gap-4 text-sm text-slate-200">
-          {CONTACT_POINTS.map((contact) => (
-            <div
-              key={contact.label}
-              className="rounded-2xl border border-slate-800/60 bg-slate-900/60 px-5 py-4"
+        {!hideControls && (
+          <div className="flex flex-col gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 print:hidden">
+            <Link
+              href={RESUME_DOWNLOAD_PATH}
+              className="rounded-full border border-slate-900 px-5 py-2 text-center"
             >
-              <p className="text-[11px] uppercase tracking-[0.4em] text-slate-400">
-                {contact.label}
-              </p>
-              {contact.href ? (
+              Download PDF
+            </Link>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="rounded-full bg-slate-900 px-5 py-2 text-center text-white"
+            >
+              Let’s Talk
+            </a>
+          </div>
+        )}
+      </div>
+
+      <dl className="mt-8 grid gap-4 text-sm text-slate-700 sm:grid-cols-2">
+        {CONTACT_POINTS.map((contact) => (
+          <div
+            key={contact.label}
+            className="rounded-2xl border border-slate-200 px-5 py-4 print:border-0 print:p-0"
+          >
+            <dt className="text-[11px] uppercase tracking-[0.35em] text-slate-500">
+              {contact.label}
+            </dt>
+            {contact.href ? (
+              <dd>
                 <a
                   href={contact.href}
-                  className="mt-1 block text-sm font-medium text-emerald-200 transition hover:text-emerald-100"
+                  className="mt-2 inline-flex text-sm font-semibold text-slate-900 underline"
                 >
                   {contact.value}
                 </a>
-              ) : (
-                <p className="mt-1 text-sm font-medium text-slate-100">
-                  {contact.value}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+              </dd>
+            ) : (
+              <dd className="mt-2 text-sm text-slate-800">{contact.value}</dd>
+            )}
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }

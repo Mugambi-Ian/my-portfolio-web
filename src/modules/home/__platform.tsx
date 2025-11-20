@@ -7,7 +7,7 @@ export function HomePlatforms() {
   return (
     <section
       id="intro"
-      className="relative isolate overflow-hidden bg-slate-950 px-6 py-80 text-slate-100"
+      className="relative isolate overflow-hidden bg-slate-950 px-6 py-80 text-slate-100 md:px-20"
     >
       <div className="absolute -left-40 top-0 size-[620px] rounded-full bg-gradient-to-br from-teal-400/40 via-sky-500/20 to-transparent blur-3xl" />
       <div className="absolute -right-28 bottom-10 size-[460px] rounded-full bg-gradient-to-br from-emerald-400/30 via-indigo-500/10 to-transparent blur-3xl" />

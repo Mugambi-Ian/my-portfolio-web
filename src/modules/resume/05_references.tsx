@@ -10,21 +10,19 @@ interface IResumeAwardProps {
 }
 function ResumeAward({ e }: IResumeAwardProps) {
   return (
-    <article className="rounded-2xl border border-slate-200/70 bg-white/70 p-5 dark:border-slate-700/60 dark:bg-slate-900/40">
+    <article className="rounded-2xl border border-slate-200 bg-white/90 p-5 text-slate-800 print:border-0 print:bg-transparent print:p-0">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          {e.name}
-        </h3>
+        <h3 className="text-lg font-semibold text-slate-900">{e.name}</h3>
         {e.email && (
           <Link
             href={`mailto:${e.email}`}
-            className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300 transition hover:text-emerald-200"
+            className="text-xs font-semibold uppercase tracking-[0.35em] text-blue-700 underline"
           >
             Email
           </Link>
         )}
       </div>
-      <p className="text-sm text-slate-600 dark:text-slate-300">{e.title}</p>
+      <p className="text-sm text-slate-600">{e.title}</p>
     </article>
   );
 }
@@ -38,8 +36,6 @@ export function ResumeReferences({ references }: IProps) {
       Icon={IC_References}
       title="References"
       eyebrow="Trusted Voices"
-      description="Leaders and collaborators who can speak to my delivery, communication, and problem-solving."
-      showMargin
       id="references"
     >
       {references.map((e) => (

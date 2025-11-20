@@ -53,7 +53,7 @@ export function HomeTech() {
   return (
     <section
       id="tech"
-      className="relative isolate scroll-mt-28 overflow-hidden bg-slate-100 px-6 py-56 text-slate-900 md:scroll-mt-32"
+      className="relative  isolate scroll-mt-28 overflow-hidden bg-slate-100 px-6 py-56 text-slate-900 md:scroll-mt-32 md:px-20"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_rgba(15,23,42,0.08),_transparent_60%)]" />
       <div className="mx-auto max-w-7xl">

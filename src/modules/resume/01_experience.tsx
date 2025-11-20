@@ -1,7 +1,10 @@
+import clsx from 'clsx';
+import Link from 'next/link';
+
 import type { IWorkExperienceEntity } from '@/graphql/models/resume';
+import { IC_Link } from '@/modules/icons';
 import { parseDate } from '@/utils';
 
-import { DeparmentRoles } from '../home/modules/experience/content';
 import { IC_Calendar } from '../icons/resume';
 import { ResumeField } from '../shared/section';
 
@@ -24,35 +27,81 @@ export function ResumeExperiences({ experience }: IProps) {
       {experience.map((exp) => (
         <article
           key={exp.id}
-          className="rounded-2xl border border-slate-200/70 bg-white/70 p-5 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.55)] transition hover:border-emerald-200/60 dark:border-slate-700/60 dark:bg-slate-900/40"
+          className="grid gap-4 border-l border-slate-200 pl-6 text-slate-800"
         >
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-            <div className="space-y-1">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900">
                 {exp.title}
               </h3>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
                 {exp.company}
               </p>
             </div>
-            <div className="flex flex-col items-start text-xs uppercase tracking-[0.3em] text-slate-400 sm:items-end">
+            <div className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
               <span>
                 {parseDate(exp.start_date)} –{' '}
                 {exp.end_date ? parseDate(exp.end_date) : 'Current'}
               </span>
               {exp.location && (
-                <span className="mt-1 text-[10px]">{exp.location}</span>
+                <span className="mt-1 block text-[10px] tracking-[0.4em]">
+                  {exp.location}
+                </span>
               )}
             </div>
           </div>
 
-          <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-            {exp.description}
-          </p>
+          <p className="text-sm leading-6 text-slate-700">{exp.description}</p>
 
           {exp.roles && (
-            <div className="mt-4">
-              <DeparmentRoles roles={exp.roles} hideBG={true} />
+            <div className="space-y-4">
+              {exp.roles.map((role) => (
+                <div key={role.id} className="space-y-2">
+                  <div className="flex items-center gap-2 px-1 max-sm:flex-col max-sm:items-start max-sm:px-0">
+                    <h2 className="flex-1 font-bold uppercase tracking-widest ">
+                      {role.department}
+                    </h2>
+                    {role.project_url && (
+                      <Link
+                        href={role.project_url}
+                        className="flex items-center gap-2.5 text-sm tracking-widest text-blue-800 dark:text-blue-600 max-sm:text-xs"
+                      >
+                        {role.project_url}
+                        <IC_Link className="inherit fill-blue-800 dark:fill-blue-600" />
+                      </Link>
+                    )}
+                  </div>
+                  {role.deparment_roles.data && (
+                    <ul className="list-disc space-y-1 pl-5 text-[13px] text-slate-700">
+                      {role.deparment_roles.data.map((r) => (
+                        <li key={r.id}>{r.attributes.role}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {role.tech_stack.data?.length !== 0 && (
+                    <div
+                      className={clsx(
+                        'mx-2 mb-4 mt-1.5 flex flex-col gap-y-1 rounded-xl max-sm:mx-px'
+                      )}
+                    >
+                      <p className="text-sm font-medium uppercase">
+                        Tech Stack
+                      </p>
+                      <span className="mb-3 mt-1 flex flex-wrap gap-2">
+                        {role.tech_stack.data?.map((t) => (
+                          <p
+                            key={`tech_${t.id}`}
+                            style={{ backgroundColor: '#9e9e9e' }}
+                            className="rounded  p-1 px-2 text-xs capitalize tracking-widest text-white"
+                          >
+                            {t.attributes.techStack}
+                          </p>
+                        ))}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           )}
         </article>

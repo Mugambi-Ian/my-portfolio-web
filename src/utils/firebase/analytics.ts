@@ -8,5 +8,5 @@ export function analytics_log_event(
   e: string
 ) {
   const analytics = loadClientAnalytics();
-  logEvent(analytics, `${type}_${e}`);
+  if (analytics) logEvent(analytics, `${type}_${e}`);
 }
