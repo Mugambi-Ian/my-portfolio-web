@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import type {
   IRolesEntity,
-  IWorkExperienceEntity,
+  IWorkExperienceEntity
 } from '@/graphql/models/resume';
 import { IC_Link } from '@/modules/icons';
 import { AnalyticEvent } from '@/modules/shared/analytics';
@@ -15,6 +15,7 @@ interface IDeparmentProps {
   roles: IRolesEntity[];
   hideBG?: boolean;
 }
+
 export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
   return (
     <>
@@ -25,7 +26,7 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
               {r.department}
             </h2>
             <Link
-              href={r.project_url}
+              href={r.project_url ?? ''}
               className="flex items-center gap-2.5 text-sm tracking-widest text-blue-800 dark:text-blue-600 max-sm:text-xs"
             >
               {r.project_url}
@@ -77,13 +78,15 @@ interface IProps {
 export function HomeExperienceContent({ exp }: IProps) {
   if (exp === undefined) return <></>;
   return (
-    <section className="flex w-full flex-col gap-y-9 rounded-[16px] bg-white/30 px-[30px] pb-12 pt-9 dark:bg-blue-800 max-sm:gap-y-5 max-sm:p-6">
+    <section
+      className="flex w-full flex-col gap-y-9 rounded-[16px] bg-white/30 px-[30px] pb-12 pt-9 dark:bg-blue-800 max-sm:gap-y-5 max-sm:p-6">
       <div className="flex w-full flex-col">
         <span className="flex w-full items-center gap-y-6 py-1 max-sm:flex-col-reverse max-sm:items-start">
           <h1 className="flex-1 font-bold uppercase tracking-[0.25em] text-black dark:text-white">
             {exp.title}
           </h1>
-          <p className="rounded bg-[#787BC7] px-4 py-2 text-xs tracking-wider text-white dark:bg-blue-600 max-sm:self-end">
+          <p
+            className="rounded bg-[#787BC7] px-4 py-2 text-xs tracking-wider text-white dark:bg-blue-600 max-sm:self-end">
             {`${parseDate(exp.start_date)} - ${
               exp.end_date ? parseDate(exp.end_date) : 'Current'
             }`}

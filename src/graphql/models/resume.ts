@@ -21,27 +21,31 @@ export interface IHomepageEntity {
     };
   };
 }
+
 export interface IHomepageAttributesEntity {
   workExperience?: IWorkExperienceEntity[];
   projects?: IProjectsEntity[];
 }
+
 export interface IWorkExperienceEntity {
   id: string;
   title: string;
   company: string;
   start_date: string;
-  end_date: string;
+  end_date: string | null;
   description: string;
   location: string;
   roles?: IRolesEntity[];
 }
+
 export interface IRolesEntity {
   id: string;
   department: string;
-  project_url: string;
+  project_url?: string;
   tech_stack: ITechStack;
   deparment_roles: IDeparmentRoles;
 }
+
 export interface ITechStack {
   data?: {
     id: string;
@@ -91,7 +95,7 @@ export interface IReferencesEntity {
 }
 
 export interface IEducationEntity {
-  start: string;
+  start?: string | null;
   school: string;
   course: string;
   end_date: string;
