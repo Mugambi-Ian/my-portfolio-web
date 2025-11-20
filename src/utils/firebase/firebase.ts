@@ -10,9 +10,10 @@ export function loadClientAnalytics() {
       apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
       authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-      measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID
+      measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID,
     });
-  if (process.env.NEXT_PUBLIC_FIREBASE_APPID)  // @ts-expect-error firebase
+  if (process.env.NEXT_PUBLIC_FIREBASE_APPID)
+    // @ts-expect-error firebase
     return getAnalytics(window.firebase);
   return undefined;
 }
