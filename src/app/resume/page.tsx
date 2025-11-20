@@ -19,8 +19,8 @@ export default async function Resume() {
       <main className="bg-[#f9f6ef] text-slate-900 print:bg-white print:text-black">
         <div className="mx-auto flex max-w-5xl flex-col gap-10 px-4 pb-24 pt-10 sm:px-6 lg:px-0 print:max-w-full print:px-0 print:pb-10">
           <ResumeHeader />
-          <div className="grid gap-8 lg:grid-cols-[260px,1fr]">
-            <aside className="space-y-8">
+          <div className="flex flex-col-reverse gap-8 lg:flex-row">
+            <aside className="space-y-8 lg:max-w-60">
               <ResumeYears experience={attributes?.workExperience} />
               <ResumeEducation education={attributes?.education} />
               <ResumeAwards awards={attributes?.awards} />
