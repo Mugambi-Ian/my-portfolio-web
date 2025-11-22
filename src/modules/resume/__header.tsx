@@ -17,8 +17,8 @@ const CONTACT_POINTS = [
   },
   {
     label: 'Portfolio',
-    value: 'ianmugambi.com',
-    href: 'https://ianmugambi.com',
+    value: 'mugambi-ian.vercel.app',
+    href: 'https://mugambi-ian.vercel.app/',
   },
 ];
 
