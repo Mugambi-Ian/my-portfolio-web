@@ -12,10 +12,6 @@ const CONTACT_POINTS = [
     href: `mailto:${CONTACT_EMAIL}`,
   },
   {
-    label: 'Location',
-    value: 'Nairobi, Kenya',
-  },
-  {
     label: 'Portfolio',
     value: 'mugambi-ian.vercel.app',
     href: 'https://mugambi-ian.vercel.app/',
