@@ -43,7 +43,7 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
               </li>
             ))}
           </ul>
-          {r.tech_stack.data?.length !== 0 && (
+          {(r.tech_stack?.data?.length ?? 0) !== 0 && (
             <div
               className={clsx(
                 'mx-2 mb-4 mt-1.5 flex flex-col gap-y-1 rounded-xl max-sm:mx-px',
@@ -54,7 +54,7 @@ export function DeparmentRoles({ roles, hideBG }: IDeparmentProps) {
                 Tech Stack
               </p>
               <span className="mb-3 mt-1 flex flex-wrap gap-2">
-                {r.tech_stack.data?.map((t) => (
+                {r.tech_stack?.data?.map((t) => (
                   <p
                     key={`tech_${t.id}`}
                     className="rounded bg-[#787BC7]  p-1 px-2 text-xs capitalize tracking-widest text-white dark:bg-blue-800 "

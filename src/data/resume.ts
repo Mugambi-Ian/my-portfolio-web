@@ -4,81 +4,127 @@ export const resumeData: IResumeAttributesEntity = {
   workExperience: [
     {
       id: 'dadanada',
-      title: 'Lead Product Engineer (Remittance)',
+      title: 'FullStack Engineer (FE Heavy)',
       company: 'Dadanada Group',
       start_date: '2023-12-01',
       end_date: null,
-      location: 'Nairobi · Hybrid',
+      location: 'Kenya (Hybrid)',
       description:
-        'Directed Daremit’s cross-border remittance launch across the US, EU, and Central Africa, pairing product strategy with mobile-first execution.',
+        'I lead the design and development of the Daremit mobile and web applications, ensuring an intuitive user experience, secure transactions, and efficient financial workflows.',
       roles: [
         {
-          id: 'dadanada-ship',
-          department: 'Product Engineering',
-          project_url: 'https://daremit.com',
+          id: 'dadanada-design',
+          department: 'UI/UX Design',
+          project_url: 'https://apps.apple.com/us/app/daremit/id6736922935',
+          deparment_roles: {
+            data: [
+              {
+                id: 'd-design-1',
+                attributes: {
+                  role: 'Led end-to-end UI/UX design for the Daremit and Daremit Agent mobile apps (iOS & Android) and web platform',
+                },
+              },
+              {
+                id: 'd-design-2',
+                attributes: {
+                  role: 'Designed key financial components, including currency and country inputs, transaction and account cards, and listings for Daremit Web & Mobile',
+                },
+              },
+            ],
+          },
+        },
+        {
+          id: 'dadanada-dev',
+          department: 'Software Development',
+          project_url: 'https://daremit.com/',
           tech_stack: {
             data: [
               { id: '202', attributes: { techStack: '2FA' } },
-              { id: '157', attributes: { techStack: 'Agile' } },
-              { id: '160', attributes: { techStack: 'AI-assisted Testing' } },
-              { id: '161', attributes: { techStack: 'AI Code Generation' } },
               { id: '184', attributes: { techStack: 'AWS' } },
               { id: '203', attributes: { techStack: 'Biometric Auth' } },
               { id: '189', attributes: { techStack: 'Bitbucket' } },
               { id: '190', attributes: { techStack: 'CI/CD' } },
               { id: '182', attributes: { techStack: 'Docker' } },
-              { id: '208', attributes: { techStack: 'Figma' } },
               { id: '195', attributes: { techStack: 'Google Analytics' } },
               { id: '206', attributes: { techStack: 'i18n / Localization' } },
-              { id: '172', attributes: { techStack: 'JavaScript' } },
+              { id: '187', attributes: { techStack: 'Jenkins' } },
               { id: '193', attributes: { techStack: 'Jest' } },
               { id: '196', attributes: { techStack: 'Jira' } },
-              { id: '187', attributes: { techStack: 'Jenkins' } },
-              { id: '204', attributes: { techStack: 'KYC/KYB (Onfido)' } },
-              {
-                id: '162',
-                attributes: { techStack: 'Microservices Architecture' },
-              },
-              { id: '165', attributes: { techStack: 'Next.js' } },
-              { id: '173', attributes: { techStack: 'Node.js' } },
-              { id: '205', attributes: { techStack: 'Push Notifications' } },
-              { id: '164', attributes: { techStack: 'React' } },
               { id: '163', attributes: { techStack: 'React Native' } },
-              { id: '178', attributes: { techStack: 'REST API' } },
-              { id: '158', attributes: { techStack: 'Scrum' } },
               { id: '192', attributes: { techStack: 'Sentry' } },
-              { id: '159', attributes: { techStack: 'Sprint Planning' } },
-              { id: '191', attributes: { techStack: 'SonarQube' } },
               { id: '197', attributes: { techStack: 'Slack' } },
+              { id: '191', attributes: { techStack: 'SonarQube' } },
               { id: '170', attributes: { techStack: 'Tailwind CSS' } },
               { id: '171', attributes: { techStack: 'TypeScript' } },
-              { id: '207', attributes: { techStack: 'UI/UX Design' } },
+              { id: '205', attributes: { techStack: 'Push Notifications' } },
             ],
           },
           deparment_roles: {
             data: [
               {
-                id: 'd1',
+                id: 'd-dev-1',
                 attributes: {
-                  role: 'Led a squad of three mobile engineers to deliver the React Native app in two months (down from a six-month plan) with zero Sev-1 bugs at launch.',
+                  role: 'Led end-to-end software development for the Daremit & Daremit Agent mobile apps (iOS & Android)',
                 },
               },
               {
-                id: 'd2',
+                id: 'd-dev-2',
                 attributes: {
-                  role: 'Rolled out region-based onboarding that drove a 95% completion rate and cut KYC escalations to under 5%.',
+                  role: 'Enabled multilingual support using i18n, ensuring a seamless experience for users across different regions',
                 },
               },
               {
-                id: 'd3',
+                id: 'd-dev-3',
                 attributes: {
-                  role: 'Scaled the platform to ~400 monthly remittance transactions (USD 100k–200k) across US, EU, and Central Africa corridors.',
+                  role: 'Implemented transaction history management with filtering, detailed transaction views, and replay functionality',
                 },
               },
               {
-                id: 'd4',
+                id: 'd-dev-4',
                 attributes: {
-                  role: 'Architected secure wallet, funding, and transaction-history flows backed by automated AML/KYC guardrails.',
+                  role: 'Implemented profile settings, user preferences, and authentication security settings',
+                },
+              },
+              {
+                id: 'd-dev-5',
+                attributes: {
+                  role: 'Engineered wallet creation, funding mechanisms, and profile-based transaction quotations',
+                },
+              },
+              {
+                id: 'd-dev-6',
+                attributes: {
+                  role: 'Developed secure authentication systems, including email sign-up/login, identity provider onboarding, PIN/password, and biometric authentication',
+                },
+              },
+              {
+                id: 'd-dev-7',
+                attributes: {
+                  role: 'Integrated Vi Americas and Money International for seamless transaction processing',
+                },
+              },
+              {
+                id: 'd-dev-8',
+                attributes: {
+                  role: 'Built sender and beneficiary onboarding with full CRUD capabilities, including payment account management',
+                },
+              },
+              {
+                id: 'd-dev-9',
+                attributes: {
+                  role: 'Implemented region-based profile setup, KYC verification, KYB compliance (Principals & UBOs), and human verification using Onfido',
+                },
+              },
+              {
+                id: 'd-dev-10',
+                attributes: {
+                  role: 'Developed transaction workflows, including funding via in-app wallets or third-party services, quotation review, additional details update, and initiation via our APIs or an external provider URL using an in-app browser',
+                },
+              },
+              {
+                id: 'd-dev-11',
+                attributes: {
+                  role: 'Utilized Bitbucket for version control, Jenkins for CI/CD automation, and SonarQube for code quality and security analysis',
                 },
               },
             ],
@@ -88,44 +134,35 @@ export const resumeData: IResumeAttributesEntity = {
     },
     {
       id: 'zamara',
-      title: 'Senior Fullstack Engineer',
+      title: 'Mobile Engineer | UI/UX Designer',
       company: 'Zamara Kenya',
       start_date: '2023-04-01',
-      end_date: '2023-12-01',
-      location: 'Nairobi, Kenya',
+      end_date: '2024-01-01',
+      location: 'Nairobi Kenya',
       description:
-        'Modernised Zamara’s actuarial and pension platforms with automation, observability, and scalable delivery practices.',
+        'Zamara is a financial services firm that primarily offers Actuarial Services, Pensions Administration, Consulting, and Insurance Brokerage Services. I worked to develop and automate solutions that improved software delivery, customer service and made administration efficient.',
       roles: [
         {
           id: 'z1',
-          department: 'IT & Platforms',
-          project_url: 'https://zamaragroup.com',
+          department: 'IT',
+          project_url: 'https://zamaragroup.com/',
           tech_stack: {
             data: [
-              { id: '202', attributes: { techStack: '2FA' } },
-              { id: '157', attributes: { techStack: 'Agile' } },
-              { id: '161', attributes: { techStack: 'AI Code Generation' } },
-              { id: '184', attributes: { techStack: 'AWS' } },
               { id: '185', attributes: { techStack: 'Azure Repos' } },
               { id: '190', attributes: { techStack: 'CI/CD' } },
               { id: '182', attributes: { techStack: 'Docker' } },
+              { id: '174', attributes: { techStack: '.NET' } },
               { id: '166', attributes: { techStack: 'Expo' } },
               { id: '208', attributes: { techStack: 'Figma' } },
               { id: '195', attributes: { techStack: 'Google Analytics' } },
               { id: '177', attributes: { techStack: 'GraphQL' } },
-              { id: '206', attributes: { techStack: 'i18n / Localization' } },
-              { id: '172', attributes: { techStack: 'JavaScript' } },
-              { id: '169', attributes: { techStack: 'Material UI' } },
-              { id: '205', attributes: { techStack: 'Push Notifications' } },
+              { id: '196', attributes: { techStack: 'Jira' } },
+              { id: '165', attributes: { techStack: 'Next.js' } },
               { id: '164', attributes: { techStack: 'React' } },
               { id: '163', attributes: { techStack: 'React Native' } },
               { id: '178', attributes: { techStack: 'REST API' } },
               { id: '170', attributes: { techStack: 'Tailwind CSS' } },
-              { id: '160', attributes: { techStack: 'AI-assisted Testing' } },
-              { id: '186', attributes: { techStack: 'DigitalOcean' } },
-              { id: '174', attributes: { techStack: '.NET' } },
-              { id: '173', attributes: { techStack: 'Node.js' } },
-              { id: '183', attributes: { techStack: 'Nginx' } },
+              { id: '171', attributes: { techStack: 'TypeScript' } },
             ],
           },
           deparment_roles: {
@@ -133,19 +170,55 @@ export const resumeData: IResumeAttributesEntity = {
               {
                 id: 'z2',
                 attributes: {
-                  role: 'Automated customer-service workflows, cutting physical support requests by 80%.',
+                  role: 'I designed UI/UX for the different mobile apps and web portals using Figma',
                 },
               },
               {
                 id: 'z3',
                 attributes: {
-                  role: 'Redesigned the system architecture and delivery pipelines to sustain 99% uptime and 50% faster rollout cycles.',
+                  role: 'I helped maintain existing web applications developed using React and WordPress',
                 },
               },
               {
                 id: 'z4',
                 attributes: {
-                  role: 'Shipped React/React Native portals and mobile features with shared design tokens for actuarial, pension, and insurance teams.',
+                  role: 'I developed a prototype of an events website with booking, notifications, and ticketing for events and summits held for customers and networking',
+                },
+              },
+              {
+                id: 'z5',
+                attributes: {
+                  role: 'I developed a GraphQL server using DotNet that was consumed on the events portal',
+                },
+              },
+              {
+                id: 'z6',
+                attributes: {
+                  role: 'I wrote policy documentation on our internal SDLC and Networking practices',
+                },
+              },
+              {
+                id: 'z7',
+                attributes: {
+                  role: 'I proposed and received a go-ahead to reimplement our system architecture to use microservices and a CI/CD pipeline powered by docker images and Azure Repos that uses Microsoft Teams for notifications and Jira for Issue Tracking and has an internal staging and an external production environment',
+                },
+              },
+              {
+                id: 'z8',
+                attributes: {
+                  role: 'I built cross-platform mobile apps using React Native and Expo',
+                },
+              },
+              {
+                id: 'z9',
+                attributes: {
+                  role: 'I developed Rest API endpoints using DotNet that were consumed on the mobile apps',
+                },
+              },
+              {
+                id: 'z10',
+                attributes: {
+                  role: 'I deployed web applications and api servers to run in docker containers exposed using IIS on a Windows enterprise server',
                 },
               },
             ],
@@ -155,40 +228,34 @@ export const resumeData: IResumeAttributesEntity = {
     },
     {
       id: 'prolox-contract',
-      title: 'Product Developer (Contract)',
+      title: 'Product Developer',
       company: 'Prolox Solutions',
-      start_date: '2023-01-01',
-      end_date: '2023-11-01',
-      location: 'Kenya · Part-time',
+      start_date: '2023-02-01',
+      end_date: '2023-12-01',
+      location: 'Nairobi Kenya (Part Time)',
       description:
-        'Upgraded Prolox’s in-house multi-location platform while the company expanded across new regions.',
+        'I was contacted by the Managing Director to help improve their existing in-house platform. The company was expanding to multiple locations, and their existing system did not provide this functionality. The system had not been actively maintained and did not provide functionality to manage multiple stores.',
       roles: [
         {
           id: 'p1',
-          department: 'Platform Engineering',
+          department: 'Software',
           project_url: 'https://prolox.co.ke',
           tech_stack: {
             data: [
-              { id: '190', attributes: { techStack: 'CI/CD' } },
               { id: '186', attributes: { techStack: 'DigitalOcean' } },
               { id: '182', attributes: { techStack: 'Docker' } },
-              { id: '189', attributes: { techStack: 'Bitbucket' } },
               { id: '167', attributes: { techStack: 'Electron' } },
               { id: '208', attributes: { techStack: 'Figma' } },
+              { id: '200', attributes: { techStack: 'Firebase' } },
               { id: '188', attributes: { techStack: 'GitHub Actions' } },
               { id: '195', attributes: { techStack: 'Google Analytics' } },
-              { id: '172', attributes: { techStack: 'JavaScript' } },
               { id: '181', attributes: { techStack: 'MongoDB' } },
-              { id: '173', attributes: { techStack: 'Node.js' } },
-              { id: '205', attributes: { techStack: 'Push Notifications' } },
-              { id: '164', attributes: { techStack: 'React' } },
               { id: '165', attributes: { techStack: 'Next.js' } },
-              { id: '201', attributes: { techStack: 'SendGrid' } },
+              { id: '183', attributes: { techStack: 'Nginx' } },
+              { id: '164', attributes: { techStack: 'React' } },
+              { id: '178', attributes: { techStack: 'REST API' } },
               { id: '170', attributes: { techStack: 'Tailwind CSS' } },
               { id: '171', attributes: { techStack: 'TypeScript' } },
-              { id: '200', attributes: { techStack: 'Firebase' } },
-              { id: '161', attributes: { techStack: 'AI Code Generation' } },
-              { id: '183', attributes: { techStack: 'Nginx' } },
             ],
           },
           deparment_roles: {
@@ -196,19 +263,37 @@ export const resumeData: IResumeAttributesEntity = {
               {
                 id: 'p2',
                 attributes: {
-                  role: 'Scaled the platform to 3 new locations and 3 additional warehouses, migrating 40k inventory items without downtime.',
+                  role: 'I designed the receipts, emails, UI and UX for the system portals using Figma',
                 },
               },
               {
                 id: 'p3',
                 attributes: {
-                  role: 'Handled 2,000 new transactions per quarter through upgraded checkout, procurement, and reporting flows.',
+                  role: 'I designed and implemented the system architecture to serve two web applications that consume a Rest API with 2FA on protected routes and a windows client application for the POS application',
                 },
               },
               {
                 id: 'p4',
                 attributes: {
-                  role: 'Introduced a modular architecture and automated deployments (Docker + Watchtower) to simplify future rollouts.',
+                  role: 'I deployed the online store and admin endpoint using docker containers on Nginx in a linux server running on a digital ocean droplet',
+                },
+              },
+              {
+                id: 'p5',
+                attributes: {
+                  role: 'I used NextJS and TailwindCSS to build a public website for store listings and self-checkout that has a good performance score and follows best SEO practices',
+                },
+              },
+              {
+                id: 'p6',
+                attributes: {
+                  role: 'I used ElectronJS and ReactJS and Typescript to build the windows desktop client for the sales staff',
+                },
+              },
+              {
+                id: 'p7',
+                attributes: {
+                  role: 'I used GitHub workflows to build new docker images and Watchtower to pull updates, implementing a simple CI/CD pipeline',
                 },
               },
             ],
@@ -221,49 +306,27 @@ export const resumeData: IResumeAttributesEntity = {
       title: 'Fullstack Developer',
       company: 'Space Next Door',
       start_date: '2022-02-01',
-      end_date: '2023-04-01',
-      location: 'Singapore · Remote',
+      end_date: '2023-03-01',
+      location: 'Singapore (Remote)',
       description:
-        'Built customer-facing booking experiences for a self-storage marketplace operating across East Asia.',
+        'I was part of the product development team. The product was a self-serving platform to allow customers to book self-storage units in and around East Asia. The product had over 500 active accounts and 7000 monthly visitors.',
       roles: [
         {
           id: 's1',
-          department: 'Product Delivery',
-          project_url: 'https://www.spacenextdoor.com',
+          department: 'Web Development',
+          project_url: 'https://spacenextdoor.com/',
           tech_stack: {
             data: [
-              { id: '202', attributes: { techStack: '2FA' } },
               { id: '184', attributes: { techStack: 'AWS' } },
               { id: '190', attributes: { techStack: 'CI/CD' } },
               { id: '182', attributes: { techStack: 'Docker' } },
-              { id: '195', attributes: { techStack: 'Google Analytics' } },
+              { id: '208', attributes: { techStack: 'Figma' } },
               { id: '194', attributes: { techStack: 'Hotjar' } },
-              { id: '206', attributes: { techStack: 'i18n / Localization' } },
-              { id: '172', attributes: { techStack: 'JavaScript' } },
-              { id: '187', attributes: { techStack: 'Jenkins' } },
-              { id: '193', attributes: { techStack: 'Jest' } },
-              { id: '196', attributes: { techStack: 'Jira' } },
               { id: '169', attributes: { techStack: 'Material UI' } },
-              { id: '173', attributes: { techStack: 'Node.js' } },
               { id: '165', attributes: { techStack: 'Next.js' } },
-              { id: '205', attributes: { techStack: 'Push Notifications' } },
-              { id: '164', attributes: { techStack: 'React' } },
-              { id: '168', attributes: { techStack: 'Vue.js' } },
-              { id: '171', attributes: { techStack: 'TypeScript' } },
-              { id: '170', attributes: { techStack: 'Tailwind CSS' } },
-              { id: '201', attributes: { techStack: 'SendGrid' } },
-              { id: '159', attributes: { techStack: 'Sprint Planning' } },
-              { id: '158', attributes: { techStack: 'Scrum' } },
-              { id: '178', attributes: { techStack: 'REST API' } },
               { id: '197', attributes: { techStack: 'Slack' } },
-              { id: '188', attributes: { techStack: 'GitHub Actions' } },
-              {
-                id: '162',
-                attributes: { techStack: 'Microservices Architecture' },
-              },
-              { id: '157', attributes: { techStack: 'Agile' } },
-              { id: '192', attributes: { techStack: 'Sentry' } },
-              { id: '191', attributes: { techStack: 'SonarQube' } },
+              { id: '170', attributes: { techStack: 'Tailwind CSS' } },
+              { id: '168', attributes: { techStack: 'Vue.js' } },
             ],
           },
           deparment_roles: {
@@ -271,19 +334,43 @@ export const resumeData: IResumeAttributesEntity = {
               {
                 id: 's2',
                 attributes: {
-                  role: 'Boosted site performance from a 30% to 95% LCP score, sustaining 99% uptime and cutting support tickets measurably.',
+                  role: 'I was on the team tasked to maintain, improve, and update the customer platform developed with Next JS',
                 },
               },
               {
                 id: 's3',
                 attributes: {
-                  role: 'Added third-party partner integrations that unlocked 100 new customers and 3k additional visits per month.',
+                  role: 'I collaborated in developing an in-house prototype storage web app with NextJS to use a third-party provider, Storaganise API',
                 },
               },
               {
                 id: 's4',
                 attributes: {
-                  role: 'Owned booking, pricing, and notification flows across React/Next.js web customers and partner APIs.',
+                  role: 'I worked as part of the team tasked to maintain, improve, and update an in-house admin platform for listings owners, developed with Vue.js',
+                },
+              },
+              {
+                id: 's5',
+                attributes: {
+                  role: 'I fixed bugs and helped release new features while tracking progress and issues on Jira',
+                },
+              },
+              {
+                id: 's6',
+                attributes: {
+                  role: 'I updated or created components respective to the issued Figma design',
+                },
+              },
+              {
+                id: 's7',
+                attributes: {
+                  role: 'I was enrolled in an advanced NestJs course and REST-based microservices API development in Go lang to advance my backend knowledge',
+                },
+              },
+              {
+                id: 's8',
+                attributes: {
+                  role: "I worked as part of the team that optimized the customer's platform performance. We raised it from 7% to 85% on desktop and 73% on mobile - web.dev",
                 },
               },
             ],
@@ -293,35 +380,29 @@ export const resumeData: IResumeAttributesEntity = {
     },
     {
       id: 'kabarak',
-      title: 'Junior Developer (EVIS)',
+      title: 'Junior Developer',
       company: 'Kabarak University',
       start_date: '2021-07-01',
       end_date: '2022-02-01',
-      location: 'Kenya · Hybrid',
+      location: 'Kenya (Hybrid)',
       description:
-        'Built and deployed the Election Voting Information System (EVIS) for university-wide democratic processes.',
+        'I was part of a team responsible for designing and deploying a general-purpose Election Voting Info System (EVIS) with a backend developer and a Project Manager. The product was used to conduct over 5 elections with over 5000 voters each and has since been adopted by neighboring universities.',
       roles: [
         {
           id: 'k1',
-          department: 'Digital Platforms',
+          department: 'Innovation and Engineering',
           tech_stack: {
             data: [
-              { id: '164', attributes: { techStack: 'React' } },
-              { id: '178', attributes: { techStack: 'REST API' } },
-              { id: '182', attributes: { techStack: 'Docker' } },
               { id: '186', attributes: { techStack: 'DigitalOcean' } },
-              { id: '173', attributes: { techStack: 'Node.js' } },
-              { id: '183', attributes: { techStack: 'Nginx' } },
-              { id: '165', attributes: { techStack: 'Next.js' } },
-              { id: '175', attributes: { techStack: 'Laravel' } },
-              { id: '201', attributes: { techStack: 'SendGrid' } },
-              { id: '195', attributes: { techStack: 'Google Analytics' } },
-              { id: '188', attributes: { techStack: 'GitHub Actions' } },
-              { id: '202', attributes: { techStack: '2FA' } },
-              { id: '208', attributes: { techStack: 'Figma' } },
+              { id: '182', attributes: { techStack: 'Docker' } },
               { id: '200', attributes: { techStack: 'Firebase' } },
-              { id: '172', attributes: { techStack: 'JavaScript' } },
-              { id: '171', attributes: { techStack: 'TypeScript' } },
+              { id: '208', attributes: { techStack: 'Figma' } },
+              { id: '188', attributes: { techStack: 'GitHub Actions' } },
+              { id: '175', attributes: { techStack: 'Laravel' } },
+              { id: '183', attributes: { techStack: 'Nginx' } },
+              { id: '164', attributes: { techStack: 'React' } },
+              { id: '163', attributes: { techStack: 'React Native' } },
+              { id: '201', attributes: { techStack: 'SendGrid' } },
             ],
           },
           deparment_roles: {
@@ -329,13 +410,49 @@ export const resumeData: IResumeAttributesEntity = {
               {
                 id: 'k2',
                 attributes: {
-                  role: 'Ran 10+ elections with 95% voter turnout, broadcasting results instantly after polls closed.',
+                  role: 'I worked on creating API routes to serve the Backend on the Frontend. Laravel PHP',
                 },
               },
               {
                 id: 'k3',
                 attributes: {
-                  role: 'Implemented validation, ballot casting, and counting workflows that reduced tally errors by 98%.',
+                  role: 'I designed the UI/UX for the different endpoints. Figma',
+                },
+              },
+              {
+                id: 'k4',
+                attributes: {
+                  role: 'I developed a mobile android application using React Native for voting',
+                },
+              },
+              {
+                id: 'k5',
+                attributes: {
+                  role: 'I developed separate web endpoints using ReactJS: clerks, voters, and admin',
+                },
+              },
+              {
+                id: 'k6',
+                attributes: {
+                  role: 'I created jobs to send HTML emails for authentication and system prompts using Laravel views and the SendGrid API',
+                },
+              },
+              {
+                id: 'k7',
+                attributes: {
+                  role: 'I wrote a custom algorithm to filter voter ballots based on dynamic variable voter properties',
+                },
+              },
+              {
+                id: 'k8',
+                attributes: {
+                  role: 'I worked on creating the system database schema. Postgres',
+                },
+              },
+              {
+                id: 'k9',
+                attributes: {
+                  role: 'I deployed all endpoints in docker containers and configured an Nginx server on a digital ocean droplet',
                 },
               },
             ],
@@ -345,24 +462,26 @@ export const resumeData: IResumeAttributesEntity = {
     },
     {
       id: 'prolox-intern',
-      title: 'Software Engineering Intern',
+      title: 'Computer Science Intern',
       company: 'Prolox Solutions',
-      start_date: '2020-11-01',
+      start_date: '2020-12-01',
       end_date: '2021-07-01',
-      location: 'Kenya · Hybrid',
+      location: 'Kenya (Hybrid)',
       description:
-        'Built sales-operations tooling that processed 1M seal/service transactions for 1,750 customers.',
+        "I designed and implemented digital solutions to improve the performance of the sales team. Since its deployment, the system has facilitated the sale of over 1,000,000 seals and services for 1750+ customers. My solutions focused on inventory management, sales processing, data analysis, automated emails, and a simple online store for the company's web presence.",
       roles: [
         {
           id: 'pi1',
-          department: 'Operations Tech',
+          department: 'IT',
+          project_url: 'https://prolox.co.ke/',
           tech_stack: {
             data: [
               { id: '200', attributes: { techStack: 'Firebase' } },
               { id: '208', attributes: { techStack: 'Figma' } },
+              { id: '188', attributes: { techStack: 'GitHub Actions' } },
+              { id: '164', attributes: { techStack: 'React' } },
               { id: '201', attributes: { techStack: 'SendGrid' } },
               { id: '171', attributes: { techStack: 'TypeScript' } },
-              { id: '164', attributes: { techStack: 'React' } },
             ],
           },
           deparment_roles: {
@@ -370,13 +489,37 @@ export const resumeData: IResumeAttributesEntity = {
               {
                 id: 'pi2',
                 attributes: {
-                  role: 'Cut checkout and inventory-management time by 50% through workflow automation and dashboards.',
+                  role: 'I developed separate user applications using ReactJS. Sales, Admin',
                 },
               },
               {
                 id: 'pi3',
                 attributes: {
-                  role: 'Launched self-service store and reporting modules that accelerated forecasting and client onboarding.',
+                  role: "I created jobs that sent out custom emails for receipts and official correspondence that reflected the company's brand",
+                },
+              },
+              {
+                id: 'pi4',
+                attributes: {
+                  role: 'I used react-native to build a lite version of the admin application for mobile',
+                },
+              },
+              {
+                id: 'pi5',
+                attributes: {
+                  role: 'I designed the UI/UX for the different endpoints. Figma',
+                },
+              },
+              {
+                id: 'pi6',
+                attributes: {
+                  role: 'I designed the system database schema. MongoDB',
+                },
+              },
+              {
+                id: 'pi7',
+                attributes: {
+                  role: 'I deployed the online store and admin endpoint using firebase hosting',
                 },
               },
             ],
@@ -391,7 +534,7 @@ export const resumeData: IResumeAttributesEntity = {
       title: 'Terminal Tetris',
       project_url: 'https://www.npmjs.com/package/terminal-tetris',
       long_description:
-        'CLI Tetris built with Node.js + TypeScript featuring colored blocks, difficulty settings, save/resume, and a high-score tracker. Reached ~300 monthly npm downloads and 3 GitHub stars while iterating on rendering performance and input handling.',
+        'I developed a CLI version of Tetris, powered by NodeJS and distributed on npm. I always wanted to write a CLI application and challenged myself by building a CLI version of Tetris. The game features colored blocks, a difficulty setting, the ability to save and resume, and a high score feature, all written using Typescript. While initially, I had planned to use text files as assets for the grid and tetromino, I eventually found better ways to render the game as I integrated controls and the game logic. This project taught me the essence of accomplishing small objectives, reassessing long-term goals, and pivoting accordingly—a more efficient and creative way to solve problems.',
       links: [],
       short_description: '',
       project_cover: undefined,
@@ -400,10 +543,10 @@ export const resumeData: IResumeAttributesEntity = {
   awards: [
     {
       id: 'knsef',
-      title: 'Kenya National Science & Engineering Fair',
+      title: 'Kenya National Science and Engineering Fair',
       award: 'Nationals Finalist',
       description:
-        'Created a police-records automation platform with secure role-based portals, automated family notifications, and shift orchestration.',
+        "I created a Police Records system that aimed to make most police work in my country digital. The system had several features. It had improved security that provided access only to registered users with different portals depending on the User Access Level. It also had a shift manager and included an end-of-shift notification that functioned as an alarm to prepare for a shift change. The system sent automated emails to arrestees' kin to notify them of the arrest. It had a discharge form to update records when discharged. It stored Log files that were only accessible to the super users and showed who had accessed the system and their time of access.",
       date: '2016-07-18',
     },
   ],
@@ -418,7 +561,7 @@ export const resumeData: IResumeAttributesEntity = {
       id: 'ref-dadanada',
       name: 'Mr. Kelvin Kimami',
       email: 'kelvin.kimani@dadanadagroup.com',
-      title: 'Head of Engineering, Dadanada Group',
+      title: 'Lead Engineer, Dadanada Group',
     },
     {
       id: 'ref-zamara',
@@ -442,7 +585,7 @@ export const resumeData: IResumeAttributesEntity = {
       id: 'ref-prolox',
       name: 'Mr. Charles Kiragu',
       email: 'charlesnk@prolox.co.ke',
-      title: 'Managing Director, Prolox Solutions',
+      title: 'Managing Director Prolox Solutions',
     },
   ],
 };

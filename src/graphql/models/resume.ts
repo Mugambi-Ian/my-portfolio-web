@@ -42,7 +42,7 @@ export interface IRolesEntity {
   id: string;
   department: string;
   project_url?: string;
-  tech_stack: ITechStack;
+  tech_stack?: ITechStack;
   deparment_roles: IDeparmentRoles;
 }
 

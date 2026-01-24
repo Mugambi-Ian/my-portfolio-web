@@ -78,7 +78,7 @@ export function ResumeExperiences({ experience }: IProps) {
                       ))}
                     </ul>
                   )}
-                  {role.tech_stack.data?.length !== 0 && (
+                  {(role.tech_stack?.data?.length ?? 0) !== 0 && (
                     <div
                       className={clsx(
                         'mx-2 mb-4 mt-1.5 flex flex-col gap-y-1 rounded-xl max-sm:mx-px'
@@ -88,7 +88,7 @@ export function ResumeExperiences({ experience }: IProps) {
                         Tech Stack
                       </p>
                       <span className="mb-3 mt-1 flex flex-wrap gap-2">
-                        {role.tech_stack.data?.map((t) => (
+                        {role.tech_stack?.data?.map((t) => (
                           <p
                             key={`tech_${t.id}`}
                             style={{ backgroundColor: '#9e9e9e' }}
