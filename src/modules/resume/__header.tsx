@@ -50,7 +50,7 @@ export async function ResumeHeader() {
             {!hideControls && (
               <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-700">
                 {
-                  'I align design, product, and engineering to ship resilient consumer experiences. From 0→1 bets to scale-ups, my focus is on reducing ambiguity, pairing thoughtful systems with measurable delivery, and mentoring teams so velocity never compromises craft.'
+                  'I align design, product, and engineering to ship resilient consumer experiences.'
                 }
               </p>
             )}
