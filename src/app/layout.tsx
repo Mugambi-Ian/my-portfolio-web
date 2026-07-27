@@ -1,67 +1,38 @@
 import './global.css';
 
-import clsx from 'clsx';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
-import { appHeaders } from '@/hooks/useAppHeaders';
-import { Header } from '@/modules/layout/header';
+import { SITE } from '@/config/site';
 
-import { bodyFont, displayFont } from './fonts';
+import { monoFont, sansFont } from './fonts';
 
-export default async function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-  params: { lang: string };
-}) {
-  const { darkMode, pathName, hideHeader } = await appHeaders();
-
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang={'en'}
-      className={clsx(
-        bodyFont.variable,
-        displayFont.variable,
-        darkMode ? 'dark' : ''
-      )}
-    >
-      <body className="relative flex h-screen w-screen flex-col overflow-x-clip bg-white font-sans antialiased">
-        <Header pathname={`${pathName}`} />
-        <main
-          className={clsx(
-            'flex w-full flex-col overflow-x-clip',
-            hideHeader && 'fixed inset-x-0 top-0 h-fit',
-            !hideHeader && 'relative h-full overflow-y-auto'
-          )}
-        >
-          {children}
-        </main>
-      </body>
+    <html lang="en" className={`${sansFont.variable} ${monoFont.variable}`}>
+      <body className="bg-ink font-sans text-fg antialiased">{children}</body>
     </html>
   );
 }
 
-const { PROJECT_URI } = process.env;
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
-    default: 'Ian Mugambi',
-    template: '%s | Ian Mugambi',
+    default: `${SITE.name} — ${SITE.title}`,
+    template: `%s | ${SITE.name}`,
   },
-  description: 'A Fullstack Developer And UI/UX Designer',
+  description: SITE.description,
   openGraph: {
-    title: 'Ian Mugambi',
-    description: 'A Fullstack Developer And UI/UX Designer',
-    url: PROJECT_URI,
-    siteName: 'Ian Mugambi',
-    images: [
-      {
-        url: `${PROJECT_URI}/og.jpg`,
-        width: 1920,
-        height: 1080,
-      },
-    ],
+    title: `${SITE.name} — ${SITE.title}`,
+    description: SITE.description,
+    siteName: SITE.name,
     type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE.name} — ${SITE.title}`,
+    description: SITE.description,
   },
   robots: {
     index: true,
@@ -73,11 +44,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  twitter: {
-    title: 'Ian Mugambi',
-    card: 'summary_large_image',
-  },
   icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32', type: 'image/x-icon' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
     shortcut: '/favicon.ico',
+    apple: { url: '/apple-touch-icon.png', sizes: '180x180' },
   },
 };

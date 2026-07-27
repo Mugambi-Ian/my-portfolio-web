@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#0B0D10"/>
+  <g stroke="rgba(148,163,184,0.10)" stroke-width="1">
+    <path d="M0 190h1200M0 380h1200M0 570h1200"/>
+    <path d="M300 0v760M600 0v760M900 0v760"/>
+  </g>
+  <rect x="40" y="40" width="1120" height="680" rx="12" fill="#12151A" stroke="rgba(148,163,184,0.30)"/>
+  <circle cx="76" cy="76" r="6" fill="rgba(148,163,184,0.35)"/>
+  <circle cx="100" cy="76" r="6" fill="rgba(148,163,184,0.35)"/>
+  <circle cx="124" cy="76" r="6" fill="rgba(148,163,184,0.35)"/>
+  <text x="80" y="380" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" fill="#A3ACB8">$ screenshot --pending</text>
+  <text x="80" y="430" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" fill="#FCA311">&#9612;</text>
+</svg>

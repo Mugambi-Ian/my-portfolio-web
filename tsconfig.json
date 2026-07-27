@@ -41,14 +41,6 @@
       }
     ]
   },
-  "exclude": ["./out/**/*", "./node_modules/**/*", "cypress/**/*.ts"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/modules/resume/queries/getWorkExperience.ts",
-    "src/modules/resume/queries/getWorkExperience.ts",
-    ".next/types/**/*.ts",
-    "src/modules/home/home_experience/expirence_download.tesx"
-  ]
+  "exclude": ["./out/**/*", "./node_modules/**/*"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

@@ -48,3 +48,5 @@ local
 .vercel
 
 .env
+# Yarn (repo uses npm)
+.yarn/

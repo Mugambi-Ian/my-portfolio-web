@@ -6,176 +6,94 @@ html {
   min-width: 360px;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
-  --scroll-size: 1px;
-  --scroll-radius: 10px;
-  --scroll-track: rgb(255 255 255 / 10%);
-  --scroll-thumb-color: #787bc7;
-}
-
-:root {
-  font-family: var(--font-body), 'Urbanist', system-ui, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  font-family: var(--font-body), 'Urbanist', system-ui, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-.font-display {
-  font-family: var(--font-display), 'Space Grotesk', 'Urbanist',
-    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  letter-spacing: -0.02em;
+::selection {
+  background-color: rgba(252, 163, 17, 0.25);
 }
 
-html main * {
-  animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.dark {
-  --scroll-thumb-color: #28d07e;
-}
 ::-webkit-scrollbar {
-  width: var(--scroll-size, 10px);
-  height: var(--scroll-size, 10px);
+  width: 8px;
+  height: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background-color: var(--scroll-track, transparent);
-  border-radius: var(--scroll-track-radius, var(--scroll-radius));
+  background-color: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-thumb-color, grey);
-  background-image: var(--scroll-thumb, none);
-  border-radius: var(--scroll-thumb-radius, var(--scroll-radius));
-}
-svg.inherit path {
-  fill: inherit;
-}
-.blur-on {
-  filter: blur(3px);
+  background-color: rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
 }
 
-.switch {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 32px;
-  height: 16px;
-  background: rgb(173, 173, 173);
-  display: block;
-  border-radius: 100px;
-  position: relative;
-}
-.switch.active {
-  background-color: #34c759;
-}
-
-.switch::after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  background: rgb(255, 255, 255);
-  border-radius: 90px;
-  transition: all 0.2s ease-in-out 0s;
-}
-
-.switch.active::after {
-  left: calc(55% - 0px);
-}
-
-@keyframes header-slide {
-  0% {
-    transform: translateY(-5%);
-  }
-  100% {
-    transform: translateY(0);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-.animate #home_header.flex,
-.animate #home_header_dark.dark\:flex {
-  animation: header-slide 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-@keyframes scale-up-ver-top {
-  0% {
-    opacity: 0;
-    transform: scaleY(0.4);
-    transform-origin: 100% 0;
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
   }
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-    transform-origin: 100% 0;
+
+  /*
+   * Site chrome only. A bare `header` selector also matched the résumé's own
+   * <header> (name, title, contact links) and a case study's <header>, which
+   * printed a résumé with no identity on it.
+   *
+   * `body > header` is structural and safe: the sticky SiteHeader is rendered
+   * straight into <body> by app/(site)/layout.tsx, so it is the only <header>
+   * that is ever a direct child of <body>. Every content <header> sits inside
+   * <main> or a print layout wrapper and therefore survives.
+   *
+   * `.print-hidden` is kept as the explicit opt-out for anything that needs to
+   * disappear from the page without a structural cue.
+   */
+  body > header,
+  nav,
+  button,
+  .print-hidden {
+    display: none !important;
   }
-}
 
-#lang-nav {
-  animation: scale-up-ver-top 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-}
-
-body a,
-body button {
-  transition: transform 0.3s ease;
-}
-
-body a:active,
-body button:active {
-  transform: scale(0.8);
-}
-
-body,
-body * {
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-  padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-  color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-  background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-
-body header {
-  transition: none;
-}
-
-.notification-backdrop {
-  animation: fade-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-@keyframes notification-backdrop {
-  0% {
-    transform: translateY(1000px);
-    opacity: 0;
+  h2,
+  h3 {
+    break-after: avoid;
   }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+
+  article,
+  section {
+    break-inside: avoid;
+  }
+
+  a {
+    color: #111;
+    text-decoration: none;
+  }
+
+  a.print-show-url::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #555;
+    word-break: break-all;
   }
 }
-.notification-popup {
-  margin-bottom: -30px;
-  animation-delay: 5s;
-  animation: notification-popup 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-@keyframes notification-popup {
-  0% {
-    
-  margin-bottom: -50px;
-  }
-  100% {
-margin-bottom: 0px;
-  }
+
+@page {
+  size: A4;
+  margin: 14mm 13mm 16mm;
 }

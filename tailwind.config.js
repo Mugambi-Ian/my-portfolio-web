@@ -1,60 +1,71 @@
+/* eslint-disable import/no-extraneous-dependencies */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
-    fontSize: {
-      xs: '0.75rem',
-      sm: '0.875rem',
-      base: '1rem',
-      lg: '1.125rem',
-      xl: '1.25rem',
-      '2xl': '1.5rem',
-      '3xl': '1.875rem',
-      '4xl': '2.25rem',
-      '5xl': '3rem',
-      '6xl': '4rem',
-    },
     extend: {
-      boxShadow: {
-        elevate: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
-        card: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-        'dark-ring':
-          '0px 4px 4px 2px rgba(40, 208, 126, 0.05), 0px 4px 3px 1px rgba(3, 52, 28, 0.89), 2px 4px 2px 2px rgba(40, 208, 126, 0.2)',
-      },
       colors: {
-        solid: '#8B5E3C',
-        accent: '#FCF7F0',
-        primary: '#B07D5B',
-        secondary: '#E6D3C1',
-        'solid-dark': '#5A3823',
-        'accent-dark': '#1C130D',
-        'primary-dark': '#D9A580',
-        'secondary-dark': '#422B1B',
-        gray: {
-          100: '#fdfaf7',
-          200: '#f5f0ea',
-          300: '#e9e2db',
-          400: '#d6cfc3',
-          500: '#bba89e',
-          600: '#9b857a',
-          700: '#7d685f',
-          800: '#5e4a3e',
-          900: '#3c2f27',
+        ink: {
+          DEFAULT: '#0B0D10',
+          raised: '#12151A',
+          overlay: '#1A1E24',
         },
-        blue: {
-          100: '#edf7ff',
-          200: '#cdeaff',
-          300: '#9fd6ff',
-          400: '#72c1ff',
-          500: '#44acff',
-          600: '#1a96f0',
-          700: '#0078cb',
-          800: '#005da0',
-          900: '#004070',
+        line: {
+          DEFAULT: 'rgba(148, 163, 184, 0.14)',
+          strong: 'rgba(148, 163, 184, 0.30)',
         },
+        fg: {
+          DEFAULT: '#E8EAED',
+          muted: '#A3ACB8',
+          // Lightened from #737D89 so 10-13px faint text clears WCAG AA (4.5:1)
+          // on the darkest-contrast surface it lands on, ink-overlay (4.71:1).
+          faint: '#7F8995',
+        },
+        amber: {
+          DEFAULT: '#FCA311',
+          soft: 'rgba(252, 163, 17, 0.12)',
+        },
+        term: {
+          green: '#4ADE80',
+        },
+        paper: {
+          DEFAULT: '#FAFAF7',
+          ink: '#16181D',
+          muted: '#4B5563',
+          accent: '#92400E',
+        },
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+        mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
+      },
+      maxWidth: {
+        wrap: '72rem',
+      },
+      transitionTimingFunction: {
+        crisp: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+      },
+      backgroundImage: {
+        'grid-hairline':
+          'repeating-linear-gradient(to right, rgba(148,163,184,0.07) 0 1px, transparent 1px 64px), repeating-linear-gradient(to bottom, rgba(148,163,184,0.07) 0 1px, transparent 1px 64px)',
+      },
+      keyframes: {
+        caret: {
+          '0%, 45%': { opacity: '1' },
+          '50%, 100%': { opacity: '0' },
+        },
+        'fade-up': {
+          from: { opacity: '0', transform: 'translateY(12px)' },
+          to: { opacity: '1', transform: 'none' },
+        },
+      },
+      animation: {
+        caret: 'caret 1.1s step-end infinite',
+        'fade-up': 'fade-up 0.5s ease-out both',
       },
     },
   },
-  darkMode: 'class',
   plugins: [],
 };

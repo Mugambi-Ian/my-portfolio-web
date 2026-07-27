@@ -1,13 +1,15 @@
-import { Space_Grotesk, Urbanist } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 
-export const bodyFont = Urbanist({
+export const sansFont = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-body',
+  weight: ['400', '600'],
+  variable: '--font-sans',
+  display: 'swap',
 });
 
-export const displayFont = Space_Grotesk({
+export const monoFont = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  variable: '--font-display',
+  weight: ['400', '700'],
+  variable: '--font-mono',
+  display: 'swap',
 });

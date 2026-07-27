@@ -1,105 +1,66 @@
 import clsx from 'clsx';
-import type { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import type { AppSvgProps } from '@/utils';
-
-interface IProps extends HTMLAttributes<HTMLDivElement> {
-  title?: string;
-  children: ReactNode;
-  parentClass?: string;
-  showMargin?: boolean;
-  background?: ReactNode;
-  Icon?: FunctionComponent<AppSvgProps>;
-}
-
-export function HomeSection({
-  id,
-  children,
-  className,
-  parentClass,
-  background,
-}: IProps) {
-  return (
-    <section
-      className={clsx('relative flex w-full flex-col self-center', parentClass)}
-      id={id}
-    >
-      {background && background}
-      <section
-        className={clsx(
-          'flex w-full max-w-7xl flex-col self-center',
-          className
-        )}
-      >
-        {children}
-      </section>
-    </section>
-  );
-}
-
-interface ResumeFieldProps {
+interface SectionProps {
+  id: string;
+  /** Two-digit chapter number, e.g. "01". */
+  index: string;
   title: string;
+  /** Optional standfirst paragraph under the title. */
+  kicker?: string;
+  /** Raised surface band, for alternating chapter tone. */
+  band?: boolean;
+  className?: string;
   children: ReactNode;
-  Icon?: FunctionComponent<AppSvgProps>;
-  showMargin?: boolean;
-  id?: string;
-  eyebrow?: string;
-  description?: string;
 }
 
-function buildSectionId(value: string) {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-export function ResumeField({
-  Icon,
-  title,
-  children,
-  showMargin,
+/**
+ * Chapter shell: hairline band, 12-column header rail (index + slug on the
+ * left, title + kicker on the right), then the caller's own layout.
+ */
+export function Section({
   id,
-  eyebrow,
-  description,
-}: ResumeFieldProps) {
-  const sectionId = id ?? buildSectionId(title);
+  index,
+  title,
+  kicker,
+  band = false,
+  className,
+  children,
+}: SectionProps) {
+  const slug = id.replace(/-/g, ' ');
 
   return (
     <section
-      id={sectionId}
-      className="flex flex-col gap-4 border-t border-slate-200 pt-8 text-slate-900 first:border-t-0 first:pt-0"
-    >
-      <div className="flex items-start gap-4">
-        {Icon && (
-          <span className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 print:border-slate-500 print:bg-transparent">
-            <Icon className="size-5" />
-          </span>
-        )}
-        <div>
-          {eyebrow && (
-            <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-500">
-              {eyebrow}
-            </p>
-          )}
-          <h2 className="font-display text-xl font-semibold tracking-tight text-slate-900">
-            {title}
-          </h2>
-        </div>
-      </div>
-      {description && (
-        <p className="mt-1 text-sm leading-relaxed text-slate-600 print:text-slate-900">
-          {description}
-        </p>
+      id={id}
+      className={clsx(
+        'scroll-mt-20 border-t border-line',
+        band ? 'bg-ink-raised' : 'bg-ink',
+        className
       )}
-      <div
-        className={clsx(
-          'flex flex-col gap-5 text-sm leading-relaxed text-slate-800',
-          showMargin &&
-            'divide-y divide-slate-200 [&>*:first-child]:pt-0 [&>*]:pt-5'
-        )}
-      >
-        {children}
+    >
+      <div className="mx-auto max-w-wrap px-5 py-16 sm:px-8 sm:py-24">
+        <div className="grid gap-y-5 lg:grid-cols-12 lg:gap-x-8">
+          <div aria-hidden className="lg:col-span-3">
+            <p className="font-mono text-2xl leading-none text-amber sm:text-3xl">
+              {index}
+            </p>
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.2em] text-fg-muted sm:text-xs">
+              {`// ${slug}`}
+            </p>
+          </div>
+          <div className="lg:col-span-9">
+            <h2 className="text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+              {title}
+            </h2>
+            {kicker ? (
+              <p className="mt-4 max-w-[62ch] text-[15px] leading-relaxed text-fg-muted sm:text-base">
+                {kicker}
+              </p>
+            ) : null}
+          </div>
+        </div>
+        <div aria-hidden className="mt-8 h-px w-full bg-line sm:mt-10" />
+        <div className="mt-10 sm:mt-14">{children}</div>
       </div>
     </section>
   );

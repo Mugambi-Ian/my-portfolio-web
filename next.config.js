@@ -4,18 +4,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
-  webpack: (config) => {
-    return config;
-  },
-
   eslint: {
-    dirs: ['.'],
+    // Linting runs in `npm test` (next lint over src); the type-aware airbnb
+    // config is too slow to repeat inside every build.
+    ignoreDuringBuilds: true,
+    dirs: ['src'],
   },
   poweredByHeader: false,
   trailingSlash: true,
-  basePath: '',
   reactStrictMode: true,
   images: {
-    domains: ['firebasestorage.googleapis.com'],
+    formats: ['image/avif', 'image/webp'],
   },
 });
